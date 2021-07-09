@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Package } from '../Models/package';
 import { Observable } from 'rxjs';
+import { baseUrl } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,7 +10,7 @@ export class PackageService {
   private address = 'http://localhost:8090/';
 
   private getAllPackage= this.address+'/package/all';
-  private getPacke=this.address+'/package/view';
+  private getPacks=this.address+'/package/view/';
   constructor(private http:HttpClient) { }
 
   
@@ -22,6 +23,10 @@ export class PackageService {
   }
   getAllPack():Observable<Package[]>{
    
-    return this.http.get<Package[]>(`${this.getAllPackage}`);
+    return this.http.get<Package[]>(`${baseUrl}package/all`);
+  }
+  getPack(from: String, to: String, Dte:String){
+    
+    return this.http.get<Package[]>(`${baseUrl}package/route/${from}/${to}/${Dte}`);
   }
 }

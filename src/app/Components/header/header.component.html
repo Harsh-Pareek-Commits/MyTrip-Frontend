@@ -1,4 +1,4 @@
-<div *ngIf="router.url !== '/login' && router.url !== '/signup'">
+<div *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/404'">
 <header >
 
   <nav class="navbar navbar-expand-lg navbar-white ">
@@ -9,8 +9,8 @@
       </div>
       <ul class="nav navbar-nav navbar navbar-right">
         <li><a href="#"> Home</a></li>
-        <li><a href="#"> Package</a></li>
-        <li  ><a href="#"> Hotel</a></li>
+        <li><a routerLink="/package"> Package</a></li>
+        <li  ><a routerLink="/hotel"> Hotel</a></li>
         <li *ngIf="isLoggedIn$ | async"><a href="#"> Bookings</a></li>
         <li *ngIf="isLoggedIn$ | async"><a href="#"> My Account</a></li>
         <li *ngIf="isLoggedIn$ | async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
@@ -26,7 +26,7 @@
 </header>
 
 <div class=" search ">
-  <form class="form-inline" >
+  <form class="form-inline"  [formGroup]="searchForm">
     
     <div class="form-row" align="center">
      
@@ -37,23 +37,23 @@
       </div>
       <div class=" col-2 ele">
           
-        <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Jane Doe">
+        <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Source" formControlName="from" >
 
       </div>
 
       <div class="col-2 ele">
 
-        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Destination" formControlName="to">
 
       </div>
       <div class="col-2 ele">
 
-        <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+        <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date" formControlName="dte">
 
       </div>
       <div class="col-2 ele" >
 
-        <button class="btn btn-danger " type="submit">Search</button>
+        <button class="btn btn-danger " type="submit"  (click)="searchPack()" >Search</button>
   
       </div>
       

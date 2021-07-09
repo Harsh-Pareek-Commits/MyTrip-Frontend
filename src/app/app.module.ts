@@ -17,11 +17,15 @@ import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonInterceptorInterceptor } from './Services/common-interceptor.interceptor';
+import { NotfoundComponent } from './Components/notfound/notfound.component';
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
-  {path:'home',component: HomeComponent}
-  
+  {path:'package/:from/:to/:date',component: PackageComponent},
+  {path:'home',component: HomeComponent},
+  {path:'',component: HomeComponent},
+  {path: '404', component: NotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 
 ]
 
@@ -33,7 +37,8 @@ const appRoutes:Routes=[
     FooterComponent,
     PackageComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

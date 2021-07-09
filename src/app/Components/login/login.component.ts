@@ -13,10 +13,12 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   faGoogle=faGooglePlusG;
   submitted = false;
-  
   constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
-     this.initForm();
+    localStorage.setItem('token'," ");
+    localStorage.setItem('userId'," ");;
+    console.log("Local cleared");
+    this.initForm();
      
     }
   initForm(){
@@ -38,11 +40,12 @@ return this.loginForm.controls;
         result=>{
          
           localStorage.setItem('token',result.token);
-          localStorage.setItem('userid',result.id);
+          localStorage.setItem('userId',result.id);
           console.log(result);
           console.log(localStorage.getItem('userid'));
           this.authService.loggedIn.next(true)
           this.toastr.success ('Login Success');
+          this.router.navigate(['/home']);
           
 
       }, (error) => { 

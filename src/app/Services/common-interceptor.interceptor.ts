@@ -9,8 +9,10 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class CommonInterceptorInterceptor implements HttpInterceptor {
-
-  constructor() {}
+ 
+  constructor() {
+   
+  }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     var Authorization="Bearer "+localStorage.getItem('token');

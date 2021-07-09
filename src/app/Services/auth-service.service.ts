@@ -20,8 +20,9 @@ export class AuthServiceService {
   }
   logout() { // {4}
     this.loggedIn.next(false);
-    
-    localStorage.removeItem('token');
+ 
+     localStorage.removeItem('token');
      localStorage.removeItem('userId');
+
   }
 }

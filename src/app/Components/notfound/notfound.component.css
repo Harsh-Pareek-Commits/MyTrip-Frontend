@@ -1,0 +1,18 @@
+.component{
+    padding: 60px;
+    width: 100%;
+    height: auto;
+}
+.container{
+    background-image: url("../../../assets/images/404.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 717px;
+    width: auto;
+    position: relative;
+}
+
+.btn{
+    margin-left: 45% !important;
+    margin-top: 40% !important;
+}

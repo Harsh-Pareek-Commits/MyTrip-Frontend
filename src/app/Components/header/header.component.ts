@@ -1,10 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { faBus,faHotel  } from '@fortawesome/free-solid-svg-icons';
-import { Router }  from "@angular/router";
+import { faBus, faHotel } from '@fortawesome/free-solid-svg-icons';
+import { Router } from "@angular/router";
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -13,27 +14,49 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   animations: [
-    trigger('fade', [ 
+    trigger('fade', [
       transition('void => *', [
-        style({ opacity: 0 }), 
-        animate(3000, style({opacity: 1}))
-      ]) 
+        style({ opacity: 0 }),
+        animate(3000, style({ opacity: 1 }))
+      ])
     ])
   ]
 })
 export class HeaderComponent implements OnInit {
-  isLoggedIn$: Observable<boolean> | undefined; 
-faBus=faBus;
-faHotel=faHotel;
-token:any='';
-  constructor(public router: Router,private authService: AuthServiceService,private toastr: ToastrService) { }
+  isLoggedIn$: Observable<boolean> | undefined;
+  faBus = faBus;
+  faHotel = faHotel;
+  token: any = '';
+
+  searchForm!: FormGroup;
+  constructor(public router: Router, private formBuilder: FormBuilder, private authService: AuthServiceService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    this.initForm();
   }
-  onLogout(){
-    this.toastr.success ('Logout Success');
-    this.authService.logout(); 
-    }
+  initForm() {
+    this.searchForm = this.formBuilder.group({
+      from: ["", [Validators.required]],
+      to: ["", [Validators.required]],
+      dte: ["", [Validators.required]]
 
+    })
+  }
+  onLogout() {
+    this.toastr.success('Logout Success');
+    this.authService.logout();
+  }
+  searchPack() {
+    if (this.searchForm.valid) {
+     
+      let source = this.searchForm.controls['from'].value;
+      let dest = this.searchForm.controls['to'].value;
+      let dte = this.searchForm.controls['dte'].value;
+      console.log(source);
+      this.router.navigate(['/package',source,dest,dte])
+      
+    }
+  }
 }
+
