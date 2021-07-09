@@ -1,0 +1,64 @@
+<div *ngIf="router.url !== '/login' && router.url !== '/signup'">
+<header >
+
+  <nav class="navbar navbar-expand-lg navbar-white ">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+        <h1 style="display: inline-block;">My Trip</h1>
+      </div>
+      <ul class="nav navbar-nav navbar navbar-right">
+        <li><a href="#"> Home</a></li>
+        <li><a href="#"> Package</a></li>
+        <li  ><a href="#"> Hotel</a></li>
+        <li *ngIf="isLoggedIn$ | async"><a href="#"> Bookings</a></li>
+        <li *ngIf="isLoggedIn$ | async"><a href="#"> My Account</a></li>
+        <li *ngIf="isLoggedIn$ | async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
+        <li *ngIf="!(isLoggedIn$ | async)"  ><a routerLink="/login"> Login</a></li>
+      </ul>
+    </div>
+
+  </nav>
+  <div class="text">
+    <h1 @fade>DISCOVER</h1>
+    <p>The journey of a thousand miles begins with a single step.</p>
+  </div>
+</header>
+
+<div class=" search ">
+  <form class="form-inline" >
+    
+    <div class="form-row" align="center">
+     
+      <div class=" col-2 ele">
+
+        <h3 >Search Bus</h3>
+
+      </div>
+      <div class=" col-2 ele">
+          
+        <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Jane Doe">
+
+      </div>
+
+      <div class="col-2 ele">
+
+        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+
+      </div>
+      <div class="col-2 ele">
+
+        <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+
+      </div>
+      <div class="col-2 ele" >
+
+        <button class="btn btn-danger " type="submit">Search</button>
+  
+      </div>
+      
+    </div>
+  
+  </form>
+</div>
+</div>

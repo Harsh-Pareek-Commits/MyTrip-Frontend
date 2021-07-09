@@ -1,0 +1,21 @@
+footer{
+  height: 100px;
+  background-color: black;
+  padding: 20px;
+}
+h1 {
+    
+  color: white;
+  font-size: 35px !important;
+  font-family: "Portico Diablo";
+ 
+}
+@font-face{
+  font-family:Portico Diablo;
+  src: url(../../../assets/Font/Portico.otf);
+}
+.ficon{
+  
+  color:white !important;
+  margin: 10px;
+}

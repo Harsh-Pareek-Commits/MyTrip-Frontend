@@ -1,0 +1,120 @@
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  .shadow {
+    -webkit-border-radius: 0% 0% 100% 100% / 0% 0% 8px 8px;
+    -webkit-box-shadow: rgba(0, 0, 0,.30) 0 2px 3px;
+    }
+   section {
+      margin: 0 auto;
+      margin-top: 50px;
+      height: auto;    
+      margin-bottom: 50px;
+    padding: 20px;
+    width: 100%;    
+    margin: 20px;
+    }
+    
+    #Package .card{
+      border-radius: 10px;
+    }
+    .quotes{
+     padding-top: 60px;
+     font-size: 25px;
+     color: #040e27 !important;
+    }
+    .quotes p{
+    margin-top:20% !important;  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .title{
+      margin: 20px;
+      align-self: center;
+      font-family: 'Portico Diablo';
+      color: #040e27 !important;
+      font-size: 45px;
+    }
+    @font-face{
+      font-family:Portico Diablo;
+      src: url(../../../assets/Font/Portico.otf);
+    }
+    .ficon{
+      color:#040e27 !important;
+    }
+    .service{
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 2px #fff inset,
+                  -1px -1px 2px #fff inset;
+      border-radius: 3px/6px;     
+      padding: 30px;
+      height: auto;
+      width: auto;
+      border-radius: 10px;
+
+    }
+    hr {
+      border: none;
+      border-top: 3px double #333;
+      color: #333;
+      overflow: visible;
+      text-align: center;
+      height: 8px;
+  }
+  
+  hr:after {
+      background: #fff;
+      content: '§';
+      padding: 0 4px;
+      position: relative;
+      top: -13px;
+  }
+#Package{
+  border: 1px solid;
+  border-color: black;
+  border-radius: 5px;
+}
+#Package button{
+  margin-top: 30px;
+}
+.feedback{
+  width: 100% !important;
+  color: white;
+  background-color: #040e27;
+  
+}
+.feed{
+  margin-top: 10%;
+  text-align: center;
+}
+.toast-container {
+ align-self: center;
+}
