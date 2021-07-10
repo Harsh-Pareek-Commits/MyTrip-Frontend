@@ -11,10 +11,10 @@
         <li><a href="#"> Home</a></li>
         <li><a routerLink="/package"> Package</a></li>
         <li  ><a routerLink="/hotel"> Hotel</a></li>
-        <li *ngIf="isLoggedIn$ | async"><a href="#"> Bookings</a></li>
-        <li *ngIf="isLoggedIn$ | async"><a href="#"> My Account</a></li>
-        <li *ngIf="isLoggedIn$ | async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
-        <li *ngIf="!(isLoggedIn$ | async)"  ><a routerLink="/login"> Login</a></li>
+        <li *ngIf="isLoggedIn$"><a href="#"> Bookings</a></li>
+        <li *ngIf="isLoggedIn$"><a href="#"> My Account</a></li>
+        <li *ngIf="isLoggedIn$" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
+        <li *ngIf="!(isLoggedIn$)"  ><a routerLink="/login"> Login</a></li>
       </ul>
     </div>
 

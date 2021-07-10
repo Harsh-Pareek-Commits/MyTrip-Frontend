@@ -15,8 +15,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
-    localStorage.setItem('token'," ");
-    localStorage.setItem('userId'," ");;
+    sessionStorage.clear();
     console.log("Local cleared");
     this.initForm();
      
@@ -39,10 +38,9 @@ return this.loginForm.controls;
       this.authService.login(this.loginForm.value).subscribe(
         result=>{
          
-          localStorage.setItem('token',result.token);
-          localStorage.setItem('userId',result.id);
-          console.log(result);
-          console.log(localStorage.getItem('userid'));
+          sessionStorage.setItem('token',result.token);
+          sessionStorage.setItem('userId',result.id);
+         
           this.authService.loggedIn.next(true)
           this.toastr.success ('Login Success');
           this.router.navigate(['/home']);

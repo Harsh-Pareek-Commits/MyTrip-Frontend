@@ -18,6 +18,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonInterceptorInterceptor } from './Services/common-interceptor.interceptor';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
@@ -56,7 +57,7 @@ const appRoutes:Routes=[
       preventDuplicates: true,
     }),
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass:CommonInterceptorInterceptor,multi:true}],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {

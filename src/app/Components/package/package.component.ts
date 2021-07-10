@@ -9,46 +9,49 @@ import { PackageService } from 'src/app/Services/package.service';
   styleUrls: ['./package.component.css']
 })
 export class PackageComponent implements OnInit {
- source:any
- dest:any
- dte:any
- package !: Package[];
-  constructor(private router:Router, private route: ActivatedRoute,private packageService: PackageService) { 
-    
+  source: any
+  dest: any=undefined
+  dte: any=undefined
+  package !: Package[];
+  constructor(private router: Router, private route: ActivatedRoute, private packageService: PackageService) {
+
   }
 
-  ngOnInit(): void { 
-    this.route.paramMap.subscribe((params: ParamMap)=>{
-      this.source=params.get('from');
-      this.dest=params.get('to');
-      this.dte=params.get('dte');
-      this.getPackage();
-    }
- 
-    )
+  ngOnInit(): void {
     
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.source = params.get('from')? params.get('from') : undefined;
+      this.dest = params.get('to')? params.get('to') : undefined;
+      this.dte = params.get('date')? params.get('date') : undefined;
+      console.log("DATE "+this.dte)
+    }
+   
+    )
+ this.getPackage();
   }
-  getPackage (){
-    if(this.dest && this.source && this.dte){
-      this.packageService.getPack(this.source,this.dest,this.dte).subscribe(data=>{
-        this.package= data;
-        
-    },
-    
-    
-    )
+  getPackage() {
+   
+    if ( this.source) {
+      console.log("HI");
+      this.packageService.getPack(this.source, this.dest, this.dte).subscribe(data => {
+        this.package = data;
+
+      },
+
+
+      )
     }
-    else{
-      {
-        this.packageService.getAllPack().subscribe(data=>{
-            this.package= data;
-         
+    else {
+      { console.log("HI 2");
+        this.packageService.getAllPack().subscribe(data => {
+          this.package = data;
+
         },
-        
-        
+
+
         )
+      }
     }
-  } 
-}
+  }
 
 }

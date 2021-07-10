@@ -23,6 +23,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   ]
 })
 export class HeaderComponent implements OnInit {
+  
   isLoggedIn$: Observable<boolean> | undefined;
   faBus = faBus;
   faHotel = faHotel;
@@ -34,6 +35,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.initForm();
+    
   }
   initForm() {
     this.searchForm = this.formBuilder.group({
@@ -49,12 +51,12 @@ export class HeaderComponent implements OnInit {
   }
   searchPack() {
     if (this.searchForm.valid) {
-     
+       console.log("SEARCHING...........................");
       let source = this.searchForm.controls['from'].value;
       let dest = this.searchForm.controls['to'].value;
-      let dte = this.searchForm.controls['dte'].value;
+      let dt = this.searchForm.controls['dte'].value;
       console.log(source);
-      this.router.navigate(['/package',source,dest,dte])
+      this.router.navigate(['/package',source,dest,dt])
       
     }
   }
