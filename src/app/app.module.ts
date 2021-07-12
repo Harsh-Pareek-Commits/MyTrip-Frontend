@@ -16,15 +16,20 @@ import { PackageComponent } from './Components/package/package.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonInterceptorInterceptor } from './Services/common-interceptor.interceptor';
 import { NotfoundComponent } from './Components/notfound/notfound.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { PackDetailsComponent } from './Components/pack-details/pack-details.component';
+import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { SuccessComponent } from './Components/success/success.component';
+
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
   {path:'home',component: HomeComponent},
+  {path:'checkout',component: CheckoutComponent},
   {path:'',component: HomeComponent},
+  {path:'pack/:id',component: PackDetailsComponent},
   {path: '404', component: NotfoundComponent},
   {path: '**', redirectTo: '/404'}
 
@@ -39,7 +44,10 @@ const appRoutes:Routes=[
     PackageComponent,
     LoginComponent,
     SignupComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    PackDetailsComponent,
+    CheckoutComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

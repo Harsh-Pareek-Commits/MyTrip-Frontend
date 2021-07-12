@@ -30,6 +30,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.6.0",
     "ngx-toastr": "^14.0.0",
+    "razorpay": "^2.0.6",
     "rxjs": "~6.6.0",
     "toastr": "^2.1.4",
     "tslib": "^2.1.0",

@@ -1,0 +1,64 @@
+img{
+    width: 100%;
+    margin-top: 30px;
+    height: 350px;
+    border-radius: 20px 20px 0px 0px;
+}
+.details{
+    margin-top:20px;
+    
+}
+hr{
+    border-color: grey;
+}
+.bus,.hotel,.TnC{
+    margin-top:20px;
+    border: 1px solid;
+    border-color: grey;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.payments{
+   
+    margin-top: 30px;
+    border:1px solid;
+    border-radius: 10px;
+    padding: 10px;
+ 
+}
+.amount{
+    border:1px solid;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: lightskyblue;
+    
+ }
+ .fixed {
+    position: fixed;
+    width: 25%;
+}
+
+ .btn{
+     width: 100%;
+     border-radius: 10px;
+ }
+ .btn:hover{
+  background-color: maroon;
+}
+ .pack-details{
+     padding: 30px;
+ }
+ td{
+     padding-left: 20px;
+     padding-right: 20px;
+ }
+ table{
+     padding: 10px;
+ }
+
+ .TnC li{
+   
+     margin: 10px;
+ }    

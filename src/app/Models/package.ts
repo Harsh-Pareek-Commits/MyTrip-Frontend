@@ -8,7 +8,7 @@ export class Package{
 	packageType: string;
 	packageCost: number;
     route: Route;
-    hotel: Hotel;
+    hotel: Hotel[];
 
     constructor( packageId: number,
         packageName: string,
@@ -16,7 +16,7 @@ export class Package{
         packageType: string,
         packageCost: number,
         route: Route,
-        hotel: Hotel){
+        hotel: Hotel[]){
 
             this.packageId =packageId;
             this.packageName = packageName;

@@ -1,6 +1,5 @@
-<div *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/404'">
+<div *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/404'  && router.url !== '/checkout'">
 <header >
-
   <nav class="navbar navbar-expand-lg navbar-white ">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -11,10 +10,10 @@
         <li><a href="#"> Home</a></li>
         <li><a routerLink="/package"> Package</a></li>
         <li  ><a routerLink="/hotel"> Hotel</a></li>
-        <li *ngIf="isLoggedIn$"><a href="#"> Bookings</a></li>
-        <li *ngIf="isLoggedIn$"><a href="#"> My Account</a></li>
-        <li *ngIf="isLoggedIn$" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
-        <li *ngIf="!(isLoggedIn$)"  ><a routerLink="/login"> Login</a></li>
+        <li *ngIf="isLoggedIn$ |  async"><a href="#"> Bookings</a></li>
+        <li *ngIf="isLoggedIn$ |  async"><a href="#"> My Account</a></li>
+        <li *ngIf="isLoggedIn$ |  async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
+        <li *ngIf="!(isLoggedIn$ |  async)" ><a routerLink="/login"> Login</a></li>
       </ul>
     </div>
 
@@ -25,40 +24,4 @@
   </div>
 </header>
 
-<div class=" search ">
-  <form class="form-inline"  [formGroup]="searchForm">
-    
-    <div class="form-row" align="center">
-     
-      <div class=" col-2 ele">
-
-        <h3 >Search Bus</h3>
-
-      </div>
-      <div class=" col-2 ele">
-          
-        <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Source" formControlName="from" >
-
-      </div>
-
-      <div class="col-2 ele">
-
-        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Destination" formControlName="to">
-
-      </div>
-      <div class="col-2 ele">
-
-        <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date" formControlName="dte">
-
-      </div>
-      <div class="col-2 ele" >
-
-        <button class="btn btn-danger " type="submit"  (click)="searchPack()" >Search</button>
-  
-      </div>
-      
-    </div>
-  
-  </form>
-</div>
 </div>

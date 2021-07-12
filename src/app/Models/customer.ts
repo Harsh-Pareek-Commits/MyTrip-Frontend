@@ -3,7 +3,7 @@ export class Customer {
     customerName: string;
     customerAddress: string;
     customerMobileNo: string;
-    customerEmail: string;
+    email: string;
 
 
 
@@ -11,12 +11,12 @@ export class Customer {
         customerName: string,
         customerAddress: string,
         customerMobileNo: string,
-        customerEmail: string,) {
+        email: string,) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerMobileNo = customerMobileNo;
-        this.customerEmail = customerEmail;
+        this.email = email;
 
     }
 

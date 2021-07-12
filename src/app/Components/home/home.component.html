@@ -1,5 +1,41 @@
 <!--all above is necessary for bootstrap to function in this snippet-->
 
+<div class=" search ">
+    <form class="form-inline"  [formGroup]="searchForm">
+      
+      <div class="form-row" align="center">
+       
+        <div class=" col-2 ele">
+  
+          <h3 >Search Bus</h3>
+  
+        </div>
+        <div class=" col-2 ele">
+            
+          <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Source" formControlName="from" >
+  
+        </div>
+  
+        <div class="col-2 ele">
+  
+          <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Destination" formControlName="to">
+  
+        </div>
+        <div class="col-2 ele">
+  
+          <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date" formControlName="dte">
+  
+        </div>
+        <div class="col-2 ele" >
+  
+          <button class="btn btn-danger " type="submit"  (click)="searchPack()" >Search</button>
+    
+        </div>
+        
+      </div>
+    
+    </form>
+  </div>
 <div class="container">
 
     <!-- Popular package section -->

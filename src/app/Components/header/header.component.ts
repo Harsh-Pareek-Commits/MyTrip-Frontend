@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   searchForm!: FormGroup;
   constructor(public router: Router, private formBuilder: FormBuilder, private authService: AuthServiceService, private toastr: ToastrService) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
     this.initForm();
     
@@ -49,16 +49,6 @@ export class HeaderComponent implements OnInit {
     this.toastr.success('Logout Success');
     this.authService.logout();
   }
-  searchPack() {
-    if (this.searchForm.valid) {
-       console.log("SEARCHING...........................");
-      let source = this.searchForm.controls['from'].value;
-      let dest = this.searchForm.controls['to'].value;
-      let dt = this.searchForm.controls['dte'].value;
-      console.log(source);
-      this.router.navigate(['/package',source,dest,dt])
-      
-    }
-  }
+
 }
 

@@ -11,7 +11,8 @@ export class AuthServiceService {
    loggedIn = new BehaviorSubject<boolean>(false);
   constructor(private http: HttpClient, private router: Router) { }
   get isLoggedIn() {
-
+    this.loggedIn.next(true);
+ 
     return this.loggedIn.asObservable();
   }
   login(data: any): Observable<any> {

@@ -1,12 +1,15 @@
+import { Time } from '@angular/common';
 import { Bus } from './bus';
 export class Route{
 	routeId:number;
-	routeFrom:string;
-	routeTo:string;
+	from:string;
+	to:string;
 	buses : Bus[];
-	departureTime:Date;
-	arrivalTime:Date;
-	doj:Date;
+	departureTime:Time;
+	arrivalTime:Time;
+    departureDate:Date;
+	arrivalDate:Date;
+	duration:Date;
 	pickupPoint:string;
     fare:number;
 
@@ -14,19 +17,23 @@ export class Route{
         routeFrom:string,
         routeTo:string,
         buses : Bus[],
-        departureTime:Date,
-        arrivalTime:Date,
-        doj:Date,
+        departureTime:Time,
+        arrivalTime:Time,
+        departureDate:Date,
+        arrivalDate:Date,
+        duration:Date,
         pickupPoint:string,
         fare:number){
 
             this.routeId = routeId;
-            this.routeFrom = routeFrom;
-            this.routeTo = routeTo;
+            this.from = routeFrom;
+            this.to = routeTo;
             this.buses = buses;
             this.departureTime = departureTime;
             this.arrivalTime = arrivalTime;
-            this.doj = doj;
+            this.departureDate = departureDate;
+            this.arrivalDate = arrivalDate;
+            this.duration = duration;
             this.pickupPoint =pickupPoint;
             this.fare = fare;
     }

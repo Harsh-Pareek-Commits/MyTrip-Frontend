@@ -16,7 +16,7 @@ export class PackageService {
 
   
   packages: Package[] = [];
-
+  pack!: Package;
   addPack(pack: Package) {
     this.packages.push(pack);
     console.log(this.packages.length);
@@ -29,5 +29,9 @@ export class PackageService {
   getPack(from: String, to: String, Dte:String){
     
     return this.http.get<Package[]>(`${baseUrl}package/route/${from}/${to}/${Dte}`);
+  }
+  getPackById(id:String){
+    
+    return this.http.get<Package>(`${baseUrl}package/search/${id}`);
   }
 }
