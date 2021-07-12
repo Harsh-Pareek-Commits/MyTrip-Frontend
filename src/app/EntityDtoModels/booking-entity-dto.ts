@@ -1,14 +1,14 @@
-import { Package } from "./package";
-import { PaymentDetails } from "./paymentDetails";
-import { TicketDetails } from "./ticketDetails";
+import { PaymentDetails } from "../Models/paymentDetails";
+import { TicketDetails } from "../Models/ticketDetails";
+import { PackageEntityDto } from "./package-entity-dto";
 
-export class Booking{
+export class BookingEntityDto {
     bookingId: number;
     bookType: string;
     bookDescription:string;
     bookTitle:string;
     dateofBooking: string;
-    packDetails :Package;
+    packDetails :PackageEntityDto;
 	userId: string;
     paymentDetails: PaymentDetails;
 	ticketDetails: TicketDetails;
@@ -18,7 +18,7 @@ export class Booking{
         bookingDescription:string,
         bookingTitle:string,
         bookingDate: string,
-        pack :Package,
+        pack :PackageEntityDto,
         userId: string,
         payment: PaymentDetails,
         ticket: TicketDetails){
@@ -33,6 +33,4 @@ export class Booking{
 		this.ticketDetails = ticket;
 
     }
-
-
 }

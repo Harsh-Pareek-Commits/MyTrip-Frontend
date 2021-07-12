@@ -5,16 +5,20 @@ export class Bus{
     busType:string;
     busNumber:string;
   	travel:Travel;
+    capacity:number;
 
-    constructor( busId:number,
-        busType:string,
-        busNumber:string,
-       travel:Travel ){
-
-            this.busId = busId;
-            this.busType = busType;
-            this.busNumber = busNumber;
-            this.travel = travel;
-
-    }
+  constructor(
+    busId: number, 
+    busType: string, 
+    busNumber: string, 
+    travel: Travel, 
+    capacity: number
+) {
+    this.busId = busId
+    this.busType = busType
+    this.busNumber = busNumber
+    this.travel = travel
+    this.capacity = capacity
+  }
+   
 }

@@ -9,7 +9,7 @@ export class Route{
 	arrivalTime:Time;
     departureDate:Date;
 	arrivalDate:Date;
-	duration:Date;
+	duration:string;
 	pickupPoint:string;
     fare:number;
 
@@ -21,7 +21,7 @@ export class Route{
         arrivalTime:Time,
         departureDate:Date,
         arrivalDate:Date,
-        duration:Date,
+        duration:string,
         pickupPoint:string,
         fare:number){
 

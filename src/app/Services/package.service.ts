@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Package } from '../Models/package';
 import { Observable } from 'rxjs';
 import { baseUrl } from 'src/environments/environment';
+import { PackageEntityDto } from '../EntityDtoModels/package-entity-dto';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -33,5 +34,9 @@ export class PackageService {
   getPackById(id:String){
     
     return this.http.get<Package>(`${baseUrl}package/search/${id}`);
+  }
+  getPackageEntityDto(){
+    
+    return this.http.get<Package>(`${baseUrl}package/search/${localStorage.getItem("productId")}`);
   }
 }

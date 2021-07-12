@@ -1,4 +1,4 @@
-import { TicketDetails } from './ticket-details';
+import { TicketDetails } from './ticketDetails';
 
 describe('TicketDetails', () => {
   it('should create an instance', () => {

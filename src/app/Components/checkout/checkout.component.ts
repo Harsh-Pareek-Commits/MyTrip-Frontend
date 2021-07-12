@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Customer } from 'src/app/Models/customer';
@@ -15,7 +16,7 @@ import { UserService } from 'src/app/Services/user.service';
 
 export class CheckoutComponent implements OnInit {
 
-  constructor(private checkout:CheckoutService, private user: UserService, private authService: AuthServiceService, private toastr:ToastrService) { }
+  constructor(private checkout:CheckoutService, private user: UserService,private router:RouterModule, private authService: AuthServiceService, private toastr:ToastrService) { }
   or!:string
   order!:Order;
   amount!: number;
@@ -42,7 +43,7 @@ options = {
   "key": "rzp_test_1dPoBp8Hl5VvTn", // Enter the Key ID generated from the Dashboard
   "amount": 0, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
   "currency": "INR",
-  "name": "Acme Corp",
+  "name": "My Trip",
   "description": "Test Transaction",
   "image": "https://example.com/your_logo",
 
@@ -50,9 +51,9 @@ options = {
   "handler": function (response: { razorpay_payment_id: any; razorpay_order_id: any; razorpay_signature: any; }){
     var redirect_url;
     if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
-      redirect_url = 'http://localhost:4200/success';
-    } else {
       redirect_url = 'http://localhost:4200/failure';
+    } else {
+      redirect_url = 'http://localhost:4200/success';
     }
     location.href = redirect_url;
   },
@@ -78,14 +79,12 @@ options = {
     this.options.order_id=this.order.id;
 
 this.rzp1 = new this.checkout.nativeWindow.Razorpay(this.options);
-this.rzp1.on('payment.failed', function (response: { error: { code: any; description: any; source: any; step: any; reason: any; metadata: { order_id: any; payment_id: any; }; }; }){
-        alert(response.error.code);
-        alert(response.error.description);
-        alert(response.error.source);
-        alert(response.error.step);
-        alert(response.error.reason);
-        alert(response.error.metadata.order_id);
-        alert(response.error.metadata.payment_id);
+this.rzp1.on('payment.failed',  (response: { error: { code: any; description: any; source: any; step: any; reason: any; metadata: { order_id: any; payment_id: any; }; }; }) =>{
+  this.toastr.warning(response.error.code)
+  
+  this.toastr.warning(response.error.description);
+  var redirect_url = 'http://localhost:4200/failure';
+  location.href = redirect_url;
 });
     this.rzp1.open();
    
