@@ -50,9 +50,9 @@ options = {
   "handler": function (response: { razorpay_payment_id: any; razorpay_order_id: any; razorpay_signature: any; }){
     var redirect_url;
     if (typeof response.razorpay_payment_id == 'undefined' ||  response.razorpay_payment_id < 1) {
-      redirect_url = 'http://localhost:4200/';
+      redirect_url = 'http://localhost:4200/success';
     } else {
-      redirect_url = 'http://localhost:4200/404';
+      redirect_url = 'http://localhost:4200/failure';
     }
     location.href = redirect_url;
   },

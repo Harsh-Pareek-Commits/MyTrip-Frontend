@@ -21,12 +21,15 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { PackDetailsComponent } from './Components/pack-details/pack-details.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
+import { FailureComponent } from './Components/failure/failure.component';
 
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
   {path:'home',component: HomeComponent},
+  {path:'success',component: SuccessComponent},
+  {path:'failure',component: FailureComponent},
   {path:'checkout',component: CheckoutComponent},
   {path:'',component: HomeComponent},
   {path:'pack/:id',component: PackDetailsComponent},
@@ -47,7 +50,8 @@ const appRoutes:Routes=[
     NotfoundComponent,
     PackDetailsComponent,
     CheckoutComponent,
-    SuccessComponent
+    SuccessComponent,
+    FailureComponent
   ],
   imports: [
     BrowserModule,

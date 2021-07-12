@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 
 @Component({
-  selector: 'app-success',
-  templateUrl: './success.component.html',
-  styleUrls: ['./success.component.css']
+  selector: 'app-failure',
+  templateUrl: './failure.component.html',
+  styleUrls: ['./failure.component.css']
 })
-export class SuccessComponent implements OnInit {
+export class FailureComponent implements OnInit {
 
   isLoggedIn$: Observable<boolean> | undefined;
   token: any = '';
@@ -18,7 +18,6 @@ export class SuccessComponent implements OnInit {
 
     ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
-    
     
   }
   
