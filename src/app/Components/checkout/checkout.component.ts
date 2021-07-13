@@ -45,8 +45,7 @@ options = {
   "currency": "INR",
   "name": "My Trip",
   "description": "Test Transaction",
-  "image": "https://example.com/your_logo",
-
+  
   "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
   "handler": function (response: { razorpay_payment_id: any; razorpay_order_id: any; razorpay_signature: any; }){
     var redirect_url;
@@ -66,7 +65,8 @@ options = {
       "address": "Razorpay Corporate Office"
   },
   "theme": {
-      "color": "#3399cc"
+      "color": "#000000"
+      
   }
 };  
   getOrder(){
