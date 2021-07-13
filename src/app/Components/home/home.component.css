@@ -35,12 +35,23 @@
     }
   }
   
-  /* Style the counter cards */
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
+  .card .btn {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
     text-align: center;
-    background-color: #f1f1f1;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  .card .checked {
+    color: orange;
+  }
+  .card .btn:hover {
+    background-color: maroon;
+    color: white;
   }
   .shadow {
     -webkit-border-radius: 0% 0% 100% 100% / 0% 0% 8px 8px;
@@ -56,9 +67,7 @@
     margin: 20px;
     }
     
-    #Package .card{
-      border-radius: 10px;
-    }
+  
     .quotes{
      padding-top: 60px;
      font-size: 25px;
@@ -109,11 +118,6 @@
       position: relative;
       top: -13px;
   }
-#Package{
-  border: 1px solid;
-  border-color: black;
-  border-radius: 5px;
-}
 #Package button{
   margin-top: 30px;
 }
@@ -158,5 +162,17 @@
   width: 120px;
 }
 .ficon{
-  color: red !important;
+  color: #040e27 !important;
+}
+.card {
+  width: 380px !important;
+  box-shadow: 0 40px 40px 0 rgba(167, 8, 8, 0.2), 0 40px 40px 0 rgba(160, 6, 6, 0.19);
+}
+.card-body
+{
+  padding:10px;
+}
+.card-img-top {
+ width: 100%;
+  
 }

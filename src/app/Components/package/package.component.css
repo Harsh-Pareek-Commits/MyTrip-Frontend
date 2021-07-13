@@ -17,6 +17,7 @@
   background-color: maroon;
   color: white;
 }
+
 .card {
   width: 400px !important;
   box-shadow: 0 40px 40px 0 rgba(167, 8, 8, 0.2), 0 40px 40px 0 rgba(160, 6, 6, 0.19);
@@ -29,11 +30,14 @@
  width: 100%;
   
 }
+.container{
+  margin-top: 20px;
+}
 .pname {
   font-size: 20px;
   font-family: cursive;
 }
-.container {
+.notfound {
   height: 100%;
   margin-top: 0px;
   background: none;

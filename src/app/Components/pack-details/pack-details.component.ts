@@ -45,6 +45,10 @@ export class PackDetailsComponent implements OnInit {
       if(error.status == 404)
      {
       this.toastr.info('No Package Found');
+     } else if(error.status == 403)
+     {
+      this.toastr.warning('Login First ');
+      this.router.navigate(['/login'])
      }
       else{           
       this.toastr.error ('Error!');

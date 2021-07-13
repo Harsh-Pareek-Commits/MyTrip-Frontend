@@ -22,6 +22,8 @@ import { PackDetailsComponent } from './Components/pack-details/pack-details.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
+import { NavBarComponent } from './AdminComponents/nav-bar/nav-bar.component';
+import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
 
 
 const appRoutes:Routes=[
@@ -51,7 +53,9 @@ const appRoutes:Routes=[
     PackDetailsComponent,
     CheckoutComponent,
     SuccessComponent,
-    FailureComponent
+    FailureComponent,
+    NavBarComponent,
+    DashBoardComponent
   ],
   imports: [
     BrowserModule,
