@@ -24,6 +24,8 @@ import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
 import { NavBarComponent } from './AdminComponents/nav-bar/nav-bar.component';
 import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
+import { BookingsComponent } from './Components/bookings/bookings.component';
+import { MyAccountComponent } from './Components/my-account/my-account.component';
 
 
 const appRoutes:Routes=[
@@ -32,6 +34,7 @@ const appRoutes:Routes=[
   {path:'home',component: HomeComponent},
   {path:'success',component: SuccessComponent},
   {path:'failure',component: FailureComponent},
+  {path:'bookings',component: BookingsComponent},
   {path:'checkout',component: CheckoutComponent},
   {path:'',component: HomeComponent},
   {path:'pack/:id',component: PackDetailsComponent},
@@ -55,7 +58,9 @@ const appRoutes:Routes=[
     SuccessComponent,
     FailureComponent,
     NavBarComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    BookingsComponent,
+    MyAccountComponent
   ],
   imports: [
     BrowserModule,
