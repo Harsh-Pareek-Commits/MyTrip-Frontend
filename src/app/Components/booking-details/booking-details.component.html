@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="card">
+        <h5 class="card-header ">Booking Id: {{book?.bookingId}} <span style="float: right;">{{book?.bookingDate
+                |date:'fullDate'}}</span></h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col col-12 pack-img">
+                    <img src="../../../assets/images/goa.jpg" />
+                </div>
+                <div class="col col-8 offset-md-2">
+                    <h2 class="card-title" align="center">{{(book?.pack)?.packageName| uppercase }}</h2>
+                    <h6>ROUTE DETAILS </h6>
+                    <hr>
+                    <div class="row">
+                        <div class="col col-4" align="center">
+                            <p class="card-text heading">From </p>
+                            <p class="card-text info">{{(book?.pack)?.route?.routeFrom}}</p>
+                        </div>
+                        <div class="col col-4" align="center">
+                            <p class="card-text heading">To</p>
+                            <p class="card-text info">{{(book?.pack)?.route?.routeTo}}</p>
+                        </div>
+                        <div class="col col-4" align="center">
+                            <p class="card-text heading">Pickup Point</p>
+                            <p class="card-text info">{{(book?.pack)?.route?.pickupPoint}}</p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <h6>BUS DETAILS </h6>
+                    <ng-container *ngFor="let bus of book.pack?.route?.buses; let i=index">
+                        <hr>
+                        <h6 align="center">BUS-{{i+1}} </h6> 
+                        <div class="row">
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">BUS NUMBER </p>
+                                <p class="card-text info">{{bus.busNumber}}</p>
+                            </div>
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">BUS TYPE</p>
+                                <p class="card-text info">{{bus.busType}}</p>
+                            </div>
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">CAPACITY</p>
+                                <p class="card-text info">{{bus.capacity}}</p>
+                            </div>
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">TRAVELS NAME</p>
+                                <p class="card-text info">{{bus.travel?.travelsName}}</p>
+                            </div>
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">AGENT NAME</p>
+                                <p class="card-text info">{{bus.travel?.agentName}}</p>
+                            </div>
+                            <div class="col col-4" align="center">
+                                <p class="card-text heading">CONTACT NUMBER</p>
+                                <p class="card-text info">{{bus.travel?.contact}}</p>
+                            </div>
+
+                        </div>
+                        <hr>
+                    </ng-container>
+                        <h6>HOTEL DETAILS </h6>
+                        
+                        <ng-container *ngFor="let hotel of book.pack?.hotel; let i=index">
+                            <hr>
+                            <h6 align="center">HOTEL-{{i+1}} </h6> 
+                            <div class="row">
+                                <div class="col col-4" align="center">
+                                    <p class="card-text heading">Hotel Name</p>
+                                    <p class="card-text info">{{hotel.hotelName}}</p>
+                                </div>
+                                <div class="col col-4" align="center">
+                                    <p class="card-text heading">Hotel Type</p>
+                                    <p class="card-text info">{{hotel.hotelType}}</p>
+                                </div>
+                                <div class="col col-4" align="center">
+                                    <p class="card-text heading">City</p>
+                                    <p class="card-text info">{{hotel.city}}</p>
+                                </div>
+                            </div>
+                            <hr>
+                        </ng-container>
+                        <div align="center">
+
+                            <a (click)="cancel(book.bookingId)" class="btn btn-primary">CANCEL</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

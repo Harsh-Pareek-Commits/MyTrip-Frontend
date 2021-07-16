@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { PackageComponent } from './Components/package/package.component';
+import {BookingDetailsComponent} from './Components/booking-details/booking-details.component';
+import {BookingsComponent} from './Components/bookings/bookings.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -35,8 +37,10 @@ import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
-  {path:'myaccount',component: MyAccountComponent},
-  {path:'home',component: HomeComponent},
+ {path:'myaccount',component: MyAccountComponent},
+ {path:'booking',component: BookingsComponent},
+ {path:'details/:id',component: BookingDetailsComponent},
+ {path:'home',component: HomeComponent},
   {path:'admin/travels',component: AddTravelsComponent},
   {path:'admin/addadmin',component: AddAdminComponent},
   {path:'admin/dashboard',component: DashBoardComponent},
@@ -60,6 +64,8 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
+    BookingsComponent,
+    BookingDetailsComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
