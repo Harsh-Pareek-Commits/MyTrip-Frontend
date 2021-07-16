@@ -30,8 +30,7 @@ import {ViewBookingComponent} from './AdminComponents/view-booking/view-booking.
 import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedback.component';
 import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
-
-
+import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component'
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
@@ -39,6 +38,7 @@ const appRoutes:Routes=[
   {path:'myaccount',component: MyAccountComponent},
   {path:'home',component: HomeComponent},
   {path:'admin/travels',component: AddTravelsComponent},
+  {path:'admin/addadmin',component: AddAdminComponent},
   {path:'admin/dashboard',component: DashBoardComponent},
   {path:'success',component: SuccessComponent},
   {path:'admin/hotel',component: AddHotelComponent},
@@ -79,7 +79,8 @@ const appRoutes:Routes=[
     ViewFeedbackComponent,
     ViewReportComponent,
     MyAccountComponent,
-    AddTravelsComponent
+    AddTravelsComponent,
+    AddAdminComponent
    
   ],
   imports: [
