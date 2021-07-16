@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -22,17 +21,34 @@ import { PackDetailsComponent } from './Components/pack-details/pack-details.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
-import { NavBarComponent } from './AdminComponents/nav-bar/nav-bar.component';
+
 import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
+import {AddHotelComponent} from './AdminComponents/add-hotel/add-hotel.component';
+import {AddPackageComponent} from './AdminComponents/add-package/add-package.component';
+import {AddRouteComponent} from './AdminComponents/add-route/add-route.component';
+import {ViewBookingComponent} from './AdminComponents/view-booking/view-booking.component';
+import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedback.component';
+import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
+import { MyAccountComponent } from './Components/my-account/my-account.component';
+
 
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
+  {path:'myaccount',component: MyAccountComponent},
   {path:'home',component: HomeComponent},
+  {path:'admin/dashboard',component: DashBoardComponent},
   {path:'success',component: SuccessComponent},
+  {path:'admin/hotel',component: AddHotelComponent},
+  {path:'admin/package',component: AddPackageComponent},
+  {path:'admin/bookings',component: ViewBookingComponent},
+  {path:'admin/route',component: AddRouteComponent},
+  {path:'admin/feedback',component: ViewFeedbackComponent},
+  {path:'admin/report',component: ViewReportComponent},
   {path:'failure',component: FailureComponent},
   {path:'checkout',component: CheckoutComponent},
+  {path:'signup',component: SignupComponent },
   {path:'',component: HomeComponent},
   {path:'pack/:id',component: PackDetailsComponent},
   {path: '404', component: NotfoundComponent},
@@ -54,8 +70,15 @@ const appRoutes:Routes=[
     CheckoutComponent,
     SuccessComponent,
     FailureComponent,
-    NavBarComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    AddHotelComponent,
+    AddPackageComponent,
+    AddRouteComponent,
+    ViewBookingComponent,
+    ViewFeedbackComponent,
+    ViewReportComponent,
+    MyAccountComponent,
+   
   ],
   imports: [
     BrowserModule,

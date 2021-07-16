@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { faBus, faHotel } from '@fortawesome/free-solid-svg-icons';
+import {faReceipt,faUmbrellaBeach,faGlobeAsia,faMapMarkedAlt, faHotel,faCommentAlt,faSignInAlt,faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
 import { Router } from "@angular/router";
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 import { Observable } from 'rxjs';
@@ -25,8 +25,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class HeaderComponent implements OnInit {
   
   isLoggedIn$: Observable<boolean> | undefined;
-  faBus = faBus;
+  faReceipt=faReceipt;
+  faUmbrellaBeach=faUmbrellaBeach;
+  faGlobeAsia=faGlobeAsia;
+  faMapMarkedAlt=faMapMarkedAlt;
+  faSignInAlt=faSignInAlt;
   faHotel = faHotel;
+  faCommentAlt=faCommentAlt;
+  faTachometerAlt=faTachometerAlt;
   token: any = '';
 
   searchForm!: FormGroup;
@@ -34,6 +40,10 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
+    if(localStorage.getItem('token'))
+    {
+      
+    }
     this.initForm();
     
   }

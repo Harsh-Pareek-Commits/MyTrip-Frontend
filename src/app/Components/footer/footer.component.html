@@ -1,5 +1,5 @@
 
-<footer *ngIf="router.url !== '/login' && router.url !== '/signup'">
+<footer *ngIf="router.url !== '/login' && !(router.url.includes('/admin/')) && router.url !== '/signup'">
   <h1 align="center">My Trip</h1>
   <div align="center">
   <fa-icon class="ficon" [icon]="faFacebookF" ></fa-icon>

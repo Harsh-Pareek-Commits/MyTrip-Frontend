@@ -1,1 +1,53 @@
-<p>signup works!</p>
+
+<div class="page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form class="box" [formGroup]="loginForm" (ngSubmit)="loginProcess()">
+                        <h1>Login</h1>
+                        <p class="text-muted"> NAME</p>
+                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
+                        <div *ngIf="submitted && control.email.errors" class="text-warning">
+                            <div *ngIf="control.email.errors.required">Username required</div> 
+                        </div>
+                        <p class="text-muted"> MOBILE NUMBER</p>
+                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
+                        <div *ngIf="submitted && control.email.errors" class="text-warning">
+                            <div *ngIf="control.email.errors.required">Username required</div> 
+                        </div>
+                          <p class="text-muted"> EMAIL</p>
+                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
+                        <div *ngIf="submitted && control.email.errors" class="text-warning">
+                            <div *ngIf="control.email.errors.required">Username required</div> 
+                        </div>
+                        <p class="text-muted"> PASSWORD</p>
+                        <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
+                        <div *ngIf="submitted && control.password.errors" class="text-warning">
+                            <div *ngIf="control.password.errors.required">Password required</div> 
+                        </div>
+                        <p class="text-muted"> CONFRIM PASSWORD</p>
+                        <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
+                        <div *ngIf="submitted && control.password.errors" class="text-warning">
+                            <div *ngIf="control.password.errors.required">Password required</div> 
+                        </div>
+                        <p class="text-muted"> ADDRESS</p>
+                        <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
+                        <div *ngIf="submitted && control.password.errors" class="text-warning">
+                            <div *ngIf="control.password.errors.required">Password required</div> 
+                        </div>
+                        <a class="forgot text-muted"  routerLink="/login" >Already have  an account?</a>
+                        <input type="submit" name="" value="Login">
+                        <div class="col-md-12">
+                            <ul class="social-network social-circle">
+                                <li><a href="#" class="icoGoogle" title="Google +">
+                                        <fa-icon class="ficon" [icon]="faGoogle" size="2x"></fa-icon>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

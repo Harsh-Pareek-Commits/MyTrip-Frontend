@@ -1,6 +1,6 @@
-<div *ngIf="router.url !== '/login' && router.url !== '/signup' && router.url !== '/404'  && router.url !== '/checkout'&& router.url !== '/success' && router.url !== '/failure'">
+<div *ngIf="router.url !== '/login' && router.url !== '/signup' && !(router.url.includes('/admin/')) && router.url !== '/404'  && router.url !== '/checkout'&& router.url !== '/success' && router.url !== '/failure'">
 <header >
-  <nav class="navbar navbar-expand-lg navbar-white ">
+  <nav class="navbar usernav navbar-expand-lg navbar-white ">
     <div class="container-fluid">
       <div class="navbar-header">
 
@@ -23,5 +23,45 @@
     <p>The journey of a thousand miles begins with a single step.</p>
   </div>
 </header>
+
+</div>
+
+<div class="adminheader" *ngIf="router.url.includes('/admin/')">
+  <div class="TopHeader">
+    <h1>My Trip</h1>
+</div>
+<div class="AdminNav col col-2">
+    <div>
+        <nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical"
+        >
+        <ul class="nav navbar-nav">
+            <li>
+                <a routerlink="/404"><fa-icon class="ficon" [icon]="faTachometerAlt"></fa-icon>Dashboard</a>
+            </li>
+            <li>
+                <a routerLink="/admin/package" ><fa-icon class="ficon" [icon]="faGlobeAsia"></fa-icon>Package</a>
+            </li>
+            <li>
+                <a routerLink="/admin/hotel"><fa-icon class="ficon" [icon]="faHotel"></fa-icon>Hotel</a>
+            </li>
+            <li>
+                <a routerLink="/admin/route"><fa-icon class="ficon" [icon]="faMapMarkedAlt"></fa-icon>Route</a>
+            </li>
+            <li>
+                <a routerLink="/admin/report"><fa-icon class="ficon" [icon]="faReceipt"></fa-icon>Report</a>
+            </li>
+            <li>
+                <a routerLink="/admin/feedback"><fa-icon class="ficon" [icon]="faCommentAlt"></fa-icon>Feedback</a>
+            </li>
+            <li>
+                <a routerLink="../login"><fa-icon class="ficon" [icon]="faSignInAlt"></fa-icon>Logout</a>
+            </li>
+
+        </ul>
+        </nav>
+    </div>
+</div>
+
+
 
 </div>
