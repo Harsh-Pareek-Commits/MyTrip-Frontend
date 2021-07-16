@@ -38,6 +38,12 @@ return this.travelForm.controls;
   this.submitted=true;
   
   if(this.travelForm.valid){
+<<<<<<< HEAD
+
+  }
+}
+=======
+>>>>>>> 07d5e03814eba9154e8f8920825e2995c65b8c66
 
   }
 }

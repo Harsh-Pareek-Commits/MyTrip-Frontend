@@ -1,0 +1,58 @@
+<div class="container">
+      <div class="card" *ngFor=" let book of bookinglist">
+        <h5 class="card-header">Booking Id: {{book.bookingId}} <span style="float: right;">{{book.bookingDate |date:'fullDate'}}</span></h5>
+        <div class="card-body">
+          <div class="row">
+          <div class="col col-4 pack-img">
+            <img src="../../../assets/images/goa.jpg" />
+          </div>
+          <div class="col col-8">
+          <h4 class="card-title">{{(book.bookingTitle)| uppercase }}</h4>
+          <h6  align="center">BOOKING DETAILS </h6>
+          <hr>
+           <div class="row">
+             <div class="col col-4" align="center">
+              <p class="card-text heading">BOOKING TYPE </p>
+              <p class="card-text info"><strong> {{(book.bookingType)}}</strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">DATE/TIME OF JOURNEY</p>
+              <p class="card-text info"><strong>{{book.pack?.route?.departureDate |date}} {{book.pack?.route?.departureTime  }} </strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">DATE/TIME OF ARRIVAL</p>
+              <p class="card-text info"><strong>{{book.pack?.route?.arrivalDate |date}} {{book.pack?.route?.arrivalTime}} </strong></p>
+             </div>
+           
+            </div>
+            <hr>
+            <br>
+            <h6  align="center">TICKET DETAILS </h6>
+          <hr>
+           <div class="row">
+             <div class="col col-4" align="center">
+              <p class="card-text heading">FROM</p>
+              <p class="card-text info"><strong>{{((book.pack)?.route)?.routeFrom}}</strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">TO</p>
+              <p class="card-text info"><strong>{{((book.pack)?.route)?.routeTo}} </strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">TICKET ID</p>
+              <p class="card-text info"><strong>{{(book.ticket)?.ticketId}} </strong></p>
+             </div>
+           
+            </div>
+            <hr>
+          
+              <div align="center"> 
+          <a (click)="showDetails(book.bookingId)" class="btn btn-primary">SHOW DETAILS</a>
+          <a (click)="cancel(book.bookingId)" class="btn btn-primary" >CANCEL</a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  
+</div>

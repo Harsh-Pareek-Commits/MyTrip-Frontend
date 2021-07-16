@@ -1,99 +1,99 @@
 <div class="col col-10 offset-md-2 container">
-    <div class="container">
-    <form [formGroup]="hotelForm" (ngSubmit)="addHotel()">
-            <div class="header">Add Hotel</div>
-        <div class="form-group row">
-            <label for="hotelName" class="col-sm-2 col-form-label">Hotel Name</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="hotelName" formControlName="hotelName" [ngClass]="{'is-invalid': submitted && control.hotelName.errors}" >
-              <div *ngIf="submitted && control.hotelName.errors" class="text-warning">
-                  <div *ngIf="control.hotelName.errors.required">Hotel name required</div> 
-              </div>
+  <div class="container">
+  <form [formGroup]="hotelForm" (ngSubmit)="addHotel()">
+          <div class="header">Add Hotel</div>
+      <div class="form-group row">
+          <label for="hotelName" class="col-sm-2 col-form-label">Hotel Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="hotelName" formControlName="hotelName" [ngClass]="{'is-invalid': submitted && control.hotelName.errors}" >
+            <div *ngIf="submitted && control.hotelName.errors" class="text-warning">
+                <div *ngIf="control.hotelName.errors.required">Hotel name required</div> 
             </div>
           </div>
-          <div class="form-group row">
-            <label for="hotelType" class="col-sm-2 col-form-label">Hotel Type</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="hotelType" formControlName="hotelType" [ngClass]="{'is-invalid': submitted && control.hotelType.errors}" >
-              <div *ngIf="submitted && control.hotelType.errors" class="text-warning">
-                  <div *ngIf="control.hotelType.errors.required">Hotel type required</div> 
-              </div>
+        </div>
+        <div class="form-group row">
+          <label for="hotelType" class="col-sm-2 col-form-label">Hotel Type</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="hotelType" formControlName="hotelType" [ngClass]="{'is-invalid': submitted && control.hotelType.errors}" >
+            <div *ngIf="submitted && control.hotelType.errors" class="text-warning">
+                <div *ngIf="control.hotelType.errors.required">Hotel type required</div> 
             </div>
+          </div>
+          </div>
+        <div class="form-group row">
+          <label for="hotelDescription" class="col-sm-2 col-form-label">Hotel Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="hotelDescription" formControlName="hotelDescription" [ngClass]="{'is-invalid': submitted && control.hotelDescription.errors}" >
+            <div *ngIf="submitted && control.hotelDescription.errors" class="text-warning">
+                <div *ngIf="control.hotelDescription.errors.required">Hotel description required</div> 
             </div>
-          <div class="form-group row">
-            <label for="hotelDescription" class="col-sm-2 col-form-label">Hotel Description</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="hotelDescription" formControlName="hotelDescription" [ngClass]="{'is-invalid': submitted && control.hotelDescription.errors}" >
-              <div *ngIf="submitted && control.hotelDescription.errors" class="text-warning">
-                  <div *ngIf="control.hotelDescription.errors.required">Hotel description required</div> 
-              </div>
+          </div>
+          </div>
+        <div class="form-group row">
+          <label for="address" class="col-sm-2 col-form-label">Hotel Address</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="address" formControlName="hotelAddress" [ngClass]="{'is-invalid': submitted && control.hotelAddress.errors}" >
+            <div *ngIf="submitted && control.hotelAddress.errors" class="text-warning">
+                <div *ngIf="control.hotelAddress.errors.required">Hotel address required</div> 
             </div>
+          </div>
+          </div>
+        <div class="form-group row">
+          <label for="rent" class="col-sm-2 col-form-label">Hotel Rent</label>
+          <div class="col-sm-10">
+            <input type="number" min="0" class="form-control" id="rent"formControlName="hotelRent" [ngClass]="{'is-invalid': submitted && control.hotelRent.errors}" >
+            <div *ngIf="submitted && control.hotelRent.errors" class="text-warning">
+                <div *ngIf="control.hotelRent.errors.required">Hotel rent required</div> 
             </div>
-          <div class="form-group row">
-            <label for="address" class="col-sm-2 col-form-label">Hotel Address</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="address" formControlName="hotelAddress" [ngClass]="{'is-invalid': submitted && control.hotelAddress.errors}" >
-              <div *ngIf="submitted && control.hotelAddress.errors" class="text-warning">
-                  <div *ngIf="control.hotelAddress.errors.required">Hotel address required</div> 
-              </div>
+          </div>
+          </div>
+        <div class="form-group row">
+          <label for="status" class="col-sm-2 col-form-label">Hotel Status</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="status"formControlName="hotelStatus" [ngClass]="{'is-invalid': submitted && control.hotelStatus.errors}" >
+            <div *ngIf="submitted && control.hotelStatus.errors" class="text-warning">
+                <div *ngIf="control.hotelStatus.errors.required">Hotel status required</div> 
             </div>
+          </div>
+          </div>
+        <div class="form-group row">
+          <label for="city" class="col-sm-2 col-form-label">Hotel City</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="city"formControlName="hotelCity" [ngClass]="{'is-invalid': submitted && control.hotelType.errors}" >
+            <div *ngIf="submitted && control.hotelCity.errors" class="text-warning">
+                <div *ngIf="control.hotelCity.errors.required">Hotel city required</div> 
             </div>
-          <div class="form-group row">
-            <label for="rent" class="col-sm-2 col-form-label">Hotel Rent</label>
-            <div class="col-sm-10">
-              <input type="number" min="0" class="form-control" id="rent"formControlName="hotelRent" [ngClass]="{'is-invalid': submitted && control.hotelRent.errors}" >
-              <div *ngIf="submitted && control.hotelRent.errors" class="text-warning">
-                  <div *ngIf="control.hotelRent.errors.required">Hotel rent required</div> 
-              </div>
-            </div>
-            </div>
-          <div class="form-group row">
-            <label for="status" class="col-sm-2 col-form-label">Hotel Status</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="status"formControlName="hotelStatus" [ngClass]="{'is-invalid': submitted && control.hotelStatus.errors}" >
-              <div *ngIf="submitted && control.hotelStatus.errors" class="text-warning">
-                  <div *ngIf="control.hotelStatus.errors.required">Hotel status required</div> 
-              </div>
-            </div>
-            </div>
-          <div class="form-group row">
-            <label for="city" class="col-sm-2 col-form-label">Hotel City</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="city"formControlName="hotelCity" [ngClass]="{'is-invalid': submitted && control.hotelType.errors}" >
-              <div *ngIf="submitted && control.hotelCity.errors" class="text-warning">
-                  <div *ngIf="control.hotelCity.errors.required">Hotel city required</div> 
-              </div>
-            </div>
-            </div>
-      <button type="submit" class="btn btn-primary">Add Hotel</button>
-    </form>
-    </div>
+          </div>
+          </div>
+    <button type="submit" class="btn btn-primary">Add Hotel</button>
+  </form>
+  </div>
 </div>
 
 <div class="col col-10 offset-md-2 container viewall">
-    <div class="container">
-        <div class="header">All Hotels</div>
-        <table class="tbl" style="width:100%">
-            <tr>
-            <th>Hotel id</th>
-              <th>Hotel Name</th>
-              <th>Hotel Description</th>
-              <th>Hotel Type</th>
-              <th>Hotel Rent</th>
-              <th>Hotel Address</th>
-              <th>Hotel City</th>
-              <th>Hotel Status</th>
-            </tr>
-            <tr>
-                <td>1</td>
-              <td>Radision Blue</td>
-              <td>Great Experience to get</td>
-              <td>5 Star</td>
-              <td>6000</td>
-              <td>Marathahalli, Bangalore,560103</td>
-              <td>Bangalore</td>
-              <td>Available</td>
-            </tr>
-          </table>      
-    </div>
-    </div>
+  <div class="container">
+      <div class="header">All Hotels</div>
+      <table class="tbl" style="width:100%">
+          <tr>
+          <th>Hotel id</th>
+            <th>Hotel Name</th>
+            <th>Hotel Description</th>
+            <th>Hotel Type</th>
+            <th>Hotel Rent</th>
+            <th>Hotel Address</th>
+            <th>Hotel City</th>
+            <th>Hotel Status</th>
+          </tr>
+          <tr>
+              <td>1</td>
+            <td>Radision Blue</td>
+            <td>Great Experience to get</td>
+            <td>5 Star</td>
+            <td>6000</td>
+            <td>Marathahalli, Bangalore,560103</td>
+            <td>Bangalore</td>
+            <td>Available</td>
+          </tr>
+        </table>      
+  </div>
+  </div>

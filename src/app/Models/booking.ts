@@ -4,35 +4,36 @@ import { TicketDetails } from "./ticketDetails";
 
 export class Booking{
     bookingId: number;
-    bookType: string;
-    bookDescription:string;
-    bookTitle:string;
-    dateofBooking: string;
-    packDetails :Package;
+    bookingType: string;
+    description:string;
+    bookingTitle:string;
+    bookingDate: string;
+    pack :Package;
 	userId: string;
-    paymentDetails: PaymentDetails;
-	ticketDetails: TicketDetails;
+    payment: PaymentDetails;
+	ticket: TicketDetails;
 
-    constructor(bookingId: number,
-        bookingType: string,
-        bookingDescription:string,
-        bookingTitle:string,
-        bookingDate: string,
-        pack :Package,
-        userId: string,
-        payment: PaymentDetails,
-        ticket: TicketDetails){
-        this.bookingId = bookingId;
-		this.bookType = bookingType;
-		this.bookDescription = bookingDescription;
-		this.bookTitle = bookingTitle;
-		this.dateofBooking = bookingDate;
-		this.packDetails = pack;
-		this.userId = userId;
-		this.paymentDetails = payment;
-		this.ticketDetails = ticket;
-
-    }
+  constructor(
+    bookingId: number, 
+    bookingType: string, 
+    description: string, 
+    bookingTitle: string, 
+    bookingDate: string, 
+    pack: Package, 
+    userId: string, 
+    payment: PaymentDetails, 
+    ticket: TicketDetails
+) {
+    this.bookingId = bookingId
+    this.bookingType = bookingType
+    this.description = description
+    this.bookingTitle = bookingTitle
+    this.bookingDate = bookingDate
+    this.pack = pack
+    this.userId = userId
+    this.payment = payment
+    this.ticket = ticket
+  }
 
 
 }
