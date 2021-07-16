@@ -1,6 +1,6 @@
 .container{
     z-index: 99;
-    height:fit-content;
+    height: 100%;
     padding: 20px;
 }
 .card{

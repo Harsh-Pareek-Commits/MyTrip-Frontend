@@ -21,7 +21,7 @@ import { PackDetailsComponent } from './Components/pack-details/pack-details.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
-
+import {AddTravelsComponent} from './AdminComponents/add-travels/add-travels.component'
 import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
 import {AddHotelComponent} from './AdminComponents/add-hotel/add-hotel.component';
 import {AddPackageComponent} from './AdminComponents/add-package/add-package.component';
@@ -38,6 +38,7 @@ const appRoutes:Routes=[
   {path:'package/:from/:to/:date',component: PackageComponent},
   {path:'myaccount',component: MyAccountComponent},
   {path:'home',component: HomeComponent},
+  {path:'admin/travels',component: AddTravelsComponent},
   {path:'admin/dashboard',component: DashBoardComponent},
   {path:'success',component: SuccessComponent},
   {path:'admin/hotel',component: AddHotelComponent},
@@ -78,6 +79,7 @@ const appRoutes:Routes=[
     ViewFeedbackComponent,
     ViewReportComponent,
     MyAccountComponent,
+    AddTravelsComponent
    
   ],
   imports: [
