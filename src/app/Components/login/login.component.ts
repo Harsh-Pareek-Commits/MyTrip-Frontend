@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

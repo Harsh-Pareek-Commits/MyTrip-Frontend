@@ -1,68 +1,68 @@
 <div class="col col-10 offset-md-2 container">
-  <div class="container">
-  <form [formGroup]="travelForm" (ngSubmit)="addTravel()">
-          <div class="header">Add Travels</div>
-      <div class="form-group row">
-          <label for="travelsName" class="col-sm-2 col-form-label">Travels Name</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="travelsName" placeholder="Travels" formControlName="travelsName" [ngClass]="{'is-invalid': submitted && control.travelsName.errors}" >
-            <div *ngIf="submitted && control.travelsName.errors" class="text-warning">
-                <div *ngIf="control.travelsName.errors.required">Travels name required</div> 
-            </div>
-          </div>
-        </div>
+    <div class="container">
+    <form [formGroup]="travelForm" (ngSubmit)="addTravel()">
+            <div class="header">Add Travels</div>
         <div class="form-group row">
-          <label for="agentName" class="col-sm-2 col-form-label">Agent Name</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="agentName" placeholder="Agent Name" formControlName="agentName" [ngClass]="{'is-invalid': submitted && control.agentName.errors}" >
-            <div *ngIf="submitted && control.agentName.errors" class="text-warning">
-                <div *ngIf="control.agentName.errors.required">Agent name required</div> 
+            <label for="travelsName" class="col-sm-2 col-form-label">Travels Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="travelsName" placeholder="Travels" formControlName="travelsName" [ngClass]="{'is-invalid': submitted && control.travelsName.errors}" >
+              <div *ngIf="submitted && control.travelsName.errors" class="text-warning">
+                  <div *ngIf="control.travelsName.errors.required">Travels name required</div> 
+              </div>
             </div>
           </div>
-        </div>
+          <div class="form-group row">
+            <label for="agentName" class="col-sm-2 col-form-label">Agent Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="agentName" placeholder="Agent Name" formControlName="agentName" [ngClass]="{'is-invalid': submitted && control.agentName.errors}" >
+              <div *ngIf="submitted && control.agentName.errors" class="text-warning">
+                  <div *ngIf="control.agentName.errors.required">Agent name required</div> 
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="address" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" min="0" class="form-control" id="adress" placeholder="Address" formControlName="agentAddress" [ngClass]="{'is-invalid': submitted && control.agentAddress.errors}" >
+              <div *ngIf="submitted && control.agentAddress.errors" class="text-warning">
+                  <div *ngIf="control.agentAddress.errors.required">Agent Address required</div> 
+              </div>
+            </div>
+          </div>
         <div class="form-group row">
-          <label for="address" class="col-sm-2 col-form-label">Address</label>
+          <label for="contact" class="col-sm-2 col-form-label">Contact</label>
           <div class="col-sm-10">
-            <input type="text" min="0" class="form-control" id="adress" placeholder="Address" formControlName="agentAddress" [ngClass]="{'is-invalid': submitted && control.agentAddress.errors}" >
-            <div *ngIf="submitted && control.agentAddress.errors" class="text-warning">
-                <div *ngIf="control.agentAddress.errors.required">Agent Address required</div> 
+            <input type="text" class="form-control" id="contact" placeholder="Contact"formControlName="agentContact" [ngClass]="{'is-invalid': submitted && control.agentContact.errors}" >
+            <div *ngIf="submitted && control.agentContact.errors" class="text-warning">
+                <div *ngIf="control.agentContact.errors.required">Agent Contact required</div> 
             </div>
           </div>
         </div>
-      <div class="form-group row">
-        <label for="contact" class="col-sm-2 col-form-label">Contact</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="contact" placeholder="Contact"formControlName="agentContact" [ngClass]="{'is-invalid': submitted && control.agentContact.errors}" >
-          <div *ngIf="submitted && control.agentContact.errors" class="text-warning">
-              <div *ngIf="control.agentContact.errors.required">Agent Contact required</div> 
-          </div>
-        </div>
-      </div>
 
-  <button type="submit" class="btn btn-primary">Add Travels</button>
-</form>
-</div>
+    <button type="submit" class="btn btn-primary">Add Travels</button>
+  </form>
+  </div>
 </div>
 
 <div class="col col-10 offset-md-2 container viewall">
 <div class="container">
-  <div class="header">View Travels</div>
-  <table class="tbl" style="width:100%">
-      <tr>
-          <th>Travels Name</th>
-        <th>Travels Id</th>
-        <th>Agent Name</th>
-        <th>Address</th>
-        <th>Contact</th>
-        
-      </tr>
-      <tr>
-          <td>SRS</td>
-        <td>702</td>
-        <td>Himagani</td>
-        <td>Bellanduru</td>
-        <td>8989898989</td>
-      </tr>
-    </table>      
+    <div class="header">View Travels</div>
+    <table class="tbl" style="width:100%">
+        <tr>
+            <th>Travels Name</th>
+          <th>Travels Id</th>
+          <th>Agent Name</th>
+          <th>Address</th>
+          <th>Contact</th>
+          
+        </tr>
+        <tr>
+            <td>SRS</td>
+          <td>702</td>
+          <td>Himagani</td>
+          <td>Bellanduru</td>
+          <td>8989898989</td>
+        </tr>
+      </table>      
 </div>
 </div>
