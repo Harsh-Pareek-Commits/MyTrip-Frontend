@@ -37,8 +37,10 @@ import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
-  {path:'myaccount',component: MyAccountComponent},
-  {path:'home',component: HomeComponent},
+ {path:'myaccount',component: MyAccountComponent},
+ {path:'booking',component: BookingsComponent},
+ {path:'details/:id',component: BookingDetailsComponent},
+ {path:'home',component: HomeComponent},
   {path:'admin/travels',component: AddTravelsComponent},
   {path:'admin/addadmin',component: AddAdminComponent},
   {path:'admin/dashboard',component: DashBoardComponent},
