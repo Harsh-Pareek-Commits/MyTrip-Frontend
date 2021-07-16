@@ -1,35 +1,50 @@
 <div class="col col-10 offset-md-2 container">
     <div class="container">
-    <form>
+    <form [formGroup]="addPackageForm" (ngSubmit)="addPackage()">
             <div class="header">Add Package</div>
         <div class="form-group row">
             <label for="packName" class="col-sm-2 col-form-label">Package Name</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="packName" placeholder="Package Name">
+              <input type="text" class="form-control" id="packName" placeholder="Package Name"formControlName="packName" [ngClass]="{'is-invalid': submitted && control.packName.errors}" >
+              <div *ngIf="submitted && control.packName.errors" class="text-warning">
+                  <div *ngIf="control.packName.errors.required">Package Name required</div> 
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="packDescription" class="col-sm-2 col-form-label">Package Description</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="packDescription" placeholder="Package Description">
+              <input type="text" class="form-control" id="packDescription" placeholder="Package Description"formControlName="packDesc" [ngClass]="{'is-invalid': submitted && control.packDesc.errors}" >
+              <div *ngIf="submitted && control.packDesc.errors" class="text-warning">
+                  <div *ngIf="control.packDesc.errors.required">Package Description required</div> 
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="packType" class="col-sm-2 col-form-label">Package Type</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="packType" placeholder="Package Type">
+              <input type="text" class="form-control" id="packType" placeholder="Package Type"formControlName="packType" [ngClass]="{'is-invalid': submitted && control.packType.errors}" >
+              <div *ngIf="submitted && control.packType.errors" class="text-warning">
+                  <div *ngIf="control.packType.errors.required">Package Type required</div> 
+              </div>
             </div>
           </div>
           <div class="form-group row">
             <label for="packCost" class="col-sm-2 col-form-label">Package Cost</label>
             <div class="col-sm-10">
-              <input type="number" min="0" class="form-control" id="packCost" placeholder="Package Cost">
+              <input type="number" min="0" class="form-control" id="packCost" placeholder="Package Cost"formControlName="packCost" [ngClass]="{'is-invalid': submitted && control.packCost.errors}" >
+              <div *ngIf="submitted && control.packCost.errors" class="text-warning">
+                  <div *ngIf="control.packCost.errors.required">Cost required</div> 
+              </div>
             </div>
           </div>
       <div class="form-group row">
         <label for="route" class="col-sm-2 col-form-label">Route</label>
         <div class="col-sm-10">
-        <select class="form-control" id="route">
+        <select class="form-control" id="route"formControlName="route" [ngClass]="{'is-invalid': submitted && control.route.errors}" >
+          <div *ngIf="submitted && control.route.errors" class="text-warning">
+              <div *ngIf="control.route.errors.required">Route required</div> 
+          </div>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -41,7 +56,10 @@
       <div class="form-group row">
         <label for="hotel" class="col-sm-2 col-form-label">Hotel</label>
         <div class="col-sm-10">
-        <select class="form-control" id="hotel">
+        <select class="form-control" id="hotel"formControlName="hotel" [ngClass]="{'is-invalid': submitted && control.hotel.errors}" >
+          <div *ngIf="submitted && control.hotel.errors" class="text-warning">
+              <div *ngIf="control.hotel.errors.required">Hotel required</div> 
+          </div>
           <option>1</option>
           <option>2</option>
           <option>3</option>
