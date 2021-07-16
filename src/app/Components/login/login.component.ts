@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
-import jwtDecode, { JwtPayload } from "jwt-decode";
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -45,6 +43,7 @@ return this.loginForm.controls;
           sessionStorage.setItem('userType',result.userType)
           this.authService.loggedIn.next(true)
           this.toastr.success ('Login Success');
+          console.log(sessionStorage.getItem('token'))
           if(sessionStorage.getItem('userType')==="3"){
           this.router.navigate(['/home']);
         }else{
