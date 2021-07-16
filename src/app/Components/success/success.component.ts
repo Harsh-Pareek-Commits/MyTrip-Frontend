@@ -4,7 +4,9 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { BookingEntityDto } from 'src/app/EntityDtoModels/booking-entity-dto';
 import { PackageEntityDto } from 'src/app/EntityDtoModels/package-entity-dto';
+import { PaymentDetailsEntityDto } from 'src/app/EntityDtoModels/payment-details-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
+import { TicketDetailsEntityDto } from 'src/app/EntityDtoModels/ticket-details-entity-dto';
 import { Booking } from 'src/app/Models/booking';
 import { Bus } from 'src/app/Models/bus';
 import { Package } from 'src/app/Models/package';
@@ -56,10 +58,10 @@ export class SuccessComponent implements OnInit {
         dat=today.getDate()
       }
       var date = today.getFullYear() + '-' + month + '-' + dat;
-      let tic=new TicketDetails("Booked");
-      const pay=new PaymentDetails("Razor Pay","Not known","1234567891234567","Done",localStorage.getItem("userId")!);
+      let tic=new TicketDetailsEntityDto(0,"Booked");
+      const pay=new PaymentDetailsEntityDto(0,"Razor Pay",((data.packageCost)+(data.packageCost*0.5).toString()),"Done",sessionStorage.getItem("userId")!);
       var r=(data.route)
-      var route=new RouteEntityDto(r.routeId,r.from,r.to,r.buses,r.departureDate,r.arrivalDate,r.arrivalTime,r.departureTime,r.duration,r.pickupPoint,r.fare);
+      var route=new RouteEntityDto(r.routeId,r.routeFrom,r.routeTo,r.buses,r.departureDate,r.arrivalDate,r.arrivalTime,r.departureTime,r.duration,r.pickupPoint,r.fare);
       var pack = new PackageEntityDto(data.packageId,data.packageName,data.packageDescription,data.packageType,route,data.hotel,data.packageCost) ;
       let book=new BookingEntityDto(0,localStorage.getItem("type")!,"sfsdfsd",pack.packName! ,date,pack,localStorage.getItem("userId")!,pay,tic)
       this.checkout.createBookings(book).subscribe(data => {

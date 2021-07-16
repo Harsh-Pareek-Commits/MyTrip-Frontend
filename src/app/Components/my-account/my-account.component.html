@@ -3,14 +3,14 @@
     <form class="col col-6 offset-3" [formGroup]="accountForm">
         <div class="row">
             <div class="col col-12  justify-content-center dp" align="center" >
-                <img src="../../../assets/images/">
+                <img src="../../../assets/images/user.jpg">
             </div>
 
             <div class="input-group mb-3 mydiv">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">NAME  </span>
                 </div>
-                <input type="text" class="form-control" id="name" value="{{cust.customerName}}"  [disabled]=true formControlName="name" 
+                <input type="text" class="form-control" id="name" value="{{cust?.customerName}}" formControlName="name" 
                 [ngClass]="{'is-invalid': submitted && control.name.errors}">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" (click)="change('name')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
@@ -20,7 +20,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">MOBILE</span>
                 </div>
-                <input type="text" class="form-control" id="mobile"  [disabled]=true value="{{cust.customerMobileNo}}" formControlName="mobille" 
+                <input type="text" class="form-control" id="mobile"  value="{{cust?.customerMobileNo}}" formControlName="mobile" 
                 [ngClass]="{'is-invalid': submitted && control.mobile.errors}">
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" (click)="change('mobile')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
@@ -31,21 +31,21 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">EMAIL</span>
                 </div>
-                <input type="text" class="form-control"  [disabled]=true value="{{cust.email}}"  formControlName="email" 
+                <input type="text" class="form-control" id="email"  value="{{cust?.email}}"  formControlName="email" 
                 [ngClass]="{'is-invalid': submitted && control.email.errors}" >
             </div>
             <div class="input-group mb-3 mydiv">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default" >ADDRESS</span>
                 </div>
-                <textarea class="form-control" id="address"  [disabled]=true rows="1"  value="{{cust.customerAddress}}" formControlName="address" 
+                <textarea class="form-control" id="address"  rows="1"  value="{{cust?.customerAddress}}" formControlName="address" 
                 [ngClass]="{'is-invalid': submitted && control.address.errors}" ></textarea>
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" (click)="change('address')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
                   </div>
             </div>
             <div class="input-group mb-3 h-100 justify-content-center mydiv" >
-               <input type="Submit" class="btn btn-primary" id="save" value="Save" style="width:150px;" style="visibility: hidden;"  >
+               <input type="Submit" class="btn btn-primary" id="save" value="Save" [disabled]=true style="width:150px;"   >
             </div>
         </div>
     </form>
