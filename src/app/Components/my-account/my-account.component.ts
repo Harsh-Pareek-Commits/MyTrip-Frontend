@@ -21,11 +21,12 @@ export class MyAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomer();
+    this.change("name");
+    this.change("email");
+    this.change("mobile");
+    this.change("address");
   }
-  get control(){
-
-    return this.accountForm.controls;
-      }
+ 
   saveCustomer() {
   var newCust=new Customer(this.cust.customerId ,this.cust.customerName,this.cust.customerAddress,this.cust.customerMobileNo,this.cust.email)
   }
@@ -35,20 +36,24 @@ export class MyAccountComponent implements OnInit {
   }
   initForm(){
     this.accountForm=this.formBuilder.group({
-      name:["",[Validators.required]],
-      mobile:["",[Validators.required]],
-      address:["",[Validators.required]],
-      email:["",[Validators.required]]
+      name:[{value: '', disabled: true}, Validators.required],
+      mobile:[{value: '', disabled: true}, Validators.required],
+      address:[{value: '', disabled: true}, Validators.required],
+      email:[{value: '', disabled: true}, Validators.required],
 
     })
   }
+  get control(){
+
+    return this.accountForm.controls;
+      }
   getCustomer() {
     this.userservice.getCustById().subscribe(data => {
       this.cust = data;
     }, (error) => {
       if (error.staus = 404) {
         this.toastr.info("No Customer found! Please Login")
-        
+        this.router.navigate(['/login'])
       } else if (error.staus = 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
