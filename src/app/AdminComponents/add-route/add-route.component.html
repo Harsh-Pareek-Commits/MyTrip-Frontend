@@ -1,0 +1,128 @@
+<div class="col col-10 offset-md-2 container">
+    <div class="container">
+    <form>
+            <div class="header">Route Details</div>
+        <div class="form-group row">
+            <label for="routeFrom" class="col-sm-2 col-form-label">From</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="routeFrom" placeholder="From">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="routeTo" class="col-sm-2 col-form-label">To</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="routeTo" placeholder="To">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="departureDate" class="col-sm-2 col-form-label">Departure Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="departureDate" placeholder="Departure Date">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="arrivalDate" class="col-sm-2 col-form-label">Arrival Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="arrivalDate" placeholder="Arrival Date">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="departureTime" class="col-sm-2 col-form-label">Departure Time</label>
+            <div class="col-sm-10">
+              <input type="time" class="form-control" id="departureTime" placeholder="Departure Time">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="arrivalTime" class="col-sm-2 col-form-label">Arrival Time</label>
+            <div class="col-sm-10">
+              <input type="time" class="form-control" id="arrivalTime" placeholder="Arrival Time">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="pickupPoint" class="col-sm-2 col-form-label">Pick Up Point</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="pickupPoint" placeholder="Pick Up Point">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="fare" class="col-sm-2 col-form-label">Fare</label>
+            <div class="col-sm-10">
+              <input type="number" min="0" class="form-control" id="fare" placeholder="Fare">
+            </div>
+          </div>
+      <button type="submit" class="btn btn-primary">Add Route</button>
+    </form>
+    </div>
+</div>
+<div class="col col-10 offset-md-2 container">
+    <div class="container">
+    <form>
+            <div class="header">Bus Details</div>
+        <div class="form-group row">
+            <label for="busType" class="col-sm-2 col-form-label">Bus Type</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="busType" placeholder="Bus Type">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="busNumber" class="col-sm-2 col-form-label">Bus Number</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="busNumber" placeholder="Bus Number">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="busCapacity" class="col-sm-2 col-form-label">Bus Capacity</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="busCapacity" placeholder="Bus Capacity">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="travel" class="col-sm-2 col-form-label">Travel</label>
+            <div class="col-sm-10">
+            <select class="form-control" id="travel">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+        </div>
+          </div>
+      <button type="submit" class="btn btn-primary">Add Bus</button>
+    </form>
+    </div>
+</div>
+
+<div class="col col-10 offset-md-2 container viewall">
+<div class="container">
+    <div class="header">View Route</div>
+    <table class="tbl" style="width:100%">
+        <tr>
+            <th>Route Id</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Departure Date</th>
+          <th>Arrival Date</th>
+          <th>Departure Time</th>
+          <th>Arrival Time</th>
+          <th>Duration</th>
+          <th>Bus Id</th>
+          <th>Pick Up Point</th>
+          <th>Fare</th>
+        </tr>
+        <tr>
+            <td>1</td>
+          <td>Goa</td>
+          <td>Kashmir</td>
+          <td>2021-07-16</td>
+          <td>2021-07-18</td>
+          <td>05:23</td>
+          <td>15:28</td>
+          <td>2</td>
+          <td>6</td>
+          <td>Panjim</td>
+          <td>200</td>
+        </tr>
+      </table>      
+</div>
+</div>

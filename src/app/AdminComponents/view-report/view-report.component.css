@@ -1,0 +1,28 @@
+.table,th,td{
+    border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;    
+}
+.viewall{
+    padding: 1%;
+}
+.tbl{
+    padding: 2%;
+}
+.header{
+    background: #3f9cb5;
+    padding: 20px 15px;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px 3px 0 0;
+}
+.container{
+    z-index: 99;
+    height:fit-content;
+    padding: 20px;
+}

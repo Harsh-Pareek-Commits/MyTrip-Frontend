@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -13,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { PackageComponent } from './Components/package/package.component';
+import {BookingDetailsComponent} from './Components/booking-details/booking-details.component';
+import {BookingsComponent} from './Components/bookings/bookings.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,20 +23,37 @@ import { PackDetailsComponent } from './Components/pack-details/pack-details.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
-import { NavBarComponent } from './AdminComponents/nav-bar/nav-bar.component';
+import {AddTravelsComponent} from './AdminComponents/add-travels/add-travels.component'
 import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
-import { BookingsComponent } from './Components/bookings/bookings.component';
+import {AddHotelComponent} from './AdminComponents/add-hotel/add-hotel.component';
+import {AddPackageComponent} from './AdminComponents/add-package/add-package.component';
+import {AddRouteComponent} from './AdminComponents/add-route/add-route.component';
+import {ViewBookingComponent} from './AdminComponents/view-booking/view-booking.component';
+import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedback.component';
+import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
-
+import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component'
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
+  {path:'myaccount',component: MyAccountComponent},
+  {path:'details/:id',component: BookingDetailsComponent},
+  {path:'booking',component: BookingsComponent},
   {path:'home',component: HomeComponent},
+  {path:'admin/travels',component: AddTravelsComponent},
+  {path:'admin/addadmin',component: AddAdminComponent},
+  {path:'admin/dashboard',component: DashBoardComponent},
   {path:'success',component: SuccessComponent},
+  {path:'admin/hotel',component: AddHotelComponent},
+  {path:'admin/package',component: AddPackageComponent},
+  {path:'admin/bookings',component: ViewBookingComponent},
+  {path:'admin/route',component: AddRouteComponent},
+  {path:'admin/feedback',component: ViewFeedbackComponent},
+  {path:'admin/report',component: ViewReportComponent},
   {path:'failure',component: FailureComponent},
-  {path:'bookings',component: BookingsComponent},
   {path:'checkout',component: CheckoutComponent},
+  {path:'signup',component: SignupComponent },
   {path:'',component: HomeComponent},
   {path:'pack/:id',component: PackDetailsComponent},
   {path: '404', component: NotfoundComponent},
@@ -46,6 +64,8 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
+    BookingsComponent,
+    BookingDetailsComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -57,10 +77,17 @@ const appRoutes:Routes=[
     CheckoutComponent,
     SuccessComponent,
     FailureComponent,
-    NavBarComponent,
     DashBoardComponent,
-    BookingsComponent,
-    MyAccountComponent
+    AddHotelComponent,
+    AddPackageComponent,
+    AddRouteComponent,
+    ViewBookingComponent,
+    ViewFeedbackComponent,
+    ViewReportComponent,
+    MyAccountComponent,
+    AddTravelsComponent,
+    AddAdminComponent
+   
   ],
   imports: [
     BrowserModule,

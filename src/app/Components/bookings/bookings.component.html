@@ -1,28 +1,58 @@
 <div class="container">
-    <div class="row">
-        <div class="col col-mg-12">
-            <div  style="display: inline-block;">
-              <div class="card "  style=" margin-right: 20px;margin-top: 20px; ">
-                <div class="row">
-               <div class="col col-4">
-                <img class="card-img-top" src="../../../assets/images/goa.jpg" width="400px" height="250px">
-               </div> 
-               <div class="col col-8">
-                <div class="card-body">
-                  <p class="card-text text-center pname">asda</p>
-                  <p class="card-text" style="font-size:12px; color:grey;">asdas
-                 </p> 
-                  <div > <fa-icon class="ficon" [icon]="faHotel" ></fa-icon> <fa-icon class="ficon" [icon]="faBus"></fa-icon> 
-                    <div style="float: right; font-size: 18px; color:maroon;">asdasdas</div>
-                </div>
-                <div class="col" style="display: contents;">
-                    <div ><button  class="btn" >BOOK IT NOW</button></div>
-                  </div>  
-                </div>
-            </div>
-        </div>
-                
-              </div>
-            </div>
+      <div class="card" *ngFor=" let book of bookinglist">
+        <h5 class="card-header">Booking Id: {{book.bookingId}} <span style="float: right;">{{book.bookingDate |date:'fullDate'}}</span></h5>
+        <div class="card-body">
+          <div class="row">
+          <div class="col col-4 pack-img">
+            <img src="../../../assets/images/goa.jpg" />
           </div>
+          <div class="col col-8">
+          <h4 class="card-title">{{(book.bookingTitle)| uppercase }}</h4>
+          <h6  align="center">BOOKING DETAILS </h6>
+          <hr>
+           <div class="row">
+             <div class="col col-4" align="center">
+              <p class="card-text heading">BOOKING TYPE </p>
+              <p class="card-text info"><strong> {{(book.bookingType)}}</strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">DATE/TIME OF JOURNEY</p>
+              <p class="card-text info"><strong>{{book.pack?.route?.departureDate |date}} {{book.pack?.route?.departureTime  }} </strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">DATE/TIME OF ARRIVAL</p>
+              <p class="card-text info"><strong>{{book.pack?.route?.arrivalDate |date}} {{book.pack?.route?.arrivalTime}} </strong></p>
+             </div>
+           
+            </div>
+            <hr>
+            <br>
+            <h6  align="center">TICKET DETAILS </h6>
+          <hr>
+           <div class="row">
+             <div class="col col-4" align="center">
+              <p class="card-text heading">FROM</p>
+              <p class="card-text info"><strong>{{((book.pack)?.route)?.routeFrom}}</strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">TO</p>
+              <p class="card-text info"><strong>{{((book.pack)?.route)?.routeTo}} </strong></p>
+             </div>
+             <div class="col col-4"  align="center">
+              <p class="card-text heading">TICKET ID</p>
+              <p class="card-text info"><strong>{{(book.ticket)?.ticketId}} </strong></p>
+             </div>
+           
+            </div>
+            <hr>
+          
+              <div align="center"> 
+          <a (click)="showDetails(book.bookingId)" class="btn btn-primary">SHOW DETAILS</a>
+          <a (click)="cancel(book.bookingId)" class="btn btn-primary" >CANCEL</a>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  
 </div>

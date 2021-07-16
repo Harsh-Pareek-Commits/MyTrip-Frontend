@@ -12,6 +12,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
   getCustById():Observable<Customer>{
     
-    return this.http.get<Customer>(`${baseUrl}customer/view/${localStorage.getItem("userId")}`);
+    return this.http.get<Customer>(`${baseUrl}customer/view/${sessionStorage.getItem("userId")}`);
   }
 }

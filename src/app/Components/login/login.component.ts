@@ -37,7 +37,7 @@ return this.loginForm.controls;
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value).subscribe(
         result=>{
-           localStorage.setItem('token',result.token);
+         
           sessionStorage.setItem('token',result.token);
           sessionStorage.setItem('userId',result.id);
          

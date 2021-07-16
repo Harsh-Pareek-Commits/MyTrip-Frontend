@@ -32,7 +32,7 @@ header {
   font-family: "Superion Brush";
  
 }
-nav {
+.usernav {
     width: 100%;
     padding: 10px;;
     height: 80px;
@@ -58,7 +58,7 @@ nav {
    
     
   }
-  nav h1 {
+  .usernav h1 {
     
     color: white;
     font-size: 35px !important;
@@ -87,7 +87,7 @@ nav {
 color: #fff;
   }
 
-  nav ul li a{
+  .usernav ul li a{
     margin: 10px; 
     color:wheat;
     text-decoration: none;
@@ -144,5 +144,69 @@ label {
   width: 120px;
 }
 .ficon{
-  color: red !important;
+  color: wheat !important;
+  margin: 10px;
+}
+
+a{
+  color: wheat !important;
+
+}
+
+
+.adminheader nav ul li a{
+  text-decoration: none;
+}
+.AdminNav{
+  padding: 20px;
+  background-color: black;
+  color:wheat;
+  height:100%;
+  position: absolute;
+}
+.TopHeader{
+  height: 80px;
+  background-color: black;
+  padding: 20px;
+  border-bottom: 6px solid;
+  border-color: #780206; /* fallback for old browsers */
+  border-color: -webkit-linear-gradient(
+    to right,
+    #061161,
+    #780206
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  border-color: linear-gradient(
+    to right,
+    #061161,
+    #780206
+  );
+}
+.TopHeader h1{
+  color: white;
+  font-size: 35px !important;
+  font-family: "Beyond","Lucida Handwriting";
+  animation: flicker 1.5s infinite alternate;
+}
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 4px rgb(177, 233, 104), 0 0 11px #fff, 0 0 40px #780206,
+      0 0 80px #780206, 0 0 90px #780206;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+.adminheader li{
+  padding: 10px;
+  align-content: center;
+  margin: 10px;
 }
