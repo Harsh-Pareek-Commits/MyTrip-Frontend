@@ -25,14 +25,16 @@ export class MyAccountComponent implements OnInit {
     this.change("email");
     this.change("mobile");
     this.change("address");
+    this.initForm();
   }
  
   saveCustomer() {
+    
   var newCust=new Customer(this.cust.customerId ,this.cust.customerName,this.cust.customerAddress,this.cust.customerMobileNo,this.cust.email)
   }
   change(id:string){
     (document.getElementById(id) as HTMLInputElement).disabled = !((document.getElementById(id) as HTMLInputElement).disabled);
-    (document.getElementById("save") as HTMLInputElement).style.visibility = "visible";
+    (document.getElementById("save") as HTMLInputElement).disabled=false;
   }
   initForm(){
     this.accountForm=this.formBuilder.group({
