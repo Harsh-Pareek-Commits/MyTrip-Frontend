@@ -38,8 +38,11 @@ const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
   {path:'myaccount',component: MyAccountComponent},
+<<<<<<< HEAD
   {path:'details/:id',component: BookingDetailsComponent},
   {path:'booking',component: BookingsComponent},
+=======
+>>>>>>> c45b6a340c94b8a7988400b1cee8027a7264f543
   {path:'home',component: HomeComponent},
   {path:'admin/travels',component: AddTravelsComponent},
   {path:'admin/addadmin',component: AddAdminComponent},
