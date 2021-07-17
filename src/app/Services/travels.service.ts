@@ -15,4 +15,11 @@ export class TravelsService {
   {
 return this.http.post<TravelEntityDto>(`${baseUrl}travel/add`,travel);
   }
+  viewTravel():Observable<Travel[]> {
+    return this.http.get<Travel[]>(`${baseUrl}travel/all`);
+  }
+  deleteTravel(id:string):Observable<object>
+  {
+    return this.http.delete<object>(`${baseUrl}travel/delete/${id}`);
+  }
 }

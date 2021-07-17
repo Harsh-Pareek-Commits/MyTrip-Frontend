@@ -12,17 +12,19 @@
               <th>Customer Id</th>
               <th>Payment Id</th>
               <th>Ticket Id</th>
+              <th>Action</th>
             </tr>
-            <tr>
-                <td>1</td>
-              <td>Two Night</td>
-              <td>Great Experience to get</td>
-              <td>Goa Tour Booking</td>
-              <td>2021-07-14</td>
-              <td>5</td>
-              <td>6</td>
-              <td>9</td>
-              <td>10</td>
+            <tr *ngFor="let booking of listBooking">
+              <td>{{booking?.bookingId}}</td>
+              <td>{{booking?.bookingType}}</td>
+              <td>{{booking?.description}}</td>
+              <td>{{booking?.bookingTitle}}</td>
+              <td>{{booking?.bookingDate|date}}</td>
+              <td>{{booking.pack?.packageId}}</td>
+              <td>{{booking?.userId}}</td>
+              <td>{{booking.payment?.paymentId}}</td>
+              <td>{{booking.ticket?.ticketId}}</td>
+              <td><input type="button" (click)="delete(booking.bookingId)" class="btn btn-danger" value="Delete"></td>
             </tr>
           </table>      
     </div>
