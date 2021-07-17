@@ -10,6 +10,7 @@ export class DashBoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(sessionStorage.getItem('token'))
   }
 
 }
