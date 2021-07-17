@@ -83,16 +83,18 @@
             <th>Hotel Address</th>
             <th>Hotel City</th>
             <th>Hotel Status</th>
+            <th>Action</th>
           </tr>
-          <tr>
-              <td>1</td>
-            <td>Radision Blue</td>
-            <td>Great Experience to get</td>
-            <td>5 Star</td>
-            <td>6000</td>
-            <td>Marathahalli, Bangalore,560103</td>
-            <td>Bangalore</td>
-            <td>Available</td>
+          <tr *ngFor="let hotel of listhotel">
+              <td>{{hotel?.hotelId}}</td>
+            <td>{{hotel?.hotelName}}</td>
+            <td>{{hotel?.hotelDescription}}</td>
+            <td>{{hotel?.hotelType}}</td>
+            <td>{{hotel?.rent}}</td>
+            <td>{{hotel?.address}}</td>
+            <td>{{hotel?.city}}</td>
+            <td>{{hotel?.status}}</td>
+            <td><input type="button" (click)="delete(hotel.hotelId)" class="btn btn-danger" value="Delete"></td>
           </tr>
         </table>      
   </div>
