@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr';
 import { PackageComponent } from './Components/package/package.component';
+import {BookingDetailsComponent} from './Components/booking-details/booking-details.component';
+import {BookingsComponent} from './Components/bookings/bookings.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +23,7 @@ import { PackDetailsComponent } from './Components/pack-details/pack-details.com
 import { CheckoutComponent } from './Components/checkout/checkout.component';
 import { SuccessComponent } from './Components/success/success.component';
 import { FailureComponent } from './Components/failure/failure.component';
-
+import {AddTravelsComponent} from './AdminComponents/add-travels/add-travels.component'
 import { DashBoardComponent } from './AdminComponents/dash-board/dash-board.component';
 import {AddHotelComponent} from './AdminComponents/add-hotel/add-hotel.component';
 import {AddPackageComponent} from './AdminComponents/add-package/add-package.component';
@@ -30,14 +32,17 @@ import {ViewBookingComponent} from './AdminComponents/view-booking/view-booking.
 import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedback.component';
 import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
-
-
+import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component'
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
-  {path:'myaccount',component: MyAccountComponent},
-  {path:'home',component: HomeComponent},
+ {path:'myaccount',component: MyAccountComponent},
+ {path:'booking',component: BookingsComponent},
+ {path:'details/:id',component: BookingDetailsComponent},
+ {path:'home',component: HomeComponent},
+  {path:'admin/travels',component: AddTravelsComponent},
+  {path:'admin/addadmin',component: AddAdminComponent},
   {path:'admin/dashboard',component: DashBoardComponent},
   {path:'success',component: SuccessComponent},
   {path:'admin/hotel',component: AddHotelComponent},
@@ -59,6 +64,8 @@ const appRoutes:Routes=[
 @NgModule({
   declarations: [
     AppComponent,
+    BookingsComponent,
+    BookingDetailsComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
@@ -78,6 +85,8 @@ const appRoutes:Routes=[
     ViewFeedbackComponent,
     ViewReportComponent,
     MyAccountComponent,
+    AddTravelsComponent,
+    AddAdminComponent
    
   ],
   imports: [

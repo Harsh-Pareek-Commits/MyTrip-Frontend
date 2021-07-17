@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,14 +38,18 @@ return this.loginForm.controls;
     if(this.loginForm.valid){
       this.authService.login(this.loginForm.value).subscribe(
         result=>{
-         
+          
           sessionStorage.setItem('token',result.token);
           sessionStorage.setItem('userId',result.id);
-         
+          sessionStorage.setItem('userType',result.userType)
           this.authService.loggedIn.next(true)
           this.toastr.success ('Login Success');
+          console.log(sessionStorage.getItem('token'))
+          if(sessionStorage.getItem('userType')==="3"){
           this.router.navigate(['/home']);
-          
+        }else{
+          this.router.navigate(['/admin/dashboard']);
+        }
 
       }, (error) => { 
         console.log(error)

@@ -36,17 +36,3 @@
 .row{
     padding: 1%;
 }
-.table,th,td{
-    border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-.viewall{
-    padding: 1%;
-}
-.tbl{
-    padding: 2%;
-}

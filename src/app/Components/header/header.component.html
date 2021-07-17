@@ -10,8 +10,8 @@
         <li><a href="#"> Home</a></li>
         <li><a routerLink="/package"> Package</a></li>
         <li  ><a routerLink="/hotel"> Hotel</a></li>
-        <li *ngIf="isLoggedIn$ |  async"><a href="#"> Bookings</a></li>
-        <li *ngIf="isLoggedIn$ |  async"><a href="#"> My Account</a></li>
+        <li *ngIf="isLoggedIn$ |  async"><a routerLink="/booking"> Bookings</a></li>
+        <li *ngIf="isLoggedIn$ |  async"><a routerLink="/myaccount"> My Account</a></li>
         <li *ngIf="isLoggedIn$ |  async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
         <li *ngIf="!(isLoggedIn$ |  async)" ><a routerLink="/login"> Login</a></li>
       </ul>
@@ -36,13 +36,19 @@
         >
         <ul class="nav navbar-nav">
             <li>
-                <a routerlink="/404"><fa-icon class="ficon" [icon]="faTachometerAlt"></fa-icon>Dashboard</a>
+                <a routerLink="/admin/dashboard"><fa-icon class="ficon" [icon]="faTachometerAlt"></fa-icon>Dashboard</a>
             </li>
             <li>
                 <a routerLink="/admin/package" ><fa-icon class="ficon" [icon]="faGlobeAsia"></fa-icon>Package</a>
             </li>
             <li>
+                <a routerLink="/admin/bookings" ><fa-icon class="ficon" [icon]="faUmbrellaBeach"></fa-icon>Bookings</a>
+            </li>
+            <li>
                 <a routerLink="/admin/hotel"><fa-icon class="ficon" [icon]="faHotel"></fa-icon>Hotel</a>
+            </li>
+            <li>
+                <a routerLink="/admin/travels"><fa-icon class="ficon" [icon]="faArchway"></fa-icon>Travels</a>
             </li>
             <li>
                 <a routerLink="/admin/route"><fa-icon class="ficon" [icon]="faMapMarkedAlt"></fa-icon>Route</a>
@@ -52,6 +58,9 @@
             </li>
             <li>
                 <a routerLink="/admin/feedback"><fa-icon class="ficon" [icon]="faCommentAlt"></fa-icon>Feedback</a>
+            </li>
+            <li>
+                <a routerLink="/admin/addadmin"><fa-icon class="ficon" [icon]="faUserPlus"></fa-icon>Add Admin</a>
             </li>
             <li>
                 <a routerLink="../login"><fa-icon class="ficon" [icon]="faSignInAlt"></fa-icon>Logout</a>

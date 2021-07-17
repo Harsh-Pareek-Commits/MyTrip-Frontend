@@ -11,12 +11,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (sessionStorage.getItem('token') && sessionStorage.getItem('userId')) {
-      console.log("Interceptor called with "+ sessionStorage.getItem('token'));
+      console.log("Interceptor called with " + sessionStorage.getItem('token'));
       request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + sessionStorage.getItem('token')) })
     }
-   
-  return next.handle(request);
-}
+
+    return next.handle(request);
+  }
 }
 
 export const authInterceptorProviders = [

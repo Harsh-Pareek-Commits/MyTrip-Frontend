@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import {faReceipt,faUmbrellaBeach,faGlobeAsia,faMapMarkedAlt, faHotel,faCommentAlt,faSignInAlt,faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+import {faReceipt,faUmbrellaBeach,faGlobeAsia,faMapMarkedAlt, faHotel,faCommentAlt,faSignInAlt,faTachometerAlt,faArchway,faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { Router } from "@angular/router";
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 import { Observable } from 'rxjs';
@@ -26,6 +26,8 @@ export class HeaderComponent implements OnInit {
   
   isLoggedIn$: Observable<boolean> | undefined;
   faReceipt=faReceipt;
+  faUserPlus=faUserPlus;
+  faArchway=faArchway;
   faUmbrellaBeach=faUmbrellaBeach;
   faGlobeAsia=faGlobeAsia;
   faMapMarkedAlt=faMapMarkedAlt;
