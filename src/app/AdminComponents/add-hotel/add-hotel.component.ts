@@ -70,10 +70,10 @@ return this.hotelForm.controls;
     this.hotelservice.viewHotel().subscribe(data=>{
     this.listhotel=data;
     },(error)=> {
-      if (error.staus = 404) {
+      if (error.status === 404) {
         this.toastr.info("No Hotels found! Try again")
         this.router.navigate(['/admin/hotel'])
-      } else if (error.staus = 403) {
+      } else if (error.status === 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
       }
