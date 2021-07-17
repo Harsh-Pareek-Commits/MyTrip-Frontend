@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+import { AdminEntityDto } from 'src/app/EntityDtoModels/admin-entity-dto';
 
 @Component({
   selector: 'app-add-admin',
@@ -44,8 +45,8 @@ addAdmin()
   this.submitted=true;
   
   if(this.addAdminForm.valid){
-
-    this.userservice.addAdmin(this.addAdminForm.value).subscribe(data=>{
+     var admin =new AdminEntityDto(0,this.addAdminForm.get('adminEmail')?.value,this.addAdminForm.get('password')?.value,this.addAdminForm.get('adminName')?.value,this.addAdminForm.get('mobileNumber')?.value);
+    this.userservice.addAdmin(admin).subscribe(data=>{
       this.adm=data;
       this.toastr.success("Admin added successfully")
     },(error)=>{
