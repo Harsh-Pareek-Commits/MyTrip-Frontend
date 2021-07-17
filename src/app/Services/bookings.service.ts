@@ -12,7 +12,7 @@ export class BookingsService {
   constructor(private http:HttpClient) { }
   getBookings():Observable<Booking[]>{
     
-    return this.http.get<Booking[]>(`${baseUrl}booking/customer/${localStorage.getItem('userId')}`);
+    return this.http.get<Booking[]>(`${baseUrl}booking/customer/${sessionStorage.getItem('userId')}`);
   }
   getBooking(id:number):Observable<Booking>{
     
@@ -23,4 +23,8 @@ export class BookingsService {
     return this.http.delete<Booking>(`${baseUrl}booking/delete/${id}`);
     
   }
+  viewBooking():Observable<Booking[]> {
+    return this.http.get<Booking[]>(`${baseUrl}booking/view`);
+  }
+
 }

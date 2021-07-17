@@ -63,7 +63,7 @@ export class SuccessComponent implements OnInit {
       var r=(data.route)
       var route=new RouteEntityDto(r.routeId,r.routeFrom,r.routeTo,r.buses,r.departureDate,r.arrivalDate,r.arrivalTime,r.departureTime,r.duration,r.pickupPoint,r.fare);
       var pack = new PackageEntityDto(data.packageId,data.packageName,data.packageDescription,data.packageType,route,data.hotel,data.packageCost) ;
-      let book=new BookingEntityDto(0,localStorage.getItem("type")!,"sfsdfsd",pack.packName! ,date,pack,localStorage.getItem("userId")!,pay,tic)
+      let book=new BookingEntityDto(0,localStorage.getItem("type")!,"sfsdfsd",pack.packName! ,date,pack,sessionStorage.getItem("userId")!,pay,tic)
       this.checkout.createBookings(book).subscribe(data => {
       this.toastr.success("Booking Success")
       }, (error) => {

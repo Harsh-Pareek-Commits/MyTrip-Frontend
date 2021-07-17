@@ -49,19 +49,23 @@
     <div class="header">View Travels</div>
     <table class="tbl" style="width:100%">
         <tr>
-            <th>Travels Name</th>
+            
           <th>Travels Id</th>
+          <th>Travels Name</th>
           <th>Agent Name</th>
           <th>Address</th>
           <th>Contact</th>
+          <th>Action</th>
           
         </tr>
-        <tr>
-            <td>SRS</td>
-          <td>702</td>
-          <td>Himagani</td>
-          <td>Bellanduru</td>
-          <td>8989898989</td>
+        <tr *ngFor="let travel of listTravel">
+          <td>{{travel?.travelsId}}</td>
+          <td>{{travel?.travelsName}}</td>
+          <td>{{travel?.agentName}}</td>
+          <td>{{travel?.address}}</td>
+          <td>{{travel?.contact}}</td>
+          
+          <td><input type="button" (click)="delete(travel.travelsId)" class="btn btn-danger" value="Delete"></td>
         </tr>
       </table>      
 </div>
