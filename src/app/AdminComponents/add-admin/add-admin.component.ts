@@ -9,6 +9,9 @@ import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 import { AdminEntityDto } from 'src/app/EntityDtoModels/admin-entity-dto';
+import { ConfirmedValidator } from 'src/app/confirmed.validator';
+  
+
 
 @Component({
   selector: 'app-add-admin',
@@ -31,11 +34,13 @@ export class AddAdminComponent implements OnInit {
       adminName:["",[Validators.required]],
       adminEmail:["",[Validators.required]],
       password:["",[Validators.required]],
-      conformPassword:["",[Validators.required]],
+  confirmpassword:["",[Validators.required]],
       mobileNumber:["",[Validators.required]]
 
-    })
-    
+
+    }, { 
+      validator: ConfirmedValidator('password', 'confirmpassword')})
+
 
 }get control(){
 
