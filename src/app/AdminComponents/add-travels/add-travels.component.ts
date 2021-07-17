@@ -3,7 +3,9 @@ import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { Travel } from 'src/app/Models/travel';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+import { TravelsService } from 'src/app/Services/travels.service';
 @Component({
   selector: 'app-add-travels',
   templateUrl: './add-travels.component.html',
@@ -14,7 +16,8 @@ export class AddTravelsComponent implements OnInit {
   travelForm!: FormGroup;
   faGoogle=faGooglePlusG;
   submitted = false;
-  constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
+  travel!: any;
+  constructor(private travelservice:TravelsService ,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
     sessionStorage.clear();
     console.log("Local cleared");
@@ -38,6 +41,14 @@ return this.travelForm.controls;
   this.submitted=true;
   
   if(this.travelForm.valid){
+
+this.travelservice.addTravels(this.travelForm.value).subscribe(data=>{
+this.travel=data;
+this.toastr.success("Travels Added Sucessfully")
+},(error)=>{
+console.log(error);
+this.toastr.error("Something went wrong please try again!!")
+})
 
   }
 }
