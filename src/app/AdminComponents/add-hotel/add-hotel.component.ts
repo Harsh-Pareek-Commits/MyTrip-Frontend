@@ -19,8 +19,6 @@ export class AddHotelComponent implements OnInit {
   hotel!:any;
   constructor(private hotelservice:HotelService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
-    sessionStorage.clear();
-    console.log("Local cleared");
     this.initForm();
      
     }
@@ -45,8 +43,8 @@ return this.hotelForm.controls;
   
   if(this.hotelForm.valid){
     console.log(sessionStorage.getItem('token'))
-    var travels=new HotelEntityDto(0,this.hotelForm.get('hotelName')?.value,this.hotelForm.get('hotelType')?.value,this.hotelForm.get('hotelDescription')?.value,this.hotelForm.get('address')?.value,this.hotelForm.get('rent')?.value,this.hotelForm.get('status')?.value,this.hotelForm.get('city')?.value);
-    this.hotelservice.addHotel(this.hotel).subscribe(data=>{
+    var newhotel=new HotelEntityDto(0,this.hotelForm.get('hotelName')?.value,this.hotelForm.get('hotelType')?.value,this.hotelForm.get('hotelDescription')?.value,this.hotelForm.get('hotelAddress')?.value,this.hotelForm.get('hotelRent')?.value,this.hotelForm.get('hotelStatus')?.value,this.hotelForm.get('hotelCity')?.value);
+    this.hotelservice.addHotel(newhotel).subscribe(data=>{
     this.hotel=data;
     this.toastr.success("Hotel Added Sucessfully")
     },(error)=>{
