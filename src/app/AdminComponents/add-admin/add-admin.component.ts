@@ -22,8 +22,6 @@ export class AddAdminComponent implements OnInit {
   constructor(private userservice:UserService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
-    sessionStorage.clear();
-    console.log("Local cleared");
     this.initForm();
   } initForm(){
     this.addAdminForm=this.formBuilder.group({
