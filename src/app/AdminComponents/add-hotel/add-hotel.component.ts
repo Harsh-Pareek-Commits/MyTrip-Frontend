@@ -16,8 +16,7 @@ export class AddHotelComponent implements OnInit {
   submitted = false;
   constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
-    sessionStorage.clear();
-    console.log("Local cleared");
+   
     this.initForm();
      
     }
