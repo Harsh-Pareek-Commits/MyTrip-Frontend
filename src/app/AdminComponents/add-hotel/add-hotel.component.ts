@@ -23,6 +23,7 @@ export class AddHotelComponent implements OnInit {
   deletedhotel!:any;
   constructor(private hotelservice:HotelService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
+
     this.initForm();
     this.viewHotel();
     }
