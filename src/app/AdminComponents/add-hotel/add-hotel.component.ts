@@ -1,3 +1,5 @@
+import { HotelEntityDto } from './../../EntityDtoModels/hotel-entity-dto';
+import { HotelService } from 'src/app/Services/hotel.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,7 +16,8 @@ export class AddHotelComponent implements OnInit {
   hotelForm!: FormGroup;
   faGoogle=faGooglePlusG;
   submitted = false;
-  constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
+  hotel!:any;
+  constructor(private hotelservice:HotelService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
     sessionStorage.clear();
     console.log("Local cleared");
@@ -41,7 +44,13 @@ return this.hotelForm.controls;
   this.submitted=true;
   
   if(this.hotelForm.valid){
-
-  }
-}
-}
+    console.log(sessionStorage.getItem('token'))
+    var travels=new HotelEntityDto(0,this.hotelForm.get('hotelName')?.value,this.hotelForm.get('hotelType')?.value,this.hotelForm.get('hotelDescription')?.value,this.hotelForm.get('address')?.value,this.hotelForm.get('rent')?.value,this.hotelForm.get('status')?.value,this.hotelForm.get('city')?.value);
+    this.hotelservice.addHotel(this.hotel).subscribe(data=>{
+    this.hotel=data;
+    this.toastr.success("Hotel Added Sucessfully")
+    },(error)=>{
+    console.log(error);
+    this.toastr.error("Something went wrong please try again!!")
+    })
+  }}}
