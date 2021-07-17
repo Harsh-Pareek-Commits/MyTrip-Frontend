@@ -44,6 +44,7 @@ return this.loginForm.controls;
           sessionStorage.setItem('userType',result.userType)
           this.authService.loggedIn.next(true)
           this.toastr.success ('Login Success');
+          console.log(sessionStorage.getItem('token'))
           if(sessionStorage.getItem('userType')==="3"){
           this.router.navigate(['/home']);
         }else{
