@@ -1,3 +1,4 @@
+import { Route } from 'src/app/Models/route';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Package } from '../Models/package';
@@ -38,5 +39,8 @@ export class PackageService {
   getPackageEntityDto(){
     
     return this.http.get<Package>(`${baseUrl}package/search/${localStorage.getItem("productId")}`);
+  }
+  viewRoute():Observable<Route[]> {
+    return this.http.get<Route[]>(`${baseUrl}route/all`);
   }
 }

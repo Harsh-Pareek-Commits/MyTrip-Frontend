@@ -84,13 +84,19 @@
     
             <div class="header">Bus Details</div>
         <div class="form-group row">
+          <div class="form-group row">
             <label for="busType" class="col-sm-2 col-form-label">Bus Type</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="busType" placeholder="Bus Type"formControlName="busType" [ngClass]="{'is-invalid': submitted && control.busType.errors}" >
+            <select class="form-control" id="busType"formControlName="busType" [ngClass]="{'is-invalid': submitted && control.busType.errors}" >
               <div *ngIf="submitted && control.busType.errors" class="text-warning">
-                  <div *ngIf="control.busType.errors.required">Bus Type required</div> 
+                  <div *ngIf="control.busType.errors.required">travel required</div> 
               </div>
-            </div>
+              <option>AC</option>
+              <option>Non-AC</option>
+            </select>
+        </div>
+          </div>
+      
           </div>
           <div class="form-group row">
             <label for="busNumber" class="col-sm-2 col-form-label">Bus Number</label>
@@ -104,7 +110,7 @@
           <div class="form-group row">
             <label for="busCapacity" class="col-sm-2 col-form-label">Bus Capacity</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="busCapacity" placeholder="Bus Capacity"formControlName="busCapacity" [ngClass]="{'is-invalid': submitted && control.busCapacity.errors}" >
+              <input type="number" min="30" class="form-control" id="busCapacity" placeholder="Bus Capacity"formControlName="busCapacity" [ngClass]="{'is-invalid': submitted && control.busCapacity.errors}" >
               <div *ngIf="submitted && control.busCapacity.errors" class="text-warning">
                   <div *ngIf="control.busCapacity.errors.required">Bus Capacity required</div> 
               </div>
@@ -117,11 +123,10 @@
               <div *ngIf="submitted && control.travel.errors" class="text-warning">
                   <div *ngIf="control.travel.errors.required">travel required</div> 
               </div>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <ng-container *ngFor="let travel of listTravel">
+              <option>{{travel.travelsName}}</option>
+            </ng-container>
+  
             </select>
         </div>
           </div>
@@ -144,22 +149,22 @@
           <th>Departure Time</th>
           <th>Arrival Time</th>
           <th>Duration</th>
-          <th>Bus Id</th>
+          <th>Bus Number</th>
           <th>Pick Up Point</th>
           <th>Fare</th>
         </tr>
-        <tr>
-            <td>1</td>
-          <td>Goa</td>
-          <td>Kashmir</td>
-          <td>2021-07-16</td>
-          <td>2021-07-18</td>
-          <td>05:23</td>
-          <td>15:28</td>
-          <td>2</td>
-          <td>6</td>
-          <td>Panjim</td>
-          <td>200</td>
+        <tr *ngFor="let route of listRoute">
+            <td>{{route?.routeId}}</td>
+          <td>{{route?.routeFrom}}</td>
+          <td>{{route?.routeTo}}</td>
+          <td>{{route?.departureTime}}</td>
+          <td>{{route?.arrivalTime}}</td>
+          <td>{{route?.departureDate}}</td>
+          <td>{{route?.arrivalDate}}</td>
+          <td>{{route?.duration}}</td>
+          <td><ng-container *ngFor="let bus of route.buses" >{{bus?.busNumber}}</ng-container></td>
+          <td>{{route?.pickupPoint}}</td>
+          <td>{{route?.fare}}</td>
         </tr>
       </table>      
 </div>
