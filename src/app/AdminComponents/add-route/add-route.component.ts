@@ -1,3 +1,8 @@
+import { Route } from 'src/app/Models/route';
+import { ReportService } from './../../Services/report.service';
+import { RoutesService } from 'src/app/Services/routes.service';
+import { TravelsService } from 'src/app/Services/travels.service';
+import { Travel } from './../../Models/travel';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,8 +18,15 @@ export class AddRouteComponent implements OnInit {
   addRouteForm!: FormGroup;
   faGoogle=faGooglePlusG;
   submitted = false;
-  constructor(private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
-   ngOnInit(): void {
+  listTravel!:Travel[];
+  listRoute!:Route[];
+  constructor(private routeservice:RoutesService ,private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
+   ngOnInit(): void {  
+    this.initForm();
+    this.gettravel();
+    this.viewRoute();
+    }
+  initForm(){
     this.addRouteForm=this.formBuilder.group({
       routeFrom:["",[Validators.required]],
       routeTo:["",[Validators.required]],
@@ -34,14 +46,49 @@ export class AddRouteComponent implements OnInit {
   }
   get control(){
 
-return this.addRouteForm.controls;
-  }
-  addRoute()
+    return this.addRouteForm.controls;
+      }
+      addRoute()
+      {
+
+      }
+  gettravel()
   {
-    this.submitted=true;
-    
-    if(this.addRouteForm.valid){
-  
-    }
+    this.routeservice.getTravel().subscribe(data=>{
+    this.listTravel=data;
+    },(error)=> {
+      if (error.status === 404) {
+        this.toastr.info("No Travels found! Try again")
+        this.router.navigate(['/admin/travels'])
+      } else if (error.status === 403) {
+        this.toastr.error("Please login first!")
+        this.router.navigate(['/login'])
+      }
+      else {
+        console.log(error);
+        this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("Something went wrong")
+      }
+    })
   }
+  viewRoute()
+  {
+    this.routeservice.viewRoute().subscribe(data=>{
+    this.listRoute=data;
+    },(error)=> {
+      if (error.status === 404) {
+        this.toastr.info("No Route found! Try again")
+        this.router.navigate(['/admin/travels'])
+      } else if (error.status === 403) {
+        this.toastr.error("Please login first!")
+        this.router.navigate(['/login'])
+      }
+      else {
+        console.log(error);
+        this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("Something went wrong")
+      }
+    })
+  }
+  
 }
