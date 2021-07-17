@@ -4,17 +4,17 @@
         <table class="tbl" style="width:100%">
             <tr>
             <th>Feedback Id</th>
-              <th>Customer Id</th>
-              <th>Feedback</th>
+              <th>Customer email</th>
+              <th>Feedback Info</th>
               <th>Rating</th>
               <th>Submit Date</th>
             </tr>
-            <tr>
-                <td>1</td>
-              <td>2</td>
-              <td>Great Experience got</td>
-              <td>5</td>
-              <td>2021-07-13</td>
+            <tr *ngFor="let feedback of listFeedback">
+                <td>{{feedback?.feedbackId}}</td>
+              <td>{{feedback.customer?.email}}</td>
+              <td>{{feedback?.feedback}}</td>
+              <td>{{feedback?.rating}}</td>
+              <td>{{feedback?.submitDate|date}}</td>
             </tr>
           </table>      
     </div>
