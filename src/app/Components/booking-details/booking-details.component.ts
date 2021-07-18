@@ -23,6 +23,11 @@ export class BookingDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getBooking();
   }
+
+ Report(id:number){
+  this.router.navigate(['/report',id])
+ }
+
   cancel(id:number){
     if (confirm("Are you sure you want to cancel this bookings")) {
       this.bookingService.cancel(id).subscribe(data=>{
