@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -21,11 +22,11 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
-
+  deletedRoute!:any;
   divs: number[] = [];
 
 
-  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) { 
+  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
 
   }
   ngOnInit(): void {
@@ -75,9 +76,14 @@ export class AddRouteComponent implements OnInit {
   }
   addRoute() {
 console.log(this.addRouteForm.value)
+      this.submitted=true;
+      if(this.addRouteForm.valid){
+        //this.travelService.travelbyid(this.)
+       // var travel=new TravelEntityDto()
+      }
   }
   gettravel() {
-    this.routeservice.getTravel().subscribe(data => {
+    this.routeService.getTravel().subscribe(data => {
       this.listTravel = data;
     }, (error) => {
       if (error.status === 404) {
@@ -95,7 +101,7 @@ console.log(this.addRouteForm.value)
     })
   }
   viewRoute() {
-    this.routeservice.viewRoute().subscribe(data => {
+    this.routeService.viewRoute().subscribe(data => {
       this.listRoute = data;
     }, (error) => {
       if (error.status === 404) {
@@ -112,5 +118,28 @@ console.log(this.addRouteForm.value)
       }
     })
   }
+  delete(id:number){
+    this.routeService.deleteRoute(id.toString()).subscribe(data=>{
+      this.deletedRoute=data;
+      this.router.navigate(['/admin/route'])
+      .then(() => {
+        window.location.reload();
+      });
+      this.toastr.success("Route removed")
+    },(error)=> {
+      if (error.staus = 404) {
+        this.toastr.info("No Routes found with this Id! Try again")
+        this.router.navigate(['/admin/route'])
+      } else if (error.staus = 403) {
+        this.toastr.error("Please login first!")
+        this.router.navigate(['/login'])
+      }
+      else {
+        console.log(error);
+        this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("Something went wrong")
+      }
+    })
+    }
 
 }

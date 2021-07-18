@@ -122,7 +122,7 @@
                   <div *ngIf="control.travel.errors.required">travel required</div> 
               </div>
               <ng-container *ngFor="let travel of listTravel">
-              <option>{{travel.travelsName}}</option>
+              <option value="{{travel.travelsId}}">{{travel.travelsName}}</option>
             </ng-container>
   
             </select>
@@ -158,6 +158,7 @@
           <th>Bus Number</th>
           <th>Pick Up Point</th>
           <th>Fare</th>
+          <th>Action</th>
         </tr>
         <tr *ngFor="let route of listRoute">
             <td>{{route?.routeId}}</td>
@@ -171,6 +172,7 @@
           <td><ng-container *ngFor="let bus of route.buses" >{{bus?.busNumber}}</ng-container></td>
           <td>{{route?.pickupPoint}}</td>
           <td>{{route?.fare}}</td>
+          <td><input type="button" (click)="delete(route.routeId)" class="btn btn-danger" value="Delete"></td>
         </tr>
       </table>      
 </div>

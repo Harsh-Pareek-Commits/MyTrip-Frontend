@@ -21,4 +21,7 @@ export class RoutesService {
   viewRoute():Observable<Route[]> {
     return this.http.get<Route[]>(`${baseUrl}route/all`);
   }
+  deleteRoute(id:string):Observable<object>
+  {
+    return this.http.delete<object>(`${baseUrl}route/remove/${id}`);}
 }
