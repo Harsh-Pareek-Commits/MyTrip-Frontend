@@ -13,4 +13,8 @@ export class FeedbackService {
   viewFeedback():Observable<Feedback[]> {
     return this.http.get<Feedback[]>(`${baseUrl}feedback/find`);
   }
+  addfeedback(feedback:any):Observable<Object>
+  {
+    return this.http.post<Feedback>(`${baseUrl}feedback/add`,feedback);
+  }
 }
