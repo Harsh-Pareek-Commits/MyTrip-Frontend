@@ -1,0 +1,25 @@
+
+    <div class="container">
+    <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
+            <div class="header">Add Feedback</div>
+        <div class="form-group row">
+            <label for="feedbackInfo" class="col-sm-2 col-form-label">Feedback Info</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="feedbackInfo" formControlName="feedbackInfo" [ngClass]="{'is-invalid': submitted && control.feedbackInfo.errors}" >
+              <div *ngIf="submitted && control.feedbackInfo.errors" class="text-warning">
+                  <div *ngIf="control.feedbackInfo.errors.required">Feedback Info required</div> 
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="feedbackRating" class="col-sm-2 col-form-label">Feedback Ratings</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="feedbackRating" formControlName="feedbackRating" [ngClass]="{'is-invalid': submitted && control.feedbackRating.errors}" >
+              <div *ngIf="submitted && control.feedbackRating.errors" class="text-warning">
+                  <div *ngIf="control.feedbackRating.errors.required">Feedback Ratings required</div> 
+              </div>
+            </div>
+            </div>
+      <button type="submit" class="btn btn-primary">Add Feedback</button>
+    </form>
+    </div>

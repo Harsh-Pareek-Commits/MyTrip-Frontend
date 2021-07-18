@@ -86,8 +86,11 @@ export class AddPackageComponent implements OnInit {
       console.log(pack.route)
       this.packageservice.addPack(pack).subscribe(data=>{
         var pack2=data;
-        this.toastr.error("Package Added")
-          
+        this.toastr.success("Package Added")
+        this.router.navigate(['/admin/package'])
+        .then(() => {
+          window.location.reload();
+        });
       }, (error) => {
             console.log(error);
             this.router.navigate(['/admin/package'])
