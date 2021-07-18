@@ -46,7 +46,7 @@
               <div *ngIf="control.route.errors.required">Route required</div> 
           </div>
           <ng-container *ngFor="let route of listRoute">
-            <option>  ID:{{route.routeId}}    From:{{route.routeFrom}}   To:{{route.routeTo}}  </option>
+            <option value="route.routeId">  ID:{{route.routeId}} {{route.routeFrom}} ---> {{route.routeTo}}</option>
           </ng-container>
         </select>
         </div>
@@ -54,15 +54,13 @@
       <div class="form-group row">
         <label for="hotel" class="col-sm-2 col-form-label">Hotel</label>
         <div class="col-sm-10">
-        <select class="form-control" id="hotel"formControlName="hotel" [ngClass]="{'is-invalid': submitted && control.hotel.errors}" >
+        <select multiple class="form-control" id="hotel"formControlName="hotel" [ngClass]="{'is-invalid': submitted && control.hotel.errors}">
           <div *ngIf="submitted && control.hotel.errors" class="text-warning">
               <div *ngIf="control.hotel.errors.required">Hotel required</div> 
           </div>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <ng-container *ngFor="let hotel of listHotel">
+            <option value="{{hotel.hotelId}}">{{hotel.hotelName}} , {{hotel.city}} </option>
+          </ng-container>
         </select>
     </div>
       </div>
