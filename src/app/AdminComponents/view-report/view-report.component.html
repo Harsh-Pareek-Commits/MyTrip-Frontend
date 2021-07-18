@@ -7,12 +7,14 @@
               <th>Report Name</th>
               <th>Report Type</th>
               <th>Booking Id</th>
+              
             </tr>
-            <tr>
-                <td>1</td>
-              <td>Harsh you figure it out</td>
-              <td>Complain</td>
-              <td>5</td>
+            <tr *ngFor="let report of listReport">
+              <td>{{report?.reportId}}</td>
+              <td>{{report?.reportName}}</td>
+              <td>{{report?.reportType}}</td>
+              <td><ng-container *ngFor="let booking of report.allBookings" >{{booking?.bookingId}}</ng-container></td>
+              
             </tr>
           </table>      
     </div>

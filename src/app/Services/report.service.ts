@@ -15,4 +15,7 @@ export class ReportService {
   {
     return this.http.post<Report>(`${baseUrl}report/add`,report);
   }
+  viewReport():Observable<Report[]> {
+    return this.http.get<Report[]>(`${baseUrl}report/all`);
+  }
 }
