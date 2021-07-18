@@ -80,7 +80,7 @@
     </div>
 </div>
 <div class="col col-10 offset-md-2 container">
-    <div class="container">
+    <div class="container" *ngFor="let div of divs" id="div{{div}}" >
     
             <div class="header">Bus Details</div>
         <div class="form-group row">
@@ -130,9 +130,13 @@
             </select>
         </div>
           </div>
-          <button type="submit" class="btn btn-primary">Add Route</button>
+         
     
     </div>
+    <div align="center">
+      <input (click)="createDiv()" type="button" class="btn btn-primary" value="Add More Bus">
+    <button type="submit" class="btn btn-primary">Add Route</button>
+  </div>
 </div>
 </form>
 

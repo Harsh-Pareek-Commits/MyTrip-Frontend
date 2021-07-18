@@ -20,6 +20,11 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!:Travel[];
   listRoute!:Route[];
+  divs: number[] = [];
+
+  createDiv(): void {
+    this.divs.push(this.divs.length);
+  }
   constructor(private routeservice:RoutesService ,private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {  
     this.initForm();
@@ -50,7 +55,7 @@ export class AddRouteComponent implements OnInit {
       }
       addRoute()
       {
-
+              
       }
   gettravel()
   {
