@@ -1,3 +1,4 @@
+import { ReportComponent } from './Components/report/report.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -33,11 +34,12 @@ import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedb
 import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
 import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component';
-import { ReportComponent } from './Components/report/report.component'
+import { TryComponent } from './AdminComponents/try/try.component'
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
+  {path:'try',component: TryComponent},
  {path:'myaccount',component: MyAccountComponent},
  {path:'booking',component: BookingsComponent},
  {path:'details/:id',component: BookingDetailsComponent},
@@ -88,7 +90,8 @@ const appRoutes:Routes=[
     MyAccountComponent,
     AddTravelsComponent,
     AddAdminComponent,
-    ReportComponent
+    ReportComponent,
+    TryComponent
    
   ],
   imports: [
