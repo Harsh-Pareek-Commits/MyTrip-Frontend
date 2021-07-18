@@ -1,3 +1,4 @@
+import { Hotel } from 'src/app/Models/hotel';
 import { Route } from 'src/app/Models/route';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -19,10 +20,9 @@ export class PackageService {
   
   packages: Package[] = [];
   pack!: Package;
-  addPack(pack: Package) {
-    this.packages.push(pack);
-    console.log(this.packages.length);
-
+  addPack(pack: PackageEntityDto):Observable<Package> {
+    return this.http.post<Package>(`${baseUrl}package/add`,pack);
+  
   }
   getAllPack():Observable<Package[]>{
    
@@ -42,5 +42,8 @@ export class PackageService {
   }
   viewRoute():Observable<Route[]> {
     return this.http.get<Route[]>(`${baseUrl}route/all`);
+  }
+  viewHotel():Observable<Hotel[]> {
+    return this.http.get<Hotel[]>(`${baseUrl}hotel/view`);
   }
 }
