@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { baseUrl } from 'src/environments/environment';
 import { Route } from '../Models/route';
+import { RouteEntityDto } from '../EntityDtoModels/route-entity-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,7 @@ export class RoutesService {
   deleteRoute(id:string):Observable<object>
   {
     return this.http.delete<object>(`${baseUrl}route/remove/${id}`);}
+  addRoute(route:RouteEntityDto):Observable<Route>{
+    return this.http.post<Route>(`${baseUrl}route/add`,route);
+  }
 }
