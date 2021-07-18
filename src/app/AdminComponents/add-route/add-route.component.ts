@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+import { Bus } from 'src/app/Models/bus';
+import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
+import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
+import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -16,16 +20,17 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
 })
 export class AddRouteComponent implements OnInit {
   addRouteForm!: FormGroup;
-  
+
   faGoogle = faGooglePlusG;
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
+  listBus: Bus[] = [];
 
   divs: number[] = [];
 
 
-  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) { 
+  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -44,15 +49,15 @@ export class AddRouteComponent implements OnInit {
       pickUpPoint: ["", [Validators.required]],
       fare: ["", [Validators.required]],
 
-      bus: this.formBuilder.array([]) ,
-     
+      bus: this.formBuilder.array([]),
+
 
     })
   }
-  bus() : FormArray {
+  bus(): FormArray {
     return this.addRouteForm.get("bus") as FormArray
   }
-   
+
   newBus(): FormGroup {
     return this.formBuilder.group({
       busType: '',
@@ -65,8 +70,43 @@ export class AddRouteComponent implements OnInit {
     this.bus().push(this.newBus());
   }
   onSubmit() {
-    
-    console.log(this.addRouteForm.value)
+
+
+    this.submitted = true;
+    if (this.addRouteForm.valid) {
+      var buslist: any[] = this.addRouteForm.get('bus')?.value;
+      for (var index in buslist) {
+
+        var travel = new Travel(buslist[index].travel, "as ", "as ", "aas ", "1234567890")
+        console.log( buslist[index].busNumber)
+        var bus = new Bus(0, buslist[index].busType, buslist[index].busNumber, travel, buslist[index].busCapacity);
+        this.listBus.push(bus);
+      }
+      
+      var route = new RouteEntityDto(0, this.addRouteForm.get('routeFrom')?.value, this.addRouteForm.get('routeTo')?.value, this.listBus,
+        this.addRouteForm.get('deptDate')?.value, this.addRouteForm.get('arrivalDate')?.value,
+        this.addRouteForm.get('arrivalTime')?.value, this.addRouteForm.get('deptTime')?.value,
+        " ", this.addRouteForm.get('pickUpPoint')?.value, this.addRouteForm.get('fare')?.value);
+      console.log(route);
+      this.routeservice.addRoute(route).subscribe(data => {
+        var route = data;
+      }, (error) => {
+        if (error.status === 404) {
+          this.toastr.info("No Route added! Try again")
+          this.router.navigate(['/admin/route'])
+        } else if (error.status === 403) {
+          this.toastr.error("Please login first!")
+          this.router.navigate(['/login'])
+        }
+        else {
+          console.log(error);
+          this.router.navigate(['/admin/route'])
+          this.toastr.error("Something went wrong")
+        }
+      })
+
+    }
+
   }
 
   get control() {
@@ -74,7 +114,7 @@ export class AddRouteComponent implements OnInit {
     return this.addRouteForm.controls;
   }
   addRoute() {
-console.log(this.addRouteForm.value)
+    console.log(this.addRouteForm.value)
   }
   gettravel() {
     this.routeservice.getTravel().subscribe(data => {
@@ -100,7 +140,7 @@ console.log(this.addRouteForm.value)
     }, (error) => {
       if (error.status === 404) {
         this.toastr.info("No Route found! Try again")
-        this.router.navigate(['/admin/travels'])
+        this.router.navigate(['/admin/route'])
       } else if (error.status === 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
