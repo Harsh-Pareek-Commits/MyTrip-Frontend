@@ -11,7 +11,7 @@ import { Route } from '../Models/route';
 export class RoutesService {
 
   constructor(private http:HttpClient) { }
-  getRouteById(id:String){
+  getRouteById(id:String):Observable<Route>{
     
     return this.http.get<Route>(`${baseUrl}route/view/${id}`);
   }

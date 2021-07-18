@@ -46,7 +46,7 @@
               <div *ngIf="control.route.errors.required">Route required</div> 
           </div>
           <ng-container *ngFor="let route of listRoute">
-            <option value="route.routeId">  ID:{{route.routeId}} {{route.routeFrom}} ---> {{route.routeTo}}</option>
+            <option value="{{route.routeId}}">  ID:{{route.routeId}} {{route.routeFrom}} ---> {{route.routeTo}}</option>
           </ng-container>
         </select>
         </div>
@@ -93,7 +93,7 @@
           <td>{{package?.packageCost}}</td>
           <td>{{package.route?.routeFrom}}</td>
           <td>{{package.route?.routeTo}}</td>
-          <td><ng-container *ngFor="let hotel of package.hotel" >{{hotel?.hotelName}}</ng-container></td>
+          <td><ng-container *ngFor="let hotel of package.hotel" > {{hotel?.hotelName}}</ng-container> </td>
         </tr>
       </table>      
 </div>

@@ -22,4 +22,8 @@ return this.http.post<Hotel>(`${baseUrl}hotel/add`,hotel);
   {
     return this.http.delete<object>(`${baseUrl}hotel/delete/${id}`);
   }
+   getHotel(id:number):Observable<HotelEntityDto>
+  {
+    return this.http.get<HotelEntityDto>(`${baseUrl}hotel/search/${id}`);
+  }
 }
