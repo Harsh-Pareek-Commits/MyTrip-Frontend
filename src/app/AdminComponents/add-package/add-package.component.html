@@ -45,11 +45,9 @@
           <div *ngIf="submitted && control.route.errors" class="text-warning">
               <div *ngIf="control.route.errors.required">Route required</div> 
           </div>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
+          <ng-container *ngFor="let route of listRoute">
+            <option>  ID:{{route.routeId}}    From:{{route.routeFrom}}   To:{{route.routeTo}}  </option>
+          </ng-container>
         </select>
         </div>
       </div>
@@ -85,17 +83,19 @@
           <th>Package Description</th>
           <th>Package Type</th>
           <th>Package Cost</th>
-          <th>Route Id</th>
-          <th>Hotel Id</th>+
+          <th>Route From</th>
+          <th>Route To</th>
+          <th>Hotel Name</th>
         </tr>
-        <tr>
-            <td>1</td>
-          <td>Goa Tour</td>
-          <td>Great Experience to get</td>
-          <td>Day</td>
-          <td>6000</td>
-          <td>5</td>
-          <td>6</td>
+        <tr *ngFor="let package of listPackage">
+            <td>{{package?.packageId}}</td>
+          <td>{{package?.packageName}}</td>
+          <td>{{package?.packageDescription}}</td>
+          <td>{{package?.packageType}}</td>
+          <td>{{package?.packageCost}}</td>
+          <td>{{package.route?.routeFrom}}</td>
+          <td>{{package.route?.routeTo}}</td>
+          <td><ng-container *ngFor="let hotel of package.hotel" >{{hotel?.hotelName}}</ng-container></td>
         </tr>
       </table>      
 </div>
