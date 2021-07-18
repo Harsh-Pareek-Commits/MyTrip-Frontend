@@ -4,7 +4,7 @@ import { RoutesService } from 'src/app/Services/routes.service';
 import { TravelsService } from 'src/app/Services/travels.service';
 import { Travel } from './../../Models/travel';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder, Validators,FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
@@ -42,10 +42,10 @@ export class AddRouteComponent implements OnInit {
       pickUpPoint:["",[Validators.required]],
       fare:["",[Validators.required]],
 
-      busType:["",[Validators.required]],
-      busNumber:["",[Validators.required]],
-      busCapacity:["",[Validators.required]],
-      travel:["",[Validators.required]],
+      busType:this.formBuilder.array([]),
+      busNumber:[{value:""},[Validators.required]],
+      busCapacity:[{value:""},[Validators.required]],
+      travel:[{value:""},[Validators.required]],
 
     })
   }
@@ -55,7 +55,8 @@ export class AddRouteComponent implements OnInit {
       }
       addRoute()
       {
-              
+          console.log(this.addRouteForm.value);
+          console.log(this.addRouteForm.get('busType')?.value);
       }
   gettravel()
   {
