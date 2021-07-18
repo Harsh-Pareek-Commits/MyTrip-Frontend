@@ -4,11 +4,7 @@ import { RoutesService } from 'src/app/Services/routes.service';
 import { TravelsService } from 'src/app/Services/travels.service';
 import { Travel } from './../../Models/travel';
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { FormControl, FormGroup,FormBuilder, Validators,FormArray } from '@angular/forms';
-=======
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
->>>>>>> 7f8bb70b9bc21f4a0f1ecdec3827ec7932045b2d
 import { Router } from '@angular/router';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
