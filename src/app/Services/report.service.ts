@@ -3,6 +3,7 @@ import { Report } from './../Models/report';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ReportEntityDto } from '../EntityDtoModels/report-entity-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,8 @@ import { Injectable } from '@angular/core';
 export class ReportService {
 
   constructor(private http:HttpClient) { }
-  addReport(report:any):Observable<Object>
+  addReport(report:ReportEntityDto):Observable<Object>
   {
-return this.http.post<Report>(`${baseUrl}report/add`,report);
+    return this.http.post<Report>(`${baseUrl}report/add`,report);
   }
 }

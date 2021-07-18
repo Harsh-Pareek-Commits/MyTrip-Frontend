@@ -1,11 +1,13 @@
+import { CustomerEntityDto } from "./customer-entity-dto";
+
 export class FeedbackEntityDto {
-    customer:string;
+    customer:CustomerEntityDto;
     feedbackInfo:string;
     feedbackRating:number;
     submitDate:string;
 
   constructor(
-    customer: string, 
+    customer: CustomerEntityDto, 
     feedbackInfo: string, 
     feedbackRating: number, 
     submitDate: string

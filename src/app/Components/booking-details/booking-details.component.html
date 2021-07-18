@@ -28,7 +28,7 @@
                     </div>
                     <hr>
                     <h6>BUS DETAILS </h6>
-                    <ng-container *ngFor="let bus of book.pack?.route?.buses; let i=index">
+                    <ng-container *ngFor="let bus of book?.pack?.route?.buses; let i=index">
                         <hr>
                         <h6 align="center">BUS-{{i+1}} </h6> 
                         <div class="row">
@@ -62,7 +62,7 @@
                     </ng-container>
                         <h6>HOTEL DETAILS </h6>
                         
-                        <ng-container *ngFor="let hotel of book.pack?.hotel; let i=index">
+                        <ng-container *ngFor="let hotel of book?.pack?.hotel; let i=index">
                             <hr>
                             <h6 align="center">HOTEL-{{i+1}} </h6> 
                             <div class="row">
@@ -84,6 +84,7 @@
                         <div align="center">
 
                             <a (click)="cancel(book.bookingId)" class="btn btn-primary">CANCEL</a>
+                            <a (click)="Report(book.bookingId)" class="btn btn-primary">Report an issue</a>
                         </div>
                 </div>
             </div>
