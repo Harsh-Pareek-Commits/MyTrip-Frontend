@@ -1,6 +1,6 @@
 
 <div class="container" >
-    <form class="col col-6 offset-3" [formGroup]="accountForm">
+    <form class="col col-6 offset-3" [formGroup]="accountForm" (ngSubmit)="saveCustomer()" >
         <div class="row">
             <div class="col col-12  justify-content-center dp" align="center" >
                 <img src="../../../assets/images/user.jpg">
@@ -16,6 +16,9 @@
                     <button class="btn btn-outline-secondary" (click)="change('name')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
                   </div>
             </div>
+            <div *ngIf="submitted && control.name.errors" class="text-warning">
+                <div *ngIf="control.name.errors.required">Name required</div> 
+            </div>
             <div class="input-group mb-3 mydiv">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">MOBILE</span>
@@ -26,13 +29,14 @@
                     <button class="btn btn-outline-secondary" (click)="change('mobile')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
                   </div>
             </div>
-          
+            <div *ngIf="submitted && control.mobile.errors" class="text-warning">
+                <div *ngIf="control.mobile.errors.required">Mobile number required</div> 
+            </div>
             <div class="input-group mb-3 mydiv">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">EMAIL</span>
                 </div>
-                <input type="text" class="form-control" id="email"  value="{{cust?.email}}"  formControlName="email" 
-                [ngClass]="{'is-invalid': submitted && control.email.errors}" >
+                <input type="text" class="form-control" id="email"  value="{{cust?.email}}"  f>
             </div>
             <div class="input-group mb-3 mydiv">
                 <div class="input-group-prepend">
@@ -43,6 +47,9 @@
                 <div class="input-group-append">
                     <button class="btn btn-outline-secondary" (click)="change('address')" type="button"> <fa-icon class="ficon" [icon]="faPencilAlt"></fa-icon> </button>
                   </div>
+            </div>
+            <div *ngIf="submitted && control.address.errors" class="text-warning">
+                <div *ngIf="control.address.errors.required">Address required</div> 
             </div>
             <div class="input-group mb-3 h-100 justify-content-center mydiv" >
                <input type="Submit" class="btn btn-primary" id="save" value="Save" [disabled]=true style="width:150px;"   >

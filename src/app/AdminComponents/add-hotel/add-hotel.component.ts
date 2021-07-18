@@ -23,6 +23,7 @@ export class AddHotelComponent implements OnInit {
   deletedhotel!:any;
   constructor(private hotelservice:HotelService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
+
     this.initForm();
     this.viewHotel();
     }
@@ -69,10 +70,10 @@ return this.hotelForm.controls;
     this.hotelservice.viewHotel().subscribe(data=>{
     this.listhotel=data;
     },(error)=> {
-      if (error.staus = 404) {
+      if (error.status === 404) {
         this.toastr.info("No Hotels found! Try again")
         this.router.navigate(['/admin/hotel'])
-      } else if (error.staus = 403) {
+      } else if (error.status === 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
       }

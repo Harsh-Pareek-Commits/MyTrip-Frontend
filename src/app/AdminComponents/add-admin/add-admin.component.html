@@ -30,9 +30,19 @@
             </div>
           </div>
           <div class="form-group row">
+            <label for="confirmpassword" class="col-sm-2 col-form-label">Confirm Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword" [ngClass]="{'is-invalid': submitted && control.confirmpassword.errors}">
+              <div *ngIf="submitted && control.confirmpassword.errors" class="text-warning">
+                  <div *ngIf="control.confirmpassword.errors.required">Password required</div> 
+                  <div *ngIf="control.confirmpassword.errors.confirmedValidator">Password and Confirm Password must match.</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
             <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
             <div class="col-sm-10">
-              <input type="text"class="form-control" id="mobilenumber" formControlName="mobileNumber" [ngClass]="{'is-invalid': submitted && control.mobileNumber.errors}">
+              <input type="number"class="form-control" id="mobilenumber" formControlName="mobileNumber" [ngClass]="{'is-invalid': submitted && control.mobileNumber.errors}">
               <div *ngIf="submitted && control.mobileNumber.errors" class="text-warning">
                   <div *ngIf="control.mobileNumber.errors.required">Mobile Number required</div> 
               </div>
@@ -44,3 +54,22 @@
     </form>
     </div>
 </div>
+<div class="col col-10 offset-md-2 container viewall">
+  <div class="container">
+      <div class="header">All Customer</div>
+      <table class="tbl" style="width:100%">
+        <th>Customer Id</th>
+        <th>Customer Name</th>
+        <th>Customer Address</th>
+        <th>Customer Contact</th>
+        <th>Customer  email</th>
+      <tr *ngFor="let customer of listCustomer">
+          <td>{{customer?.customerId}}</td>
+        <td>{{customer?.customerName}}</td>
+        <td>{{customer?.customerAddress}}</td>
+        <td>{{customer?.customerMobileNo}}</td>
+        <td>{{customer?.email}}</td>
+        </tr>
+        </table>      
+  </div>
+  </div>
