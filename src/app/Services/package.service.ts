@@ -20,10 +20,9 @@ export class PackageService {
   
   packages: Package[] = [];
   pack!: Package;
-  addPack(pack: Package) {
-    this.packages.push(pack);
-    console.log(this.packages.length);
-
+  addPack(pack: PackageEntityDto):Observable<Package> {
+    return this.http.post<Package>(`${baseUrl}package/add`,pack);
+  
   }
   getAllPack():Observable<Package[]>{
    
