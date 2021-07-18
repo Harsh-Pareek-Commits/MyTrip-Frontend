@@ -90,7 +90,7 @@ console.log(sessionStorage.getItem('token'))
 var travels=new TravelEntityDto(0,this.travelForm.get('travelsName')?.value,this.travelForm.get('agentName')?.value,this.travelForm.get('agentAddress')?.value,this.travelForm.get('agentContact')?.value);
 this.travelservice.addTravels(travels).subscribe(data=>{
 this.travel=data;
-this.router.navigate(['/admin/travel'])
+this.router.navigate(['/admin/travels'])
     .then(() => {
       window.location.reload();
     });
