@@ -4,9 +4,9 @@ import { RoutesService } from 'src/app/Services/routes.service';
 import { TravelsService } from 'src/app/Services/travels.service';
 import { Travel } from './../../Models/travel';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
-import {faGooglePlusG} from '@fortawesome/free-brands-svg-icons';
+import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
 @Component({
@@ -16,52 +16,62 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
 })
 export class AddRouteComponent implements OnInit {
   addRouteForm!: FormGroup;
-  faGoogle=faGooglePlusG;
+  faGoogle = faGooglePlusG;
   submitted = false;
-  listTravel!:Travel[];
-  listRoute!:Route[];
+  listTravel!: Travel[];
+  listRoute!: Route[];
+  bus!: FormArray;
   divs: number[] = [];
 
   createDiv(): void {
     this.divs.push(this.divs.length);
+
+    this.bus = this.addRouteForm.get('bus') as FormArray;
+    this.bus.push(this.createItem());
+
   }
-  constructor(private routeservice:RoutesService ,private authService: AuthServiceService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
-   ngOnInit(): void {  
+  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) { }
+  ngOnInit(): void {
     this.initForm();
     this.gettravel();
     this.viewRoute();
-    }
-  initForm(){
-    this.addRouteForm=this.formBuilder.group({
-      routeFrom:["",[Validators.required]],
-      routeTo:["",[Validators.required]],
-      deptDate:["",[Validators.required]],
-      arrivalDate:["",[Validators.required]],
-      deptTime:["",[Validators.required]],
-      arrivalTime:["",[Validators.required]],
-      pickUpPoint:["",[Validators.required]],
-      fare:["",[Validators.required]],
+  }
+  initForm() {
+    this.addRouteForm = this.formBuilder.group({
+      routeFrom: ["", [Validators.required]],
+      routeTo: ["", [Validators.required]],
+      deptDate: ["", [Validators.required]],
+      arrivalDate: ["", [Validators.required]],
+      deptTime: ["", [Validators.required]],
+      arrivalTime: ["", [Validators.required]],
+      pickUpPoint: ["", [Validators.required]],
+      fare: ["", [Validators.required]],
 
-      busType:["",[Validators.required]],
-      busNumber:["",[Validators.required]],
-      busCapacity:["",[Validators.required]],
-      travel:["",[Validators.required]],
+      bus: this.formBuilder.array([this.createItem()]),
+     
 
     })
   }
-  get control(){
+
+  createItem(): FormGroup {
+    return this.formBuilder.group({
+      busType: '',
+      busNumber: '',
+      busCapacity: '',
+      travel: '',
+    });
+  }
+  get control() {
 
     return this.addRouteForm.controls;
-      }
-      addRoute()
-      {
-              
-      }
-  gettravel()
-  {
-    this.routeservice.getTravel().subscribe(data=>{
-    this.listTravel=data;
-    },(error)=> {
+  }
+  addRoute() {
+
+  }
+  gettravel() {
+    this.routeservice.getTravel().subscribe(data => {
+      this.listTravel = data;
+    }, (error) => {
       if (error.status === 404) {
         this.toastr.info("No Travels found! Try again")
         this.router.navigate(['/admin/travels'])
@@ -76,11 +86,10 @@ export class AddRouteComponent implements OnInit {
       }
     })
   }
-  viewRoute()
-  {
-    this.routeservice.viewRoute().subscribe(data=>{
-    this.listRoute=data;
-    },(error)=> {
+  viewRoute() {
+    this.routeservice.viewRoute().subscribe(data => {
+      this.listRoute = data;
+    }, (error) => {
       if (error.status === 404) {
         this.toastr.info("No Route found! Try again")
         this.router.navigate(['/admin/travels'])
@@ -95,5 +104,5 @@ export class AddRouteComponent implements OnInit {
       }
     })
   }
-  
+
 }
