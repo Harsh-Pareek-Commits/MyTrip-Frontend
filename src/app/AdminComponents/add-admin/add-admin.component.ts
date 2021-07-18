@@ -56,6 +56,10 @@ addAdmin()
      this.userservice.addAdmin(admin).subscribe(data=>{
       this.adm=data;
       this.toastr.success("Admin added successfully")
+      this.router.navigate(['/admin/addadmin'])
+      .then(() => {
+        window.location.reload();
+      });
     },(error)=>{
       console.log(error);
       this.toastr.error("Somthing Went Wrong. Please try again")
