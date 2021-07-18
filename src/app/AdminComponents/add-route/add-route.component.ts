@@ -20,17 +20,13 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
-  bus!: FormArray;
+
   divs: number[] = [];
 
-  createDiv(): void {
-    this.divs.push(this.divs.length);
 
-    this.bus = this.addRouteForm.get('bus') as FormArray;
-    this.bus.push(this.createItem());
+  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) { 
 
   }
-  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) { }
   ngOnInit(): void {
     this.initForm();
     this.gettravel();
@@ -47,26 +43,37 @@ export class AddRouteComponent implements OnInit {
       pickUpPoint: ["", [Validators.required]],
       fare: ["", [Validators.required]],
 
-      bus: this.formBuilder.array([this.createItem()]),
+      bus: this.formBuilder.array([]) ,
      
 
     })
   }
-
-  createItem(): FormGroup {
+  bus() : FormArray {
+    return this.addRouteForm.get("bus") as FormArray
+  }
+   
+  newBus(): FormGroup {
     return this.formBuilder.group({
       busType: '',
       busNumber: '',
       busCapacity: '',
       travel: '',
-    });
+    })
   }
+  addBus() {
+    this.bus().push(this.newBus());
+  }
+  onSubmit() {
+    
+    console.log(this.addRouteForm.value)
+  }
+
   get control() {
 
     return this.addRouteForm.controls;
   }
   addRoute() {
-
+console.log(this.addRouteForm.value)
   }
   gettravel() {
     this.routeservice.getTravel().subscribe(data => {
