@@ -34,10 +34,12 @@ import {ViewReportComponent} from './AdminComponents/view-report/view-report.com
 import { MyAccountComponent } from './Components/my-account/my-account.component';
 import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component';
 import { FeedbackComponent } from './Components/feedback/feedback.component'
+import { TryComponent } from './AdminComponents/try/try.component'
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent},
   {path:'package/:from/:to/:date',component: PackageComponent},
+  {path:'try',component: TryComponent},
  {path:'myaccount',component: MyAccountComponent},
  {path:'booking',component: BookingsComponent},
  {path:'details/:id',component: BookingDetailsComponent},
@@ -88,7 +90,8 @@ const appRoutes:Routes=[
     MyAccountComponent,
     AddTravelsComponent,
     AddAdminComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    TryComponent
    
   ],
   imports: [
