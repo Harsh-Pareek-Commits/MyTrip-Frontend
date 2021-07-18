@@ -1,3 +1,4 @@
+import { ReportComponent } from './Components/report/report.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -90,7 +91,11 @@ const appRoutes:Routes=[
     MyAccountComponent,
     AddTravelsComponent,
     AddAdminComponent,
+
+    ReportComponent,
+
     FeedbackComponent,
+
     TryComponent
    
   ],
