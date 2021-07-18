@@ -80,6 +80,7 @@
     </div>
 </div>
 <div class="col col-10 offset-md-2 container">
+  <div formArrayName="bus">
     <div class="container"  *ngFor="let b of bus().controls; let i=index"  [formGroupName]="i" >
     
             <div class="header">Bus Details</div>
@@ -130,6 +131,7 @@
          
     
     </div>
+  </div>
     <div align="center">
       <input (click)="addBus()" type="button" class="btn btn-primary" value="Add More Bus">
     <button type="submit" class="btn btn-primary">Add Route</button>
