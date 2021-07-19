@@ -23,9 +23,14 @@ export class UserService {
   addAdmin(admin:any):Observable<Object>
   {
     console.log(admin);
-    return this.http.post<AdminEntityDto>(`${baseUrl}admin/add`,admin);
+    return this.http.post<Admin>(`${baseUrl}admin/add`,admin);
   }
   viewCustomer():Observable<Customer[]> {
     return this.http.get<Customer[]>(`${baseUrl}customer/view`);
+  }
+  addcustomer(customer:any):Observable<Customer>
+  {
+    console.log(customer);
+    return this.http.post<Customer>(`${baseUrl}customer/add`,customer);
   }
 }

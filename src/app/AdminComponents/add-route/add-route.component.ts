@@ -131,7 +131,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
@@ -149,7 +149,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+      //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })

@@ -93,7 +93,7 @@ const appRoutes:Routes=[
     MyAccountComponent,
     AddTravelsComponent,
     AddAdminComponent,
-
+  
     ReportComponent,
 
     FeedbackComponent,

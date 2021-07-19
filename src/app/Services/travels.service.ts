@@ -13,7 +13,7 @@ export class TravelsService {
   constructor(private http:HttpClient) { }
   addTravels(travel:any):Observable<Object>
   {
-return this.http.post<TravelEntityDto>(`${baseUrl}travel/add`,travel);
+return this.http.post<Travel>(`${baseUrl}travel/add`,travel);
   }
   viewTravel():Observable<Travel[]> {
     return this.http.get<Travel[]>(`${baseUrl}travel/all`);

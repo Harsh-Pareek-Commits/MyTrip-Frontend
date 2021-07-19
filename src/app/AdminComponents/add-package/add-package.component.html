@@ -74,6 +74,9 @@
 <div class="col col-10 offset-md-2 container viewall">
 <div class="container">
     <div class="header">View Package</div>
+    <div class="search">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Package">
+    </div>
     <table class="tbl" style="width:100%">
         <tr>
             <th>Pacakage Id</th>
@@ -86,7 +89,7 @@
           <th>Hotel Name</th>
           <th>Action</th>
         </tr>
-        <tr *ngFor="let package of listPackage">
+        <tr *ngFor="let package of listPackage  | filter:searchText">
             <td>{{package?.packageId}}</td>
           <td>{{package?.packageName}}</td>
           <td>{{package?.packageDescription}}</td>
