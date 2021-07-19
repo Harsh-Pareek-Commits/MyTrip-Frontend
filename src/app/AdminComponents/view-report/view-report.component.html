@@ -1,21 +1,22 @@
 <div class="col col-10 offset-md-2 container viewall">
-  <div class="container">
-      <div class="header">All Reports</div>
-      <table class="tbl" style="width:100%">
-          <tr>
-          <th>Report id</th>
-            <th>Report Name</th>
-            <th>Report Type</th>
-            <th>Booking Id</th>
-            
-          </tr>
-          <tr *ngFor="let report of listReport">
-            <td>{{report?.reportId}}</td>
-            <td>{{report?.reportName}}</td>
-            <td>{{report?.reportType}}</td>
-            <td><ng-container *ngFor="let booking of report.allBookings" >{{booking?.bookingId}}</ng-container></td>
-            
-          </tr>
-        </table>      
-  </div>
-  </div>
+    <div class="container">
+        <div class="header">All Reports</div>
+        <table class="tbl" style="width:100%">
+            <tr>
+            <th>Report id</th>
+              <th>Report Name</th>
+              <th>Report Type</th>
+              <th>Booking Id</th>
+              
+            </tr>
+            <tr *ngFor="let report of listReport">
+              <td>{{report?.reportId}}</td>
+              <td>{{report?.reportName}}</td>
+              <td>{{report?.reportType}}</td>
+              <td><ng-container *ngFor="let booking of report.allBookings" >{{booking?.bookingId}}</ng-container></td>
+              
+            </tr>
+          </table>      
+    </div>
+    </div>
+

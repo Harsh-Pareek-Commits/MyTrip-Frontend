@@ -25,4 +25,7 @@ export class RoutesService {
   addRoute(route:RouteEntityDto):Observable<Route>{
     return this.http.post<Route>(`${baseUrl}route/add`,route);
   }
+  deleteRoute(id:string):Observable<object>
+  {
+    return this.http.delete<object>(`${baseUrl}route/remove/${id}`);}
 }
