@@ -55,8 +55,8 @@ export class ViewBookingComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+        //this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No Bookings Found")
       }
     })
   }

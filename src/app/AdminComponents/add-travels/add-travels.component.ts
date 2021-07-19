@@ -77,8 +77,8 @@ return this.travelForm.controls;
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+       // this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No Travels Found")
       }
     })
   }
