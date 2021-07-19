@@ -26,6 +26,7 @@ export class AddPackageComponent implements OnInit {
   listRoute!: Route[];
   listHotel!: Hotel[];
   addHotelList: HotelEntityDto[] = [];
+  deletedpackage!:any;
   constructor(private packageservice: PackageService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router, private hotelService: HotelService, private routeService: RoutesService) { }
 
   ngOnInit(): void {
@@ -50,6 +51,29 @@ export class AddPackageComponent implements OnInit {
 
     return this.addPackageForm.controls;
   }
+  delete(id:number){
+    this.packageservice.deletePackage(id.toString()).subscribe(data=>{
+      this.deletedpackage=data;
+      this.router.navigate(['/admin/package'])
+      .then(() => {
+        window.location.reload();
+      });
+      this.toastr.success("Package removed")
+    },(error)=> {
+      if (error.staus = 404) {
+        this.toastr.info("No Packages found with this Id! Try again")
+        this.router.navigate(['/admin/package'])
+      } else if (error.staus = 403) {
+        this.toastr.error("Please login first!")
+        this.router.navigate(['/login'])
+      }
+      else {
+        console.log(error);
+        this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("Something went wrong")
+      }
+    })
+    }
   addPackage() {
     this.submitted = true;
 

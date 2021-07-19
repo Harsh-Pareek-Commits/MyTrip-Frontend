@@ -22,4 +22,8 @@ return this.http.post<TravelEntityDto>(`${baseUrl}travel/add`,travel);
   {
     return this.http.delete<object>(`${baseUrl}travel/delete/${id}`);
   }
+  travelbyid(id:string):Observable<Travel>
+  {
+    return this.http.get<Travel>(`${baseUrl}travel/search/${id}`);
+  }
 }

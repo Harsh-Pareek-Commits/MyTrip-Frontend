@@ -1,25 +1,31 @@
-
-    <div class="container">
-    <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
-            <div class="header">Add Feedback</div>
+<div class="container">
+  <div class="card">
+    <h5 class="card-header">Feedback </h5>
+    <div class="card-body">
+      <form [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
+        <div align="center">
+        <fa-icon class="ficon"(mouseover)="Rating(1)" id="1" [icon]="faStar"  size="2x"></fa-icon> 
+        <fa-icon class="ficon" (mouseover)="Rating(2)" id="2" [icon]="faStar" size="2x"></fa-icon> 
+        <fa-icon class="ficon" (mouseover)="Rating(3)" id="3" [icon]="faStar" size="2x" ></fa-icon> 
+        <fa-icon class="ficon" (mouseover)="Rating(4)" id="4" [icon]="faStar" size="2x"></fa-icon> 
+        <fa-icon class="ficon" (mouseover)="Rating(5)" id="5" [icon]="faStar" size="2x" ></fa-icon> 
+      </div>
         <div class="form-group row">
-            <label for="feedbackInfo" class="col-sm-2 col-form-label">Feedback Info</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="feedbackInfo" formControlName="feedbackInfo" [ngClass]="{'is-invalid': submitted && control.feedbackInfo.errors}" >
-              <div *ngIf="submitted && control.feedbackInfo.errors" class="text-warning">
-                  <div *ngIf="control.feedbackInfo.errors.required">Feedback Info required</div> 
-              </div>
+          <label for="feedbackInfo" class="col-sm-2 col-form-label">Feedback</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="feedbackInfo"  rows="3"  formControlName="feedbackInfo"
+            [ngClass]="{'is-invalid': submitted && control.feedbackInfo.errors}" ></textarea>
+           
+            <div *ngIf="submitted && control.feedbackInfo.errors" class="text-warning">
+              <div *ngIf="control.feedbackInfo.errors.required">Feedback Info required</div>
             </div>
           </div>
-          <div class="form-group row">
-            <label for="feedbackRating" class="col-sm-2 col-form-label">Feedback Ratings</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="feedbackRating" formControlName="feedbackRating" [ngClass]="{'is-invalid': submitted && control.feedbackRating.errors}" >
-              <div *ngIf="submitted && control.feedbackRating.errors" class="text-warning">
-                  <div *ngIf="control.feedbackRating.errors.required">Feedback Ratings required</div> 
-              </div>
-            </div>
-            </div>
-      <button type="submit" class="btn btn-primary">Add Feedback</button>
-    </form>
+        </div>
+      
+        <div align="center">
+        <button type="submit" class="btn btn-primary">Add Feedback</button>
+      </div>
+      </form>
     </div>
+  </div>
+</div>

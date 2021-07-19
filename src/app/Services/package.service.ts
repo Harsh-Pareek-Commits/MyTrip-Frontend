@@ -23,6 +23,9 @@ export class PackageService {
   addPack(pack: PackageEntityDto):Observable<Package> {
     return this.http.post<Package>(`${baseUrl}package/add`,pack);
   
+  }deletePackage(id:string):Observable<object>
+  {
+    return this.http.delete<object>(`${baseUrl}package/delete/${id}`);
   }
   getAllPack():Observable<Package[]>{
    
