@@ -1,6 +1,9 @@
 <div class="col col-10 offset-md-2 container viewall">
     <div class="container">
         <div class="header">View Bookings</div>
+        <div class="search-hero">
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Package">
+        </div>
         <table class="tbl" style="width:100%">
             <tr>
                 <th>Booking Id</th>
@@ -14,7 +17,7 @@
               <th>Ticket Id</th>
               <th>Action</th>
             </tr>
-            <tr *ngFor="let booking of listBooking">
+            <tr *ngFor="let booking of listBooking | filter:searchText">
               <td>{{booking?.bookingId}}</td>
               <td>{{booking?.bookingType}}</td>
               <td>{{booking?.description}}</td>

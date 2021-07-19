@@ -30,7 +30,7 @@ export class AddRouteComponent implements OnInit {
   deletedRoute!:any;
   divs: number[] = [];
   listBus: Bus[] = [];
-
+  searchText!:any;
 
   constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
 
@@ -129,7 +129,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
@@ -147,7 +147,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+      //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })

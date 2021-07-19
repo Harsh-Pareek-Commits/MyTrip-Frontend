@@ -26,3 +26,8 @@ th, td {
     height:fit-content;
     padding: 20px;
 }
+.search{
+    margin:10px;
+    width:300px;
+    padding:1%;
+}

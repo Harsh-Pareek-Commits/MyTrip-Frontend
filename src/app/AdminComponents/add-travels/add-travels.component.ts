@@ -20,6 +20,7 @@ export class AddTravelsComponent implements OnInit {
   travel!: any;
   listTravel!:Travel[];
   deletetravel!:any;
+  searchText!:any;
   constructor(private travelservice:TravelsService ,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
      ngOnInit(): void {
       

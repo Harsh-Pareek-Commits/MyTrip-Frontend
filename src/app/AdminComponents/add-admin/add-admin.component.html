@@ -57,13 +57,16 @@
 <div class="col col-10 offset-md-2 container viewall">
   <div class="container">
       <div class="header">All Customer</div>
+      <div class="search">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Customers">
+      </div>
       <table class="tbl" style="width:100%">
         <th>Customer Id</th>
         <th>Customer Name</th>
         <th>Customer Address</th>
         <th>Customer Contact</th>
         <th>Customer  email</th>
-      <tr *ngFor="let customer of listCustomer">
+      <tr *ngFor="let customer of listCustomer | filter:searchText">
           <td>{{customer?.customerId}}</td>
         <td>{{customer?.customerName}}</td>
         <td>{{customer?.customerAddress}}</td>

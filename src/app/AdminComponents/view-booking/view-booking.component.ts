@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ViewBookingComponent implements OnInit {
   listBooking!:Booking[];
   deletebooking!:any;
+  searchText!:any;
   constructor(private bookingservice:BookingsService ,private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
