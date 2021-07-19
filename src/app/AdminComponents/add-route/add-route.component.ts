@@ -70,8 +70,7 @@ export class AddRouteComponent implements OnInit {
     this.bus().push(this.newBus());
   }
   onSubmit() {
-
-
+    this.listBus=[];
     this.submitted = true;
     if (this.addRouteForm.valid) {
       var buslist: any[] = this.addRouteForm.get('bus')?.value;
@@ -90,6 +89,11 @@ export class AddRouteComponent implements OnInit {
       console.log(route);
       this.routeservice.addRoute(route).subscribe(data => {
         var route = data;
+        this.toastr.success("Routed Added Successfully")
+        this.router.navigate(['/admin/route'])
+        .then(() => {
+          window.location.reload();
+        });
       }, (error) => {
         if (error.status === 404) {
           this.toastr.info("No Route added! Try again")
