@@ -37,7 +37,8 @@ import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component
 import { FeedbackComponent } from './Components/feedback/feedback.component'
 
 const appRoutes:Routes=[
-  {path:'package',component: PackageComponent},
+  {path:'package',component: PackageComponent },
+ 
   {path:'package/:from/:to/:date',component: PackageComponent},
    {path:'report/:id',component: ReportComponent},
   {path:'feedback',component: FeedbackComponent},
