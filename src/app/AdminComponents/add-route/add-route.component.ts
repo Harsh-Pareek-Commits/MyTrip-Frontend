@@ -15,6 +15,7 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
+
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -33,6 +34,9 @@ export class AddRouteComponent implements OnInit {
   searchText!:any;
 
   constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
+ 
+ 
+  
 
   }
   ngOnInit(): void {
@@ -115,8 +119,7 @@ export class AddRouteComponent implements OnInit {
 
     return this.addRouteForm.controls;
   }
- 
-  gettravel() {
+   gettravel() {
     this.routeService.getTravel().subscribe(data => {
       this.listTravel = data;
     }, (error) => {

@@ -112,9 +112,9 @@
             <label for="travel" class="col-sm-2 col-form-label">Travel</label>
             <div class="col-sm-10">
             <select class="form-control" id="travel"formControlName="travel"  >
-             
+              <option disabled="true">Select Travels</option>
               <ng-container *ngFor="let travel of listTravel">
-                <option disabled="true">Select Travels</option>
+                
               <option value="{{travel.travelsId}}">{{travel.travelsName}}</option>
             </ng-container>
   

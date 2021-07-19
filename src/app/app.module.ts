@@ -38,7 +38,8 @@ import { FeedbackComponent } from './Components/feedback/feedback.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes:Routes=[
-  {path:'package',component: PackageComponent},
+  {path:'package',component: PackageComponent },
+ 
   {path:'package/:from/:to/:date',component: PackageComponent},
    {path:'report/:id',component: ReportComponent},
   {path:'feedback',component: FeedbackComponent},
