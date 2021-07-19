@@ -1,6 +1,6 @@
 import { Hotel } from 'src/app/Models/hotel';
 import { Route } from 'src/app/Models/route';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Package } from '../Models/package';
 import { Observable } from 'rxjs';
@@ -31,10 +31,23 @@ export class PackageService {
    
     return this.http.get<Package[]>(`${baseUrl}package/all`);
   }
+  getAllSortedPack():Observable<Package[]>{
+    let params = new HttpParams();
+    params = params.append('sortBy',sessionStorage.getItem('sortby')!);
+   params = params.append('sort', sessionStorage.getItem('sort')!);
+    return this.http.get<Package[]>(`${baseUrl}package/all`,{params: params});
+  }
   getPack(from: String, to: String, Dte:String){
     
     return this.http.get<Package[]>(`${baseUrl}package/route/${from}/${to}/${Dte}`);
   }
+  getSortedPack(from: String, to: String, Dte:String){
+    let params = new HttpParams();
+ params = params.append('sortBy',sessionStorage.getItem('sortby')!);
+params = params.append('sort', sessionStorage.getItem('sort')!);
+    return this.http.get<Package[]>(`${baseUrl}package/route/${from}/${to}/${Dte}`,{params: params});
+  }
+  
   getPackById(id:String){
     
     return this.http.get<Package>(`${baseUrl}package/search/${id}`);
