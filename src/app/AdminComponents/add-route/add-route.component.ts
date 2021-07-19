@@ -13,6 +13,7 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
+
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -28,9 +29,10 @@ export class AddRouteComponent implements OnInit {
   listBus: Bus[] = [];
 
   divs: number[] = [];
+  deletedRoute!:any;
+  
 
-
-  constructor(private routeservice: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
+  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
 
   }
   ngOnInit(): void {
@@ -70,8 +72,7 @@ export class AddRouteComponent implements OnInit {
     this.bus().push(this.newBus());
   }
   onSubmit() {
-
-
+    this.listBus=[];
     this.submitted = true;
     if (this.addRouteForm.valid) {
       var buslist: any[] = this.addRouteForm.get('bus')?.value;
@@ -88,8 +89,13 @@ export class AddRouteComponent implements OnInit {
         this.addRouteForm.get('arrivalTime')?.value, this.addRouteForm.get('deptTime')?.value,
         " ", this.addRouteForm.get('pickUpPoint')?.value, this.addRouteForm.get('fare')?.value);
       console.log(route);
-      this.routeservice.addRoute(route).subscribe(data => {
+      this.routeService.addRoute(route).subscribe(data => {
         var route = data;
+        this.toastr.success("Routed Added Successfully")
+        this.router.navigate(['/admin/route'])
+        .then(() => {
+          window.location.reload();
+        });
       }, (error) => {
         if (error.status === 404) {
           this.toastr.info("No Route added! Try again")
@@ -113,11 +119,8 @@ export class AddRouteComponent implements OnInit {
 
     return this.addRouteForm.controls;
   }
-  addRoute() {
-    console.log(this.addRouteForm.value)
-  }
-  gettravel() {
-    this.routeservice.getTravel().subscribe(data => {
+   gettravel() {
+    this.routeService.getTravel().subscribe(data => {
       this.listTravel = data;
     }, (error) => {
       if (error.status === 404) {
@@ -135,7 +138,7 @@ export class AddRouteComponent implements OnInit {
     })
   }
   viewRoute() {
-    this.routeservice.viewRoute().subscribe(data => {
+    this.routeService.viewRoute().subscribe(data => {
       this.listRoute = data;
     }, (error) => {
       if (error.status === 404) {
@@ -152,5 +155,28 @@ export class AddRouteComponent implements OnInit {
       }
     })
   }
+  delete(id:number){
+    this.routeService.deleteRoute(id.toString()).subscribe(data=>{
+      this.deletedRoute=data;
+      this.router.navigate(['/admin/route'])
+      .then(() => {
+        window.location.reload();
+      });
+      this.toastr.success("Route removed")
+    },(error)=> {
+      if (error.staus = 404) {
+        this.toastr.info("No Routes found with this Id! Try again")
+        this.router.navigate(['/admin/route'])
+      } else if (error.staus = 403) {
+        this.toastr.error("Please login first!")
+        this.router.navigate(['/login'])
+      }
+      else {
+        console.log(error);
+        this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("Something went wrong")
+      }
+    })
+    }
 
 }
