@@ -17,7 +17,7 @@ export class ViewReportComponent implements OnInit {
   submitted = false;
   Report!:any;
   listReport!:Report[];
-
+  searchText!:any;
   constructor(private reportservice:ReportService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
   ngOnInit(): void {
 this.viewReport();
