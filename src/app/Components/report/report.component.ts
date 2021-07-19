@@ -1,4 +1,3 @@
-
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ReportService } from './../../Services/report.service';
@@ -77,6 +76,7 @@ return this.reportForm.controls;
     var booking=new BookingEntityDto(this.book?.bookingId,this.book?.bookingType,this.book?.description,this.book?.bookingTitle,this.book?.bookingDate,pack,sessionStorage.getItem("userId")!,pay,this.book?.ticket);
     var bookingList:BookingEntityDto[]=[];
      bookingList.push(booking);
+     console.log(bookingList);
     var report=new ReportEntityDto(0,this.reportForm.get('reportName')?.value,this.reportForm.get('reportType')?.value,bookingList);
     console.log(report)
     this.reportService.addReport(report).subscribe(data=>{
