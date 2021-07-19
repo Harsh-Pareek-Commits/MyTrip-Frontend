@@ -13,7 +13,6 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
-
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
