@@ -5,7 +5,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <form class="box" [formGroup]="loginForm" (ngSubmit)="loginProcess()">
-                        <h1>Login</h1>
+                        <h1>SignUp</h1>
                         <p class="text-muted"> NAME</p>
                         <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
                         <div *ngIf="submitted && control.email.errors" class="text-warning">
@@ -14,7 +14,7 @@
                         <p class="text-muted"> MOBILE NUMBER</p>
                         <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
                         <div *ngIf="submitted && control.email.errors" class="text-warning">
-                            <div *ngIf="control.email.errors.required">Username required</div> 
+                            <div *ngIf="control.email.errors.required">Mobile Number required</div> 
                         </div>
                           <p class="text-muted"> EMAIL</p>
                         <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >

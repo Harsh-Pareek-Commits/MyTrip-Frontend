@@ -20,6 +20,7 @@ export class AddTravelsComponent implements OnInit {
   travel!: any;
   listTravel!:Travel[];
   deletetravel!:any;
+  searchText!:any;
   constructor(private travelservice:TravelsService ,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
      ngOnInit(): void {
       
@@ -76,8 +77,8 @@ return this.travelForm.controls;
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+       // this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No Travels Found")
       }
     })
   }

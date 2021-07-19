@@ -24,6 +24,7 @@ export class AddAdminComponent implements OnInit {
   submitted = false;
   adm!:any;
   listCustomer!:Customer[];
+  searchText!:any;
   constructor(private userservice:UserService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {

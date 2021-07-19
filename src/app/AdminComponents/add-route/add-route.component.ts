@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
+
+
 import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
@@ -26,13 +28,15 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
+  deletedRoute!:any;
+  divs: number[] = [];
   listBus: Bus[] = [];
   searchText!:any;
-  divs: number[] = [];
-  deletedRoute!:any;
-  
 
-  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
+  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
+ 
+ 
+  
 
   }
   ngOnInit(): void {
@@ -132,7 +136,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
@@ -150,7 +154,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+      //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })

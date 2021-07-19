@@ -21,6 +21,7 @@ export class AddHotelComponent implements OnInit {
   hotel!:any;
   listhotel!:Hotel[];
   deletedhotel!:any;
+  searchText!:any;
   constructor(private hotelservice:HotelService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
    ngOnInit(): void {
 
@@ -79,7 +80,7 @@ return this.hotelForm.controls;
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
