@@ -138,6 +138,9 @@
 <div class="col col-10 offset-md-2 container viewall">
 <div class="container">
     <div class="header">View Route</div>
+    <div class="search">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Routes">
+    </div>
     <table class="tbl" style="width:100%">
         <tr>
             <th>Route Id</th>
@@ -153,7 +156,7 @@
           <th>Fare</th>
           <th>Action</th>
         </tr>
-        <tr *ngFor="let route of listRoute">
+        <tr *ngFor="let route of listRoute | filter:searchText">
             <td>{{route?.routeId}}</td>
           <td>{{route?.routeFrom}}</td>
           <td>{{route?.routeTo}}</td>

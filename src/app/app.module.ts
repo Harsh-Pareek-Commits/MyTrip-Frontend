@@ -34,7 +34,8 @@ import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedb
 import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
 import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component';
-import { FeedbackComponent } from './Components/feedback/feedback.component'
+import { FeedbackComponent } from './Components/feedback/feedback.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes:Routes=[
   {path:'package',component: PackageComponent },
@@ -92,7 +93,7 @@ const appRoutes:Routes=[
     MyAccountComponent,
     AddTravelsComponent,
     AddAdminComponent,
-
+  
     ReportComponent,
 
     FeedbackComponent,
@@ -107,6 +108,7 @@ const appRoutes:Routes=[
     IvyCarouselModule,
     HttpClientModule,
     FormsModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot({
