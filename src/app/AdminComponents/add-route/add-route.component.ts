@@ -26,7 +26,7 @@ export class AddRouteComponent implements OnInit {
   listTravel!: Travel[];
   listRoute!: Route[];
   listBus: Bus[] = [];
-
+  searchText!:any;
   divs: number[] = [];
   deletedRoute!:any;
   
