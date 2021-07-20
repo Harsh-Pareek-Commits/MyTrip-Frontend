@@ -34,38 +34,10 @@ import {ViewFeedbackComponent} from  './AdminComponents/view-feedback/view-feedb
 import {ViewReportComponent} from './AdminComponents/view-report/view-report.component';
 import { MyAccountComponent } from './Components/my-account/my-account.component';
 import {AddAdminComponent} from './AdminComponents/add-admin/add-admin.component';
-import { FeedbackComponent } from './Components/feedback/feedback.component';
+import { FeedbackComponent } from './Components/feedback/feedback.component'
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
-const appRoutes:Routes=[
-  {path:'package',component: PackageComponent },
- 
-  {path:'package/:from/:to/:date',component: PackageComponent},
-   {path:'report/:id',component: ReportComponent},
-  {path:'feedback',component: FeedbackComponent},
- {path:'myaccount',component: MyAccountComponent},
- {path:'booking',component: BookingsComponent},
- {path:'details/:id',component: BookingDetailsComponent},
- {path:'home',component: HomeComponent},
-  {path:'admin/travels',component: AddTravelsComponent},
-  {path:'admin/addadmin',component: AddAdminComponent},
-  {path:'admin/dashboard',component: DashBoardComponent},
-  {path:'success',component: SuccessComponent},
-  {path:'admin/hotel',component: AddHotelComponent},
-  {path:'admin/package',component: AddPackageComponent},
-  {path:'admin/bookings',component: ViewBookingComponent},
-  {path:'admin/route',component: AddRouteComponent},
-  {path:'admin/feedback',component: ViewFeedbackComponent},
-  {path:'admin/report',component: ViewReportComponent},
-  {path:'failure',component: FailureComponent},
-  {path:'checkout',component: CheckoutComponent},
-  {path:'signup',component: SignupComponent },
-  {path:'',component: HomeComponent},
-  {path:'pack/:id',component: PackDetailsComponent},
-  {path: '404', component: NotfoundComponent},
-  {path: '**', redirectTo: '/404'}
 
-]
 
 @NgModule({
   declarations: [
