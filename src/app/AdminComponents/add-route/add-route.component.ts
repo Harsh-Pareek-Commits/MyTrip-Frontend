@@ -15,7 +15,6 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
-
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -28,6 +27,7 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
+<<<<<<< HEAD
   deletedRoute!:any;
   divs: number[] = [];
   listBus: Bus[] = [];
@@ -38,6 +38,16 @@ export class AddRouteComponent implements OnInit {
  
   
 
+=======
+  listBus: Bus[] = [];
+  searchText!:any;
+  divs: number[] = [];
+  deletedRoute!:any;
+  
+
+  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
+
+>>>>>>> origin/main
   }
   ngOnInit(): void {
     this.initForm();
