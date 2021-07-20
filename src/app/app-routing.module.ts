@@ -25,7 +25,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { SuccessComponent } from './Components/success/success.component';
 
 
-const appRoutes:Routes=[
+export const appRoutes:Routes=[
   {path:'package',component: PackageComponent },
   {path:'login',component: LoginComponent },
  {path:'package/:from/:to/:date',component: PackageComponent},
