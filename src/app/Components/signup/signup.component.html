@@ -17,7 +17,7 @@
                             <div *ngIf="control.custMobileNo.errors.required">Mobile Number required</div> 
                         </div>
                           <p class="text-muted"> EMAIL</p>
-                        <input type="text" name="" placeholder="try@xyz.com" formControlName="userEmail" [ngClass]="{'is-invalid': submitted && control.userEmail.errors}" >
+                        <input type="email" name="" placeholder="try@xyz.com" formControlName="userEmail" [ngClass]="{'is-invalid': submitted && control.userEmail.errors}" >
                         <div *ngIf="submitted && control.userEmail.errors" class="text-warning">
                             <div *ngIf="control.userEmail.errors.required">Email required</div> 
                         </div>
