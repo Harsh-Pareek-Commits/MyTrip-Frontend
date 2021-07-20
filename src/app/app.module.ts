@@ -1,11 +1,7 @@
 import { ReportComponent } from './Components/report/report.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
-import { AppRoutingModule,appRoutes } from './app-routing.module';
-=======
 import { AppRoutingModule ,appRoutes} from './app-routing.module';
->>>>>>> Mytrip/iflak
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
