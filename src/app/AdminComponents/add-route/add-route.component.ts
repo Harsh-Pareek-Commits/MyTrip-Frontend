@@ -27,18 +27,6 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
-<<<<<<< HEAD
-  deletedRoute!:any;
-  divs: number[] = [];
-  listBus: Bus[] = [];
-  searchText!:any;
-
-  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
- 
- 
-  
-
-=======
   listBus: Bus[] = [];
   searchText!:any;
   divs: number[] = [];
@@ -47,7 +35,6 @@ export class AddRouteComponent implements OnInit {
 
   constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
 
->>>>>>> origin/main
   }
   ngOnInit(): void {
     this.initForm();
