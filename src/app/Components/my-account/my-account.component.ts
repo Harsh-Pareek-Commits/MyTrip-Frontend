@@ -71,6 +71,10 @@ export class MyAccountComponent implements OnInit {
       this.userservice.updatedCusstomer(newCust).subscribe(data => {
         this.cust = data;
         this.toastr.success("User Updated")
+        this.router.navigate(['/myaccount'])
+        .then(() => {
+          window.location.reload();
+        });
       }, (error) => {
         if (error.status = 404) {
           this.toastr.error("Something went wrong!")

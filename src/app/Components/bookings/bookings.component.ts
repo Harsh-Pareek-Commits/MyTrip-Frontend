@@ -51,7 +51,7 @@ export class BookingsComponent implements OnInit {
     },
       (error) => {
         if (error.status == 404) {
-          this.toastr.info('No Package Found');
+          this.toastr.info('No bookings Found');
         }else if (error.status == 403) {
           this.toastr.error('Please Login First');
           this.router.navigate(["/login"])

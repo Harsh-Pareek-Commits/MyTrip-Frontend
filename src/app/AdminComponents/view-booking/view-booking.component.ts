@@ -29,7 +29,7 @@ export class ViewBookingComponent implements OnInit {
     },(error)=> {
       if (error.staus = 404) {
         this.toastr.info("No Bookings found with this Id! Try again")
-        this.router.navigate(['/admin/booking'])
+       // this.router.navigate(['/admin/bookings'])
       } else if (error.staus = 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
@@ -50,7 +50,7 @@ export class ViewBookingComponent implements OnInit {
     },(error)=> {
       if (error.status === 404) {
         this.toastr.info("No Bookings found! Try again")
-        this.router.navigate(['/admin/booking'])
+      //  this.router.navigate(['/admin/bookings'])
       } else if (error.status === 403) {
         this.toastr.error("Please login first!")
         this.router.navigate(['/login'])
