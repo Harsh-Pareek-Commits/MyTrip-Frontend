@@ -87,8 +87,7 @@ export class PackageComponent implements OnInit {
   getPackage() {
 
     if (this.source) {
-      console.log(sessionStorage.getItem('sort'))
-       if(!!(sessionStorage.getItem('sort'))||!!(sessionStorage.getItem('sort'))){
+       if((sessionStorage.getItem('sort'))||(sessionStorage.getItem('sort'))){
         this.packageService.getSortedPack(this.source, this.dest, this.dte).subscribe(
           data => {
             this.flag = true;
