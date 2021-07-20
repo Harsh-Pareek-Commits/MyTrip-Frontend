@@ -68,7 +68,8 @@ export class SuccessComponent implements OnInit {
       this.toastr.success("Booking Success")
       }, (error) => {
   
-  
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.toastr.error('Error!');
         console.log(error);
   
@@ -85,6 +86,8 @@ export class SuccessComponent implements OnInit {
        this.router.navigate(['/login'])
       }
       else {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.toastr.error('Error!');
         console.log(error);
       }

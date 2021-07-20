@@ -57,6 +57,8 @@ return this.reportForm.controls;
         this.router.navigate(['/login'])
       }
       else {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         console.log(error);
         this.router.navigate(['/home'])
         this.toastr.error("Something went wrong")
@@ -90,6 +92,8 @@ return this.reportForm.controls;
         this.router.navigate(["/login"])
       }
       else {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.toastr.error('Something went wronge !!!');
        // this.router.navigate(["/home"])
         console.log(error);

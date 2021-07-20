@@ -88,7 +88,7 @@ export class PackageComponent implements OnInit {
 
     if (this.source) {
       console.log(sessionStorage.getItem('sort'))
-       if(!!(sessionStorage.getItem('sort'))||!!(sessionStorage.getItem('sort'))){
+       if((sessionStorage.getItem('sort'))||(sessionStorage.getItem('sort'))){
         this.packageService.getSortedPack(this.source, this.dest, this.dte).subscribe(
           data => {
             this.flag = true;
@@ -100,6 +100,8 @@ export class PackageComponent implements OnInit {
               this.toastr.warning('No Package Found');
             }
             else {
+              if(error.error.message){
+                this.toastr.error(error.error.message)}
               this.toastr.error('Error!');
               console.log(error);
             }
@@ -122,6 +124,8 @@ export class PackageComponent implements OnInit {
             this.toastr.warning('No Package Found');
           }
           else {
+            if(error.error.message){
+              this.toastr.error(error.error.message)}
             this.toastr.error('Error!');
             console.log(error);
           }
@@ -145,6 +149,8 @@ export class PackageComponent implements OnInit {
                 this.toastr.warning('No Package Found');
               }
               else {
+                if(error.error.message){
+                  this.toastr.error(error.error.message)}
                 this.toastr.error('Error!');
                 console.log(error);
               }
@@ -164,6 +170,8 @@ export class PackageComponent implements OnInit {
             this.toastr.info('No Package Found');
           }
           else {
+            if(error.error.message){
+              this.toastr.error(error.error.message)}
             this.toastr.error('Error!');
             console.log(error);
           }

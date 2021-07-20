@@ -36,6 +36,8 @@ export class ViewBookingComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
@@ -55,6 +57,8 @@ export class ViewBookingComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         //this.router.navigate(['/admin/dashboard'])
         this.toastr.error("No Bookings Found")
       }
