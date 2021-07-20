@@ -27,6 +27,7 @@ export class AddPackageComponent implements OnInit {
   listHotel!: Hotel[];
   addHotelList: HotelEntityDto[] = [];
   deletedpackage!:any;
+  searchText!:any;
   constructor(private packageservice: PackageService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router, private hotelService: HotelService, private routeService: RoutesService) { }
 
   ngOnInit(): void {
@@ -152,8 +153,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+       // this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No available packages")
       }
     })
   }
@@ -170,8 +171,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+      //  this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No available Routes")
       }
     })
   }
@@ -188,8 +189,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+        //this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No available Hotels")
       }
     })
   }

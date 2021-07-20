@@ -16,6 +16,7 @@ export class ViewFeedbackComponent implements OnInit {
   faGoogle=faGooglePlusG;
   submitted = false;
   Feedback!:any;
+  searchText!:any;
   listFeedback!:Feedback[];
   constructor(private feedbackservice:FeedbackService,private formBuilder:FormBuilder,private toastr: ToastrService, private router: Router) { }
 

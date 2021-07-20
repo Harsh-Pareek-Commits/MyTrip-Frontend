@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ViewBookingComponent implements OnInit {
   listBooking!:Booking[];
   deletebooking!:any;
+  searchText!:any;
   constructor(private bookingservice:BookingsService ,private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
@@ -54,8 +55,8 @@ export class ViewBookingComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
-        this.toastr.error("Something went wrong")
+        //this.router.navigate(['/admin/dashboard'])
+        this.toastr.error("No Bookings Found")
       }
     })
   }

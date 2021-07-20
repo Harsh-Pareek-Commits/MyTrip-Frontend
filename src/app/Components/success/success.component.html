@@ -8,11 +8,10 @@
         <ul class="nav navbar-nav navbar navbar-right">
           <li><a href="#"> Home</a></li>
           <li><a routerLink="/package"> Package</a></li>
-          <li  ><a routerLink="/hotel"> Hotel</a></li>
-          <li *ngIf="isLoggedIn$ |  async"><a href="#"> Bookings</a></li>
-          <li *ngIf="isLoggedIn$ |  async"><a href="#"> My Account</a></li>
-          <li *ngIf="isLoggedIn$ |  async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
-          <li *ngIf="!(isLoggedIn$ |  async)" ><a routerLink="/login"> Login</a></li>
+          <li><a href="#"> Bookings</a></li>
+          <li  ><a routerLink="/feedback">Feedback</a></li>
+          <li ><a href="#"> My Account</a></li>
+          <li  (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
         </ul>
       </div>
   

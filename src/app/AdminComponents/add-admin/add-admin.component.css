@@ -50,3 +50,8 @@ th, td {
 .tbl{
     padding: 2%;
 }
+.search{
+    margin:10px;
+    width:300px;
+    padding:1%;
+}

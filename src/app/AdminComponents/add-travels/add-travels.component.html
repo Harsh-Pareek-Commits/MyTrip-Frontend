@@ -47,6 +47,9 @@
 <div class="col col-10 offset-md-2 container viewall">
 <div class="container">
     <div class="header">View Travels</div>
+    <div class="search-hero">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Package">
+    </div>
     <table class="tbl" style="width:100%">
         <tr>
             
@@ -58,7 +61,7 @@
           <th>Action</th>
           
         </tr>
-        <tr *ngFor="let travel of listTravel">
+        <tr *ngFor="let travel of listTravel | filter:searchText">
           <td>{{travel?.travelsId}}</td>
           <td>{{travel?.travelsName}}</td>
           <td>{{travel?.agentName}}</td>

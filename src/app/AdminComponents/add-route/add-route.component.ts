@@ -13,7 +13,6 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
-
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -27,7 +26,7 @@ export class AddRouteComponent implements OnInit {
   listTravel!: Travel[];
   listRoute!: Route[];
   listBus: Bus[] = [];
-
+  searchText!:any;
   divs: number[] = [];
   deletedRoute!:any;
   
@@ -72,8 +71,7 @@ export class AddRouteComponent implements OnInit {
     this.bus().push(this.newBus());
   }
   onSubmit() {
-
-
+    this.listBus=[];
     this.submitted = true;
     if (this.addRouteForm.valid) {
       var buslist: any[] = this.addRouteForm.get('bus')?.value;
@@ -92,6 +90,11 @@ export class AddRouteComponent implements OnInit {
       console.log(route);
       this.routeService.addRoute(route).subscribe(data => {
         var route = data;
+        this.toastr.success("Routed Added Successfully")
+        this.router.navigate(['/admin/route'])
+        .then(() => {
+          window.location.reload();
+        });
       }, (error) => {
         if (error.status === 404) {
           this.toastr.info("No Route added! Try again")
@@ -128,7 +131,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
@@ -146,7 +149,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+      //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })

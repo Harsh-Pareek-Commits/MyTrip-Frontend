@@ -8,22 +8,30 @@ import { baseUrl } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthServiceService {
-   loggedIn = new BehaviorSubject<boolean>(false);
-  constructor(private http: HttpClient, private router: Router) { }
+
+  loggedIn = new BehaviorSubject<boolean>(false);
+  constructor(private http: HttpClient, private router: Router) {
+    
+   }
   get isLoggedIn() {
-  
- 
-    return this.loggedIn.asObservable();
-  }
+    console.log("call came")
+    if (!(sessionStorage.getItem('token'))) {
+     return false;
+      
+    }
+    else {
+      return true;
+    }
+    }
   login(data: any): Observable<any> {
     return this.http.post(`${baseUrl}user/signin`, data);
 
   }
-  logout() { 
+  logout() {
     this.loggedIn.next(false);
- 
-     sessionStorage.removeItem('token');
-     sessionStorage.removeItem('userId');
+
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId');
 
   }
 }
