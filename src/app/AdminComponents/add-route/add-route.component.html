@@ -114,7 +114,7 @@
             <select class="form-control" id="travel"formControlName="travel"  >
               <option disabled="true">Select Travels</option>
               <ng-container *ngFor="let travel of listTravel">
-                
+                <option disabled="true">Select Travels</option>
               <option value="{{travel.travelsId}}">{{travel.travelsName}}</option>
             </ng-container>
   
@@ -128,8 +128,7 @@
     <div align="center">
       <input (click)="addBus()" type="button" class="btn btn-primary" value="Add More Bus">
     <button type="submit" class="btn btn-primary">Add Route</button>
-    <br/>
-    {{this.addRouteForm.value | json}}
+    
     
   </div>
 </div>

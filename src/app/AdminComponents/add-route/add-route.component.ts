@@ -9,13 +9,10 @@ import { Router } from '@angular/router';
 import { faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/Services/auth-service.service';
-
-
 import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
-
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -28,15 +25,13 @@ export class AddRouteComponent implements OnInit {
   submitted = false;
   listTravel!: Travel[];
   listRoute!: Route[];
-  deletedRoute!:any;
-  divs: number[] = [];
   listBus: Bus[] = [];
   searchText!:any;
-
-  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router,private travelService:TravelsService) { 
- 
- 
+  divs: number[] = [];
+  deletedRoute!:any;
   
+
+  constructor(private routeService: RoutesService, private authService: AuthServiceService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
 
   }
   ngOnInit(): void {

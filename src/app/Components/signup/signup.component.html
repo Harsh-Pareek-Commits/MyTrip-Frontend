@@ -4,22 +4,22 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
-                    <form class="box" [formGroup]="loginForm" (ngSubmit)="loginProcess()">
+                    <form class="box" [formGroup]="signupForm" (ngSubmit)="signUp()">
                         <h1>SignUp</h1>
                         <p class="text-muted"> NAME</p>
-                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
-                        <div *ngIf="submitted && control.email.errors" class="text-warning">
-                            <div *ngIf="control.email.errors.required">Username required</div> 
+                        <input type="text" name="" placeholder="Username" formControlName="custName" [ngClass]="{'is-invalid': submitted && control.custName.errors}" >
+                        <div *ngIf="submitted && control.custName.errors" class="text-warning">
+                            <div *ngIf="control.custName.errors.required">Username required</div> 
                         </div>
                         <p class="text-muted"> MOBILE NUMBER</p>
-                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
-                        <div *ngIf="submitted && control.email.errors" class="text-warning">
-                            <div *ngIf="control.email.errors.required">Mobile Number required</div> 
+                        <input type="text" name="" placeholder="Mobile Number" formControlName="custMobileNo" [ngClass]="{'is-invalid': submitted && control.custMobileNo.errors}" >
+                        <div *ngIf="submitted && control.custMobileNo.errors" class="text-warning">
+                            <div *ngIf="control.custMobileNo.errors.required">Mobile Number required</div> 
                         </div>
                           <p class="text-muted"> EMAIL</p>
-                        <input type="text" name="" placeholder="Username" formControlName="email" [ngClass]="{'is-invalid': submitted && control.email.errors}" >
-                        <div *ngIf="submitted && control.email.errors" class="text-warning">
-                            <div *ngIf="control.email.errors.required">Username required</div> 
+                        <input type="email" name="" placeholder="try@xyz.com" formControlName="userEmail" [ngClass]="{'is-invalid': submitted && control.userEmail.errors}" >
+                        <div *ngIf="submitted && control.userEmail.errors" class="text-warning">
+                            <div *ngIf="control.userEmail.errors.required">Email required</div> 
                         </div>
                         <p class="text-muted"> PASSWORD</p>
                         <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
@@ -27,17 +27,18 @@
                             <div *ngIf="control.password.errors.required">Password required</div> 
                         </div>
                         <p class="text-muted"> CONFRIM PASSWORD</p>
-                        <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
-                        <div *ngIf="submitted && control.password.errors" class="text-warning">
-                            <div *ngIf="control.password.errors.required">Password required</div> 
-                        </div>
+                              <input type="password" class="form-control" id="confirmpassword" formControlName="confirmpassword" [ngClass]="{'is-invalid': submitted && control.confirmpassword.errors}">
+                              <div *ngIf="submitted && control.confirmpassword.errors" class="text-warning">
+                                  <div *ngIf="control.confirmpassword.errors.required">Password required</div> 
+                                  <div *ngIf="control.confirmpassword.errors.confirmedValidator">Password and Confirm Password must match.</div>
+                              </div>
                         <p class="text-muted"> ADDRESS</p>
-                        <input type="password" name="" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && control.password.errors}">
-                        <div *ngIf="submitted && control.password.errors" class="text-warning">
-                            <div *ngIf="control.password.errors.required">Password required</div> 
+                        <input type="text" name="" placeholder="Address" formControlName="custAddress" [ngClass]="{'is-invalid': submitted && control.custAddress.errors}">
+                        <div *ngIf="submitted && control.custAddress.errors" class="text-warning">
+                            <div *ngIf="control.custAddress.errors.required">Address required</div> 
                         </div>
                         <a class="forgot text-muted"  routerLink="/login" >Already have  an account?</a>
-                        <input type="submit" name="" value="Login">
+                        <input type="submit" name="" value="SignUp">
                         <div class="col-md-12">
                             <ul class="social-network social-circle">
                                 <li><a href="#" class="icoGoogle" title="Google +">
