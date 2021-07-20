@@ -33,7 +33,7 @@
                                   <div *ngIf="control.confirmpassword.errors.confirmedValidator">Password and Confirm Password must match.</div>
                               </div>
                         <p class="text-muted"> ADDRESS</p>
-                        <input type="password" name="" placeholder="Address" formControlName="custAddress" [ngClass]="{'is-invalid': submitted && control.custAddress.errors}">
+                        <input type="text" name="" placeholder="Address" formControlName="custAddress" [ngClass]="{'is-invalid': submitted && control.custAddress.errors}">
                         <div *ngIf="submitted && control.custAddress.errors" class="text-warning">
                             <div *ngIf="control.custAddress.errors.required">Address required</div> 
                         </div>
