@@ -50,7 +50,9 @@ export class PackDetailsComponent implements OnInit {
       this.toastr.warning('Login First ');
       this.router.navigate(['/login'])
      }
-      else{           
+      else{     
+        if(error.error.message){
+          this.toastr.error(error.error.message)}      
       this.toastr.error ('Error!');
       console.log(error);
       }

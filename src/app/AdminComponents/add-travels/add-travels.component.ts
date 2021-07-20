@@ -58,6 +58,8 @@ return this.travelForm.controls;
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
@@ -77,6 +79,8 @@ return this.travelForm.controls;
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
        // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("No Travels Found")
       }
@@ -98,6 +102,8 @@ this.router.navigate(['/admin/travels'])
 this.toastr.success("Travels Added Sucessfully")
 },(error)=>{
 console.log(error);
+if(error.error.message){
+  this.toastr.error(error.error.message)}
 this.toastr.error("Something went wrong please try again!!")
 })
 

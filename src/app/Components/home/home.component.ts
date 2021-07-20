@@ -49,7 +49,9 @@ export class HomeComponent implements OnInit {
          {
           this.toastr.info('No Package Found');
          }
-          else{           
+          else{
+            if(error.error.message){
+              this.toastr.error(error.error.message)}      
           this.toastr.error ('Error!');
           console.log(error);
           }

@@ -36,6 +36,8 @@ this.viewReport();
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
