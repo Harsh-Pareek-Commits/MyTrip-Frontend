@@ -13,6 +13,7 @@
 
         <li *ngIf="isLoggedIn$ |  async"><a routerLink="/booking"> Bookings</a></li>
         <li *ngIf="isLoggedIn$ |  async"><a routerLink="/myaccount"> My Account</a></li>
+        <li  *ngIf="isLoggedIn$ |  async" ><a routerLink="/feedback">Feedback</a></li>
         <li *ngIf="isLoggedIn$ |  async" (click)="onLogout()" ><a routerLink="/login"> Logout</a></li>
         <li *ngIf="!(isLoggedIn$ |  async)" ><a routerLink="/login"> Login</a></li>
       </ul>
