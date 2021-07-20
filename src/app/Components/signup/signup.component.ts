@@ -58,6 +58,8 @@ export class SignupComponent implements OnInit {
             window.location.reload();
           });
       }, (error) => {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         console.log(error);
         this.toastr.error("Somthing Went Wrong. Please try again")
 

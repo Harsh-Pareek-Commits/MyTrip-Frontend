@@ -64,7 +64,8 @@ addAdmin()
     },(error)=>{
       console.log(error);
       this.toastr.error("Somthing Went Wrong. Please try again")
-
+      if(error.error.message){
+        this.toastr.error(error.error.message)}
     })
     
   }
@@ -83,6 +84,8 @@ viewCustomer()
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }

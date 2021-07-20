@@ -39,6 +39,8 @@ export class BookingDetailsComponent implements OnInit {
       });
       this.toastr.success("Booking Cancelled")
       }, (error) => {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.toastr.error("Something went wrong")
         console.log(error)
       })
@@ -61,6 +63,8 @@ export class BookingDetailsComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/home'])
         this.toastr.error("Something went wrong")
       }

@@ -60,6 +60,8 @@ return this.hotelForm.controls;
       this.router.navigate(['/login'])
     }
     else {
+      if(error.message){
+        this.toastr.error(error.message)}
       console.log(error);
       this.router.navigate(['/admin/dashboard'])
       this.toastr.error("Something went wrong")
@@ -79,6 +81,8 @@ return this.hotelForm.controls;
         this.router.navigate(['/login'])
       }
       else {
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         console.log(error);
        // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
@@ -100,6 +104,8 @@ return this.hotelForm.controls;
     });
     this.toastr.success("Hotel Added Sucessfully")
     },(error)=>{
+      if(error.error.message){
+        this.toastr.error(error.error.message)}
     console.log(error);
     this.toastr.error("Something went wrong please try again!!")
     })

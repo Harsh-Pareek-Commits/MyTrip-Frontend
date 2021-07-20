@@ -70,6 +70,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
@@ -96,6 +98,8 @@ export class AddPackageComponent implements OnInit {
           }
           else {
             console.log(error);
+            if(error.error.message){
+              this.toastr.error(error.error.message)}
             this.router.navigate(['/admin/package'])
             this.toastr.error("Something went wrong")
           }
@@ -118,6 +122,8 @@ export class AddPackageComponent implements OnInit {
         });
       }, (error) => {
             console.log(error);
+            if(error.error.message){
+              this.toastr.error(error.error.message)}
             this.router.navigate(['/admin/package'])
             this.toastr.error("Something went wrong")
           
@@ -132,6 +138,8 @@ export class AddPackageComponent implements OnInit {
         }
         else {
           console.log(error);
+          if(error.error.message){
+            this.toastr.error(error.error.message)}
           this.router.navigate(['/admin/package'])
           this.toastr.error("Something went wrong")
         }
@@ -153,6 +161,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
        // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("No available packages")
       }
@@ -171,6 +181,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
       //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("No available Routes")
       }
@@ -189,6 +201,8 @@ export class AddPackageComponent implements OnInit {
       }
       else {
         console.log(error);
+        if(error.error.message){
+          this.toastr.error(error.error.message)}
         //this.router.navigate(['/admin/dashboard'])
         this.toastr.error("No available Hotels")
       }
