@@ -14,8 +14,15 @@ export class AuthServiceService {
     
    }
   get isLoggedIn() {
-    return this.loggedIn.asObservable();
-  }
+    console.log("call came")
+    if (!(sessionStorage.getItem('token'))) {
+     return false;
+      
+    }
+    else {
+      return true;
+    }
+    }
   login(data: any): Observable<any> {
     return this.http.post(`${baseUrl}user/signin`, data);
 
