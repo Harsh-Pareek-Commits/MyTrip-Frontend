@@ -11,13 +11,13 @@ import { AuthServiceService } from 'src/app/Services/auth-service.service';
 })
 export class FailureComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean> | undefined;
+ 
   token: any = '';
 
   constructor(public router: Router, private authService: AuthServiceService, private toastr: ToastrService) { }
 
     ngOnInit(): void {
-    this.isLoggedIn$ = this.authService.isLoggedIn;
+   
     
   }
   

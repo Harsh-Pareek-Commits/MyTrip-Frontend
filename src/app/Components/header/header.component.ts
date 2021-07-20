@@ -24,7 +24,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
   
-  isLoggedIn$: Observable<boolean> | undefined;
+  isLoggedIn$: boolean=this.authService.isLoggedIn ;
   faReceipt=faReceipt;
   faUserPlus=faUserPlus;
   faArchway=faArchway;
@@ -42,21 +42,11 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit(): void {
     this.isLoggedIn$ = this.authService.isLoggedIn;
-    if(localStorage.getItem('token'))
-    {
-      
-    }
-    this.initForm();
+    
+   
     
   }
-  initForm() {
-    this.searchForm = this.formBuilder.group({
-      from: ["", [Validators.required]],
-      to: ["", [Validators.required]],
-      dte: ["", [Validators.required]]
-
-    })
-  }
+  
   onLogout() {
     this.toastr.success('Logout Success');
     this.authService.logout();

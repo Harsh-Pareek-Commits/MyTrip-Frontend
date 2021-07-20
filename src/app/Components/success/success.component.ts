@@ -27,13 +27,13 @@ export class SuccessComponent implements OnInit {
 
   payment!: PaymentDetails
   ticket!: TicketDetails
-  isLoggedIn$: Observable<boolean> | undefined;
+  
   token: any = '';
   route!:Route
   constructor(public router: Router,private routeService:RoutesService , private authService: AuthServiceService, private toastr: ToastrService, private checkout: CheckoutService, private packageService: PackageService) { }
   booking!: Booking
   ngOnInit(): void {
-    this.isLoggedIn$ = this.authService.isLoggedIn;
+  
     this.getPackage()
    
   }
