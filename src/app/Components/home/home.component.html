@@ -4,23 +4,30 @@
     <form class="form-inline"  [formGroup]="searchForm">
       
       <div class="form-row" align="center">
-       
+        <div  >
         <div class=" col-2 ele">
   
           <h3 >Search Bus</h3>
   
         </div>
+        
         <div class=" col-2 ele">
             
-          <input type="text" class="form-control mb-2 " id="inlineFormInput" placeholder="Source" formControlName="from" >
-  
+          <select  class="form-control mb-2 " id="inlineFormInput" placeholder="origin" formControlName="from" >
+            <option disabled="true">Select Origin</option>  
+            <option *ngFor="let pack of package"value={{pack.route?.routeFrom}}>{{pack.route?.routeFrom}}</option>
+          </select>
         </div>
   
         <div class="col-2 ele">
   
-          <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Destination" formControlName="to">
-  
+          <select class="form-control mb-2" id="inlineFormInput" placeholder="Destination" formControlName="to">
+            <option disabled="true">Select Destination</option>  
+            <option *ngFor="let pack of package" value={{pack.route?.routeTo}}>{{pack.route?.routeTo}}</option>
+          </select>
+
         </div>
+   
         <div class="col-2 ele">
   
           <input type="date" class="form-control mb-2" id="inlineFormInput" placeholder="Date" formControlName="dte">
@@ -31,7 +38,7 @@
           <button class="btn btn-danger " type="submit"  (click)="searchPack()" >Search</button>
     
         </div>
-        
+    </div>
       </div>
     
     </form>
