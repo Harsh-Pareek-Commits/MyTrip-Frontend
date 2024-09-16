@@ -87,8 +87,8 @@ export class PackageComponent implements OnInit {
   getPackage() {
 
     if (this.source) {
-      
-       if(sessionStorage.getItem('sort')||sessionStorage.getItem('sort')){
+      console.log(sessionStorage.getItem('sort'))
+       if(!!(sessionStorage.getItem('sort'))||!!(sessionStorage.getItem('sort'))){
         this.packageService.getSortedPack(this.source, this.dest, this.dte).subscribe(
           data => {
             this.flag = true;
@@ -109,10 +109,12 @@ export class PackageComponent implements OnInit {
         )
         
        }else{
+        
       this.packageService.getPack(this.source, this.dest, this.dte).subscribe(
         data => {
           this.flag = true;
           this.package = data;
+          this.router.navigate([this.router.url])
         },
         (error) => {
           this.flag = false;

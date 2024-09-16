@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   faUserFriends=faUserFriends;
   package !: Package[];
   searchForm!: FormGroup;
+ 
   constructor(public router: Router, private formBuilder: FormBuilder,private toastr: ToastrService, private packageService: PackageService) { }
 
   ngOnInit(): void {
@@ -64,7 +65,11 @@ this.router.navigate(['/pack',packageId])
   }
   
   searchPack() {
+    console.log(this.searchForm.controls['from'].value);
+    console.log(this.searchForm.controls['to'].value);
+    console.log(this.searchForm.controls['dte'].value);
     if (this.searchForm.valid) {
+      
        console.log("SEARCHING...........................");
       let source = this.searchForm.controls['from'].value;
       let dest = this.searchForm.controls['to'].value;

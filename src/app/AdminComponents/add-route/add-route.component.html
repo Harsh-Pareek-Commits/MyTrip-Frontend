@@ -114,7 +114,7 @@
             <select class="form-control" id="travel"formControlName="travel"  >
               <option disabled="true">Select Travels</option>
               <ng-container *ngFor="let travel of listTravel">
-                
+                <option disabled="true">Select Travels</option>
               <option value="{{travel.travelsId}}">{{travel.travelsName}}</option>
             </ng-container>
   
@@ -128,8 +128,7 @@
     <div align="center">
       <input (click)="addBus()" type="button" class="btn btn-primary" value="Add More Bus">
     <button type="submit" class="btn btn-primary">Add Route</button>
-    <br/>
-    {{this.addRouteForm.value | json}}
+    
     
   </div>
 </div>
@@ -138,6 +137,9 @@
 <div class="col col-10 offset-md-2 container viewall">
 <div class="container">
     <div class="header">View Route</div>
+    <div class="search">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for Routes">
+    </div>
     <table class="tbl" style="width:100%">
         <tr>
             <th>Route Id</th>
@@ -153,7 +155,7 @@
           <th>Fare</th>
           <th>Action</th>
         </tr>
-        <tr *ngFor="let route of listRoute">
+        <tr *ngFor="let route of listRoute | filter:searchText">
             <td>{{route?.routeId}}</td>
           <td>{{route?.routeFrom}}</td>
           <td>{{route?.routeTo}}</td>

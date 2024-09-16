@@ -13,7 +13,6 @@ import { Bus } from 'src/app/Models/bus';
 import { TravelEntityDto } from 'src/app/EntityDtoModels/travel-entity-dto';
 import { BusEntityDto } from 'src/app/EntityDtoModels/bus-entity-dto';
 import { RouteEntityDto } from 'src/app/EntityDtoModels/route-entity-dto';
-
 @Component({
   selector: 'app-add-route',
   templateUrl: './add-route.component.html',
@@ -27,7 +26,7 @@ export class AddRouteComponent implements OnInit {
   listTravel!: Travel[];
   listRoute!: Route[];
   listBus: Bus[] = [];
-
+  searchText!:any;
   divs: number[] = [];
   deletedRoute!:any;
   
@@ -132,7 +131,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+       // this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
@@ -150,7 +149,7 @@ export class AddRouteComponent implements OnInit {
       }
       else {
         console.log(error);
-        this.router.navigate(['/admin/dashboard'])
+      //  this.router.navigate(['/admin/dashboard'])
         this.toastr.error("Something went wrong")
       }
     })
